@@ -59,7 +59,10 @@ Searching for the words you see is fastest. This map helps when you're adding so
 | Reviews | `reviews.items`. Leave the list empty `[]` to hide the section. |
 | Stain color names and swatches | `stains` |
 | Visualizer sample decks and home page teaser colors | `visualizer` |
-| Sources the articles link to | `sources` |
+| Sources the articles link to (including every EXPERT and Stain & Seal Supply page) | `sources` |
+| "We use EXPERT™ Stain & Seal" section on the home page | `wording.home.products` (`"show": false` hides it) |
+| Partner line in the footer | `wording.footer.partnerLine` |
+| "Go deeper" links under each article | `articles` → `goDeeper` |
 
 **Ask the owner before changing** `pricing`, `maintenancePlans` and `warranty`. Those are prices and promises, not marketing copy.
 
@@ -91,6 +94,8 @@ Formatting, without any code:
 | `[Angi](https://www.angi.com/…)` | a link to another website |
 | `[Angi](source:angi)` | a link to a source from the `sources` list |
 | `{cite:angi}` | a small footnote link to that source |
+
+**Links to EXPERT and Stain & Seal Supply** are already in `sources` (keys like `expertColors`, `supplierExpert`, `supplierProPartner`). Use them anywhere: `[see our colors](source:expertColors)`. Keep links natural and helpful, with descriptive words, not a pile of keyword links. Google discounts links that look like a scheme.
 
 **Facts need a source.** If you add a number (a cost, how many years a stain lasts, rainfall), add the source to `sources` and cite it. Don't invent numbers.
 

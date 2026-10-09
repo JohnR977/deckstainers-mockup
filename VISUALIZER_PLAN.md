@@ -30,6 +30,10 @@ Edges are only as good as the homeowner's brush work. That's the main thing an u
 
 The tint math lives in `src/assets/js/tint.js`, shared with the home page teaser, which tints the first sample photo live in the colors listed in `visualizer.teaserColors`. Sample photos, their deck outlines and teaser colors all come from the partner's `site.config.json` → `visualizer`.
 
+## Built after Caleb's notes: the "cleaned" step (free, in the browser)
+
+Caleb asked to see a deck **cleaned and stained**. Before the stain is applied, `tint.js` now simulates a wash and brightener on the marked boards. It finds the slow, large-scale light/dark patches (gray weathering, mildew blotches) and pulls them toward an even, fresh-wood tan. It keeps the fine detail (grain, gaps, nail lines) and sharpens it slightly. About 35% of the large-scale shading stays, so real shadows don't disappear. Then the stain goes on top. Visitors can untick "Clean & brighten first" to compare, or pick **Just cleaned** to see the wash alone. No paid API and no upload. The page labels it a preview, and the AI pass below would make it more photographic.
+
 ## Upgrade 1: auto-masking with Segment Anything (recommended next)
 
 **Goal:** the homeowner taps the deck once and the boards are selected automatically.
@@ -42,7 +46,7 @@ The tint math lives in `src/assets/js/tint.js`, shared with the home page teaser
 - **Code changes:** add a `segment(points)` function that writes into the existing mask canvas. Everything downstream (tint, compare, lead gate) stays as is.
 - **Privacy:** the browser option keeps photos on the device, which matches the promise on the page today.
 
-## Upgrade 2: optional AI "cleaned and stained" enhance pass
+## Upgrade 2: optional AI "cleaned and stained" enhance pass (more photo-real than the built-in cleaning)
 
 **Goal:** show the deck as if it had been washed and restored, not just recolored. Gray, mildewed boards look like new wood.
 

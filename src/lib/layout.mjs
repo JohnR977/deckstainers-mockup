@@ -107,6 +107,7 @@ export function footer(ctx, r, areas) {
   <div class="wrap footer-fine">
     <p>© ${new Date().getFullYear()} ${esc(b.name)}. ${cfg.website.mockup ? esc(F.mockupNote) : ''}</p>
     <p>${esc(F.credit)}</p>
+    ${F.partnerLine ? `<p class="footer-partner">${T.html(F.partnerLine, {}, r)}</p>` : ''}
   </div>
 </footer>
 <div class="mobile-cta" role="region" aria-label="Quick contact">
@@ -195,7 +196,7 @@ export function publicConfig(ctx) {
     stains: cfg.stains,
     samples: cfg.visualizer.samples,
     teaser: cfg.visualizer.teaserColors,
-    words: wordsFor({ forms: W.forms, calc: W.pricingPage.calc, viz: { before: W.visualizerPage.imageBeforeLabel, after: W.visualizerPage.imageAfterLabel }, remove: W.estimatePage.removePhoto })
+    words: wordsFor({ forms: W.forms, calc: W.pricingPage.calc, viz: { before: W.visualizerPage.imageBeforeLabel, after: W.visualizerPage.imageAfterLabel, cleaned: W.visualizerPage.cleanedLabel }, remove: W.estimatePage.removePhoto })
   };
 }
 

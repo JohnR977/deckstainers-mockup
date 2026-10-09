@@ -11,7 +11,8 @@
   var base = $('viz-base'), outC = $('viz-out'), maskC = $('viz-mask'), ui = $('viz-ui');
   var bctx = base.getContext('2d'), octx = outC.getContext('2d'), mctx = maskC.getContext('2d', { willReadFrequently: true }), uctx = ui.getContext('2d');
   var MAX_W = 1400;
-  var W = 0, H = 0, orig = null, lum = null, outData = null, meanL = 0.5;
+  var W = 0, H = 0, orig = null, lum = null, blur = null, outData = null, meanL = 0.5;
+  var cleanOn = true; // simulate wash + brightener before staining (see tint.js)
   var tool = 'brush', size = 40, poly = [], undo = [], drawing = false, last = null, dirty = null, raf = 0;
   var color = { hex: '#a85a2c', name: 'Cedar', type: 'semi-transparent' };
   var sampleId = null, hasMask = false;
@@ -29,6 +30,7 @@
       bctx.drawImage(img, 0, 0, W, H);
       orig = bctx.getImageData(0, 0, W, H);
       lum = Tint.luminance(orig.data);
+      blur = Tint.blurLum(lum, W, H);
       outData = octx.createImageData(W, H);
       outData.data.set(orig.data);
       octx.putImageData(outData, 0, 0);
@@ -163,7 +165,7 @@
     if (r.x1 - r.x0 <= 0 || r.y1 - r.y0 <= 0) return;
     var m = mctx.getImageData(r.x0, r.y0, r.x1 - r.x0, r.y1 - r.y0).data;
     if (full) meanL = Tint.meanOf(lum, m);
-    Tint.apply({ orig: orig.data, out: outData.data, mask: m, lum: lum, mean: meanL, width: W, rect: r, hex: color.hex, type: color.type });
+    Tint.apply({ orig: orig.data, out: outData.data, mask: m, lum: lum, mean: meanL, clean: cleanOn ? Tint.cleanPlan(blur, meanL) : null, width: W, rect: r, hex: color.hex, type: color.type });
     octx.putImageData(outData, 0, 0, r.x0, r.y0, r.x1 - r.x0, r.y1 - r.y0);
     if (full) {
       $('viz-get').disabled = !hasMask;
@@ -171,10 +173,20 @@
     }
   }
 
+  // "Cleaned & brightened + Walnut (semi-transparent)" — words come from site.config.json
+  function lookLabel() {
+    var w = window.SITE.words.viz;
+    if (color.type === 'none') return w.cleaned;
+    return (cleanOn ? w.cleaned + ' + ' : '') + color.name + ' (' + color.type + ')';
+  }
+  var cleanBox = $('viz-clean');
+  if (cleanBox) cleanBox.addEventListener('change', function () { cleanOn = cleanBox.checked; render(null); });
+
   // ---------- swatches ----------
   function choose(btn) {
     document.querySelectorAll('.swatch').forEach(function (s) { s.classList.toggle('is-on', s === btn); });
     color = { hex: btn.dataset.hex, name: btn.dataset.name, type: btn.dataset.opacity };
+    if (color.type === 'none' && !cleanOn) { cleanOn = true; $('viz-clean').checked = true; }
     $('viz-chip').style.background = color.hex;
     $('viz-chosen-name').textContent = color.name;
     $('viz-chosen-type').textContent = btn.dataset.typeLabel;
@@ -202,15 +214,15 @@
     x.drawImage(base, 0, 0); x.drawImage(outC, W + gap, 0);
     x.fillStyle = '#f5f0e6'; x.font = Math.round(bar * 0.38) + 'px Georgia, serif'; x.textBaseline = 'middle';
     x.fillText(window.SITE.words.viz.before, gap, H + bar / 2);
-    x.fillText(window.SITE.words.viz.after + ' ' + color.name + ' (' + color.type + ')', W + gap * 2, H + bar / 2);
+    x.fillText(window.SITE.words.viz.after + ' ' + lookLabel(), W + gap * 2, H + bar / 2);
     x.textAlign = 'right'; x.font = Math.round(bar * 0.28) + 'px sans-serif'; x.fillStyle = '#d99b62';
     x.fillText(window.SITE.name + ' · ' + window.SITE.phone, c.width - gap, H + bar / 2);
     return c;
   }
   DS.extra.visualizer = function (d) {
     var full = sideBySide();
-    d.color = { name: color.name, hex: color.hex, type: color.type };
-    d.notes = 'Tried ' + color.name + ' (' + color.type + ') in the color visualizer.';
+    d.color = { name: color.name, hex: color.hex, type: color.type, cleaned: cleanOn };
+    d.notes = 'Tried ' + lookLabel() + ' in the color visualizer.';
     d.deck = { finish: color.type };
     // store a smaller copy for the CRM; the homeowner downloads the full one
     return DS.shrink(outC.toDataURL('image/jpeg', 0.85), 900, 0.7).then(function (small) {

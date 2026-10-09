@@ -167,6 +167,16 @@ export function homePage(ctx, r, { areaGroups }) {
   </div>
 </section>
 
+${H.products && H.products.show ? `<section class="sec products-sec">
+  <div class="wrap products-grid">
+    <div>${sectionHead(n(), t(H.products.kicker), t(H.products.headline))}</div>
+    <div class="products-body">
+      ${H.products.paragraphs.map(p => `<p>${t(p)}</p>`).join('')}
+      <ul class="pill-links">${H.products.links.map(l => `<li>${t('[' + l.label + '](' + l.link + ')')}</li>`).join('')}</ul>
+    </div>
+  </div>
+</section>` : ''}
+
 <section class="sec viz-teaser">
   <div class="wrap viz-grid">
     <div class="viz-copy">
@@ -438,6 +448,7 @@ export function visualizerPage(ctx, r) {
           <button type="button" class="tool" data-tool="erase" title="${esc(TL.eraser)}">${icon('x')}<span>${esc(TL.eraser)}</span></button>
         </div>
         <label class="tool-size">${esc(TL.size)} <input type="range" id="viz-size" min="6" max="120" value="40"></label>
+        <label class="tool-check" title="${esc(TL.cleanTip)}"><input type="checkbox" id="viz-clean" checked> ${esc(TL.clean)}</label>
         <div class="tool-group">
           <button type="button" class="tool" id="viz-undo">↶<span>${esc(TL.undo)}</span></button>
           <button type="button" class="tool" id="viz-auto" hidden>✦<span>${esc(TL.suggest)}</span></button>
@@ -451,6 +462,10 @@ export function visualizerPage(ctx, r) {
     </div>
     <aside class="viz-side">
       <h2 class="viz-side-h">${t(P.colorsHeading)}</h2>
+      <div class="swatch-group">
+        <h3>${esc(P.cleanOnlyGroup)}</h3>
+        <div class="swatches"><button type="button" class="swatch swatch-clean" data-hex="#c19467" data-opacity="none" data-type-label="${esc(P.cleanOnlyGroup)}" data-name="${esc(P.cleanOnlyName)}" style="--c:#c19467"><span class="swatch-chip"></span><span class="swatch-name">${esc(P.cleanOnlyName)}</span></button></div>
+      </div>
       ${['transparent', 'semi-transparent', 'solid'].map(k => `
       <div class="swatch-group">
         <h3>${esc(P.groupNames[k])}</h3>
@@ -625,6 +640,7 @@ export function learnIndex(ctx, r) {
     <ol class="learn-list">
       ${rest.map(a => `<li><a href="${r('learn/' + a.slug + '/')}"><span class="mono">${esc(T.plain(P.minShort, { n: a.readMinutes }))}</span><strong>${T.html(a.title, {}, r)}</strong><span>${T.html(a.description, {}, r)}</span></a></li>`).join('')}
     </ol>
+    ${P.moreText ? `<aside class="learn-more"><h2>${T.html(P.moreHeading || '', {}, r)}</h2><p>${T.html(P.moreText, {}, r)}</p></aside>` : ''}
   </div>
 </section>
 ${closingCta(ctx, r)}`;
@@ -682,6 +698,7 @@ export function articlePage(ctx, r, a) {
   </header>
   <div class="wrap wrap-narrow prose">
     ${body}
+    ${a.goDeeper && a.goDeeper.length ? `<aside class="go-deeper"><h2>${esc(A.goDeeperHeading)}</h2><ul>${a.goDeeper.map(g => `<li>${T.html(g, {}, r)}</li>`).join('')}</ul></aside>` : ''}
     <aside class="article-cta">
       <p>${T.html(A.ctaText, {}, r)}</p>
       <a class="btn btn-cedar" href="${r('estimate/')}">${esc(A.ctaButton)}</a>

@@ -18,9 +18,17 @@ The site is built and committed, but **it isn't on GitHub yet**. This Mac doesn'
 
 Screenshots are in the [`screenshots/`](screenshots/) folder: [home](screenshots/home.jpg), [phone](screenshots/home-phone.jpg), [visualizer](screenshots/viz.jpg), [calculator](screenshots/calc.jpg), [pipeline](screenshots/pipeline.jpg), [re-coats](screenshots/recoats.jpg), [dashboard on a phone](screenshots/dash-phone.jpg).
 
+## 1b. Caleb's notes arrived, and how the mockup answers them
+
+Caleb's request (saved in [`CALEB_NOTES.md`](CALEB_NOTES.md)): *a full turnkey website for staining contractors with a CRM on the back end; a plus would be backlinks to experts and a color rendering tool, so homeowners can upload photos of their job and see what it would look like cleaned and stained.*
+
+- **Turnkey site + CRM:** built (sections 3–4 below).
+- **Backlinks (to expertwoodcare.com and stainandsealsupply.com, per John):** every contractor site now links to both. There's a "We use EXPERT™ Stain & Seal" home section, a partner line in every footer, "Go deeper" links to EXPERT's own articles at the end of each Learn article, the EXPERT color gallery and Stain & Seal sample fan decks from the visualizer, and the About and Learn pages. The Chattanooga demo alone has **59 links to expertwoodcare.com and 50 to stainandsealsupply.com** across 41 pages, and every URL was checked live. Each partner site adds more, and the wording is editable in the config. *SEO note:* the contextual links in articles and sections are the valuable ones. Identical footer links on many partner sites count for little, and Google can treat them as a link scheme if they're traded for something, so keep them modest and descriptive.
+- **"Cleaned and stained" rendering:** the visualizer now **cleans first** (evens out gray weathering and mildew, keeps the grain), **then stains**. There's a "Just cleaned" option and a toggle to compare. It's free and runs in the browser. A more photo-real AI version is the optional upgrade in `VISUALIZER_PLAN.md`.
+
 ## 2. What Caleb should look at first
 
-1. **The color visualizer** (`/visualizer/`). Pick the "Backyard deck in the trees" sample. The deck outline is suggested for him, so he can just click colors. Only the deck boards change; the grain shows through on semi-transparent and flattens on solid. Drag the before/after slider. Then try his own deck photo with the brush. "Send me this look" asks for a name and email, then shows up in the dashboard as a lead with the picture attached.
+1. **The color visualizer** (`/visualizer/`). For the clean-then-stain effect, pick the **"Close-up of deck boards"** sample (weathered gray), click **Suggest outline**, then try **Just cleaned**, then a stain color, and untick "Clean & brighten first" to compare. Or pick the "Backyard deck in the trees" sample. The deck outline is suggested for him, so he can just click colors. Only the deck boards change; the grain shows through on semi-transparent and flattens on solid. Drag the before/after slider. Then try his own deck photo with the brush. "Send me this look" asks for a name and email, then shows up in the dashboard as a lead with the picture attached.
 2. **The price calculator** (`/pricing/`). Deck size, railings, stairs, condition and finish give a price range instantly. Nobody in Chattanooga publishes prices; this is the gap from the research. All rates come from one config file.
 3. **The dashboard pipeline** (`/dashboard/`, login `demo` / `deck2026`). Leads → Pipeline → customer card → **Build estimate** (printable) → Schedule (mark a rain day and watch the job turn red with a "move to next dry day" button) → **Re-coats**, the recurring-money screen. Mark a job Done and it offers a one-tap Google review text.
 4. **The swap.** Open the Knoxville demo next to the Chattanooga one. Same code, different config file: name, colors, phone, prices, warranty, service areas, local copy and NOAA rainfall all change.
@@ -47,9 +55,9 @@ Tip: send a test estimate from the website, then open the dashboard in the **sam
 
 **Docs:** `CRM_PLAN.md` (how the real CRM works: Supabase, logins, texting, email, automations, build order), `VISUALIZER_PLAN.md` (Segment Anything auto-masking, optional AI enhance pass), `CREDITS.md` (every photo with source and license), `README.md` (how to build and add a partner).
 
-## 4. Assumptions (no CALEB_NOTES.md yet)
+## 4. Assumptions
 
-`CALEB_NOTES.md` never showed up in the Playground folder while I worked. I watched for it the whole session. I also checked your Wispr Flow notes and meetings; there's no Caleb transcript there yet. So everything follows the handoff, and these are my calls:
+Caleb's notes (above) set the goals but not the details, so these are my calls:
 
 - **Business name** "DeckStainers of Chattanooga": fictional, as the handoff said. Phone (423) 555-0142 is a 555 number.
 - **Crew:** "a two-man crew, owner on every job." Hours Mon–Sat 7–6.

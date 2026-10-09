@@ -62,7 +62,9 @@
       "sample": true
     },
     "googleReviewUrl": "https://g.page/r/SAMPLE-REPLACE/review",
-    "brandsCarried": [],
+    "brandsCarried": [
+      "EXPERT Professional Wood Care"
+    ],
     "social": {
       "facebook": "",
       "instagram": ""
@@ -204,7 +206,8 @@
         }
       ],
       "mockupNote": "Fictional demo business. Photos are free-license stock placeholders — see credits.",
-      "credit": "Website & CRM by Stain & Seal Supply Pro Partners"
+      "credit": "Website & CRM by Stain & Seal Supply Pro Partners",
+      "partnerLine": "Proud [Stain & Seal Supply](source:supplierHome) Pro Partner · We stain with [EXPERT Professional Wood Care](source:expertHome) products"
     },
     "closing": {
       "kicker": "Ready when you are",
@@ -361,13 +364,34 @@
         "priceSuffix": "/sq ft",
         "footnote": "Prices shown are sample rates for a deck in good shape; weathered and peeling decks cost more. [Read: semi-transparent vs. solid](/learn/semi-transparent-vs-solid-deck-stain/)"
       },
+      "products": {
+        "_help": "The products this contractor uses, with links to EXPERT and Stain & Seal Supply. Set \"show\" to false to hide this section.",
+        "show": true,
+        "kicker": "What goes on your deck",
+        "headline": "We use EXPERT™ Stain & Seal.",
+        "paragraphs": [
+          "[EXPERT Stain & Seal](source:expertStainSeal) is an oil-based, penetrating stain for decks, fences and exterior wood, made in transparent, semi-transparent and semi-solid finishes. Penetrating oil soaks into the wood instead of forming a film on top, which is the kind of finish the U.S. Forest Products Lab recommends for decks{cite:usdaFinishes}.",
+          "For log homes we use [EXPERT Log & Timber Oil](source:supplierLogOil), and [EXPERT Clean & Bright](source:expertCleanBright) for the wash and brightener. EXPERT reports it was the [first oil-based wood stain to earn GREENWISE® certification](source:expertGreenwise).",
+          "We buy it through **Stain & Seal Supply** as a [Pro Partner](source:supplierProPartner), so we get pro-grade product and training."
+        ],
+        "links": [
+          {
+            "label": "See the EXPERT color gallery",
+            "link": "source:expertColors"
+          },
+          {
+            "label": "Shop EXPERT at Stain & Seal Supply",
+            "link": "source:supplierExpert"
+          }
+        ]
+      },
       "visualizer": {
         "kicker": "Color visualizer",
-        "headline": "See the color on *your* deck before we open a can.",
-        "text": "Upload a photo of your deck, trace the boards, and try every stain color we carry. Wood grain still shows through on semi-transparent, just like the real thing.",
+        "headline": "See *your* deck cleaned and stained before we open a can.",
+        "text": "Upload a photo of your deck, trace the boards, and see them washed, brightened and stained in any color we carry. Wood grain still shows through on semi-transparent, just like the real thing.",
         "button": "Try the Visualizer",
         "photoAlt": "Sample deck photo before staining",
-        "caption": "Real output from the tool: only the deck boards change."
+        "caption": "Real output from the tool: the boards are cleaned, then stained. Nothing else in the photo changes."
       },
       "reviews": {
         "kicker": "Reviews",
@@ -505,8 +529,8 @@
     "visualizerPage": {
       "breadcrumb": "Color Visualizer",
       "kicker": "Color visualizer",
-      "headline": "Try stain colors on your own deck",
-      "lede": "Upload a photo, paint over the deck boards, and pick a color. Everything happens in your browser. Your photo isn't uploaded anywhere unless you ask us to send you the result.",
+      "headline": "See your deck cleaned and stained",
+      "lede": "Upload a photo, mark the deck boards, and we'll show it washed, brightened and stained in the color you pick. Everything happens in your browser. Your photo isn't uploaded anywhere unless you ask us to send you the result.",
       "steps": [
         "1 · Photo",
         "2 · Mark the deck",
@@ -527,16 +551,18 @@
         "clear": "Clear",
         "showMask": "Show mask",
         "compare": "Before / after",
-        "newPhoto": "New photo"
+        "newPhoto": "New photo",
+        "clean": "Clean & brighten first",
+        "cleanTip": "Shows the boards washed and brightened before the stain goes on"
       },
-      "help": "Paint over the deck boards and railings. Use the outline tool for straight edges, and the eraser to clean up. The color shows up as you go.",
+      "help": "Paint over the deck boards and railings. Use the outline tool for straight edges, and the eraser to clean up. The boards show up cleaned, then stained, as you go.",
       "colorsHeading": "Stain colors",
       "groupNames": {
         "transparent": "Transparent",
         "semi-transparent": "Semi-transparent",
         "solid": "Solid"
       },
-      "colorsNote": "Generic color names. Real stain looks different on every board, so we'll test it on your wood before we start.",
+      "colorsNote": "Generic color names. Real stain looks different on every board, so we'll test it on your wood before we start. Want the real thing? Browse the [EXPERT color gallery](source:expertColors) or [order color samples](source:supplierSamples) from Stain & Seal Supply.",
       "brandsPrefix": "Brands we carry:",
       "selectedLabel": "Selected",
       "getButton": "Send me this look",
@@ -548,6 +574,10 @@
       "imageBeforeLabel": "Before",
       "imageAfterLabel": "After:",
       "infoBoxes": [
+        {
+          "title": "How does the cleaning preview work?",
+          "text": "It simulates what a wash and brightener do: gray weathering and mildew blotches even out to fresh wood, while the grain, board gaps and shadows stay. It's a preview, not a promise. Boards that are cracked or soft won't come back with cleaning alone, and we'll tell you if yours need replacing."
+        },
         {
           "title": "Why does it look different from the can?",
           "text": "Stain soaks into wood, so the wood's own color shows through, especially on semi-transparent. Old gray wood, new yellow pine and red cedar all take the same stain differently. This tool keeps your wood's grain and light and dark spots, so it's closer to real than a color chip."
@@ -561,7 +591,10 @@
           "text": "Shoot in daylight but not in harsh noon sun. Stand back far enough to get the whole deck. Sweep the leaves off first if you can. Wet boards look darker, so wait until it's dry."
         }
       ],
-      "closing": "Found a color you like? Let's put it on the real thing."
+      "closing": "Found a color you like? Let's put it on the real thing.",
+      "cleanOnlyGroup": "Cleaning only",
+      "cleanOnlyName": "Just cleaned",
+      "cleanedLabel": "Cleaned & brightened"
     },
     "estimatePage": {
       "breadcrumb": "Get an Estimate",
@@ -671,7 +704,9 @@
       "lede": "Plain answers, with links to the wood scientists and testers we trust, so you can check our work.",
       "minRead": "{n} min read",
       "minShort": "{n} min",
-      "readIt": "Read it"
+      "readIt": "Read it",
+      "moreHeading": "More from the stain experts",
+      "moreText": "Want to go deeper? [EXPERT Insights](source:expertInsights) has articles from the people who make the stain we use, [Stain & Seal Supply's blog](source:supplierBlog) covers products and how-tos, and the [Stain & Seal Experts podcast](source:podcast) talks shop with contractors."
     },
     "articlePage": {
       "meta": "{n} min read · Updated {date}",
@@ -694,7 +729,8 @@
         "Oct",
         "Nov",
         "Dec"
-      ]
+      ],
+      "goDeeperHeading": "Go deeper"
     },
     "aboutPage": {
       "breadcrumb": "About",
@@ -717,7 +753,7 @@
       "licenseLabel": "License:",
       "insuranceLabel": "Insurance:",
       "partnerHeadline": "A Stain & Seal Supply Pro Partner",
-      "partnerText": "We're part of the Stain & Seal Supply Pro Partners program. That means pro-grade products, real training on how to use them, and a network of other staining contractors to send you to if you're outside our area.",
+      "partnerText": "We're part of the [Stain & Seal Supply Pro Partners program](source:supplierProPartner). That means pro-grade products like [EXPERT Stain & Seal](source:expertStainSeal), real training on how to use them, and a network of other staining contractors to send you to if you're outside our area.",
       "glanceHeadline": "At a glance",
       "glance": {
         "crew": "Crew",
@@ -1970,6 +2006,10 @@
       "photo": "hero-wooded-deck.jpg",
       "date": "2026-10-01",
       "readMinutes": 4,
+      "goDeeper": [
+        "[The lifecycle of exterior wood](source:expertLifecycle) (EXPERT)",
+        "[How much stain will my deck need?](source:supplierCalculator) (Stain & Seal Supply)"
+      ],
       "body": [
         {
           "lede": "Short answer: **{bestMonths}**. Spring is our second choice. Midsummer and winter are the hardest. Here's why."
@@ -2019,6 +2059,11 @@
       "photo": "deck-stained-topdown.jpg",
       "date": "2026-09-18",
       "readMinutes": 4,
+      "goDeeper": [
+        "[Oil-based vs. water-based wood stains](source:expertOilWater) (EXPERT)",
+        "[Why penetrating oil stains protect wood differently](source:expertPenetrating) (EXPERT)",
+        "[VOCs explained](source:expertVoc) (EXPERT)"
+      ],
       "body": [
         {
           "lede": "You'll hear strong opinions on this. The truth is the experts don't fully agree, and the \"right\" answer depends on how you want to take care of the deck later."
@@ -2072,6 +2117,11 @@
       "photo": "deck-bench-boards.jpg",
       "date": "2026-09-04",
       "readMinutes": 5,
+      "goDeeper": [
+        "[Understanding wood stain transparencies](source:expertTransparencies) (EXPERT)",
+        "[See the EXPERT color gallery](source:expertColors)",
+        "[Order color samples](source:supplierSamples) (Stain & Seal Supply)"
+      ],
       "body": [
         {
           "lede": "This is the one question where two trusted sources give opposite advice. We'll show you both and tell you how we decide on the job."
@@ -2126,6 +2176,10 @@
       "photo": "brush-on-wood.jpg",
       "date": "2026-08-21",
       "readMinutes": 3,
+      "goDeeper": [
+        "[The lifecycle of exterior wood: from new construction on](source:expertLifecycle) (EXPERT)",
+        "[Wood cleaners and brighteners](source:supplierCleanBright) (Stain & Seal Supply)"
+      ],
       "body": [
         {
           "lede": "Brand-new deck? Don't stain it the day the builder leaves, and don't wait three years either."
@@ -2170,6 +2224,10 @@
       "photo": "boards-weathered-gray.jpg",
       "date": "2026-08-07",
       "readMinutes": 4,
+      "goDeeper": [
+        "[Why penetrating oil stains protect wood differently](source:expertPenetrating) (EXPERT)",
+        "[EXPERT Clean & Bright: cleaners, brighteners and strippers](source:expertCleanBright)"
+      ],
       "body": [
         {
           "lede": "Peeling is the number one complaint we hear. It's almost never bad luck. There are a few causes, and they're all fixable."
@@ -2217,6 +2275,10 @@
       "photo": "deck-chairs-rail.jpg",
       "date": "2026-07-24",
       "readMinutes": 4,
+      "goDeeper": [
+        "[What to look for in a professional-grade wood stain](source:expertProGrade) (EXPERT)",
+        "[The lifecycle of exterior wood](source:expertLifecycle) (EXPERT)"
+      ],
       "body": [
         {
           "lede": "Most decks around here want attention every **two to three years**. Railings and fences can usually go longer. Here's what the sources say, and what moves the number up or down."
@@ -2724,6 +2786,126 @@
       "name": "Wikipedia — Knoxville climate table",
       "short": "Wikipedia",
       "url": "https://en.wikipedia.org/wiki/Knoxville,_Tennessee#Climate"
+    },
+    "expertHome": {
+      "name": "EXPERT Professional Wood Care",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/"
+    },
+    "expertStainSeal": {
+      "name": "EXPERT Stain & Seal and Log & Timber Oil",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/stain-seal/"
+    },
+    "expertCleanBright": {
+      "name": "EXPERT Clean & Bright wood cleaners and brighteners",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/clean-bright/"
+    },
+    "expertColors": {
+      "name": "EXPERT color gallery",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/color-gallery/"
+    },
+    "expertWarranty": {
+      "name": "EXPERT product warranty",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/warranty"
+    },
+    "expertInsights": {
+      "name": "EXPERT Insights: wood care articles",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/insights/"
+    },
+    "expertLifecycle": {
+      "name": "EXPERT: The Lifecycle of Exterior Wood",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/the-lifecycle-of-exterior-wood"
+    },
+    "expertTransparencies": {
+      "name": "EXPERT: Understanding Wood Stain Transparencies",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/understanding-wood-stain-transparencies"
+    },
+    "expertProGrade": {
+      "name": "EXPERT: What to Look For in a Professional Grade Wood Stain",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/what-to-look-for-in-a-professional-grade-wood-stain"
+    },
+    "expertPenetrating": {
+      "name": "EXPERT: Why Penetrating Oil Stains Protect Wood Differently",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/why-penetrating-oil-stains-protect-wood-differently"
+    },
+    "expertOilWater": {
+      "name": "EXPERT: Oil-based vs. Water-based Wood Stains",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/oil-vs-water-based-wood-stains/"
+    },
+    "expertVoc": {
+      "name": "EXPERT: VOCs Explained",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/vocs-explained-wood-stain/"
+    },
+    "expertGreenwise": {
+      "name": "EXPERT: First Oil-Based Wood Stain to Earn GREENWISE Certification",
+      "short": "EXPERT",
+      "url": "https://expertwoodcare.com/greenwise-certified-oil-stain"
+    },
+    "supplierHome": {
+      "name": "Stain & Seal Supply",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/"
+    },
+    "supplierDeckStains": {
+      "name": "Stain & Seal Supply: fence and deck stains",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/collections/fence-and-deck-stains"
+    },
+    "supplierExpert": {
+      "name": "Stain & Seal Supply: EXPERT Wood Care products",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/collections/expert-wood-care"
+    },
+    "supplierCleanBright": {
+      "name": "Stain & Seal Supply: cleaners and brighteners",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/collections/clean-bright"
+    },
+    "supplierColors": {
+      "name": "Stain & Seal Supply: stain colors",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/pages/stain-colors"
+    },
+    "supplierSamples": {
+      "name": "Stain & Seal Supply: fan decks and color samples",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/collections/fandecks-samples"
+    },
+    "supplierCalculator": {
+      "name": "Stain & Seal Supply: stain calculator",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/pages/stain-calculator"
+    },
+    "supplierLogOil": {
+      "name": "Stain & Seal Supply: EXPERT Log & Timber Oil",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/products/semi-transparent-expert-log-timber-oil"
+    },
+    "supplierBlog": {
+      "name": "Stain & Seal Supply blog",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/blogs/posts"
+    },
+    "supplierProPartner": {
+      "name": "Stain & Seal Supply Pro Partners program",
+      "short": "Stain & Seal Supply",
+      "url": "https://stainandsealsupply.com/pages/become-a-pro-partner"
+    },
+    "podcast": {
+      "name": "Stain & Seal Experts podcast",
+      "short": "Podcast",
+      "url": "https://stainandsealexpertspodcast.simplecast.com/"
     }
   }
 }
