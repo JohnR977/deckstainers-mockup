@@ -38,10 +38,13 @@
   function addLead(lead) {
     var list = read() || [];
     var now = new Date().toISOString();
+    // Every new lead starts in the pipeline's "Lead" column, time-stamped (see dashboard.js EVENTS).
+    var labels = { estimate: 'photo estimate form', calculator: 'price calculator', visualizer: 'color visualizer', contact: 'contact form' };
     var full = Object.assign({
-      id: uid(), createdAt: now, stage: 'new', photos: [], notes: '',
-      history: [{ at: now, text: 'Came in from the website (' + (lead.source || 'form') + ')' }]
+      id: uid(), createdAt: now, stage: 'new', stageAt: now, photos: [], notes: '',
+      history: [{ at: now, text: 'New lead from the website (' + (labels[lead.source] || lead.source || 'form') + ')', event: 'lead' }]
     }, lead);
+    full.stage = 'new';
     list.unshift(full);
     if (write(list)) return { ok: true, lead: full };
     // Out of space: keep the lead, drop all but the first photo.

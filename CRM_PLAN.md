@@ -13,7 +13,7 @@ The screens. They were designed for the real thing:
 | Screen | What it does |
 |---|---|
 | **Leads** | Every website form (photo estimate, calculator, visualizer, contact) lands here with photos, source and timestamp. "New" leads are flagged. |
-| **Pipeline** | New → Contacted → Estimate Sent → Won → Scheduled → Done → Paid. Big "next step" buttons; drag-and-drop on desktop. |
+| **Pipeline** | Lead → Contacted → Quote Sent → Won → Scheduled → Done → Paid. **Automatic: no dragging, no move buttons.** Cards move only when an event happens (section 3b). |
 | **Customer card** | Tap-to-call/text/email/map, deck details, photos, chosen color, notes, full history. |
 | **Estimate builder** | Sq ft × rate, railings, stairs, add-ons, discount, deposit, then a printable estimate. |
 | **Schedule** | Month calendar of 2-day jobs with rain days marked and a "move to next dry day" button. |
@@ -59,10 +59,33 @@ jobs          (id, partner_id, lead_id, start_date, days, status, done_at, paid_
 rain_days     (id, partner_id, date, source /* manual|forecast */)
 reminders     (id, partner_id, job_id, due_on, sent_at, channel, result)
 messages      (id, partner_id, customer_id, direction, channel, body, sent_at, status)
-events        (id, partner_id, lead_id, at, text)   -- the history timeline
+events        (id, partner_id, lead_id, type, source, provider_event_id UNIQUE,
+               occurred_at, received_at, payload_json)       -- append-only; drives the pipeline
+stage_changes (id, partner_id, lead_id, from_stage, to_stage, event_id, at)  -- the time-stamped moves
 ```
 
 Every table carries `partner_id`, and row-level security policies enforce `partner_id = auth.partner_id()`.
+
+## 3b. The automatic pipeline: how real events move cards
+
+**Caleb's rule:** nobody drags cards, and nobody pushes them. A card moves only when something happens, and every move is time-stamped. The mockup already works this way: `dashboard.js` → `EVENTS`, with "Simulate" buttons standing in for the outside world. The real version swaps those buttons for webhooks:
+
+| Stage | Event that moves the card there | Where the event comes from in the real version |
+|---|---|---|
+| **Lead** | A new lead | Website forms, calculator and visualizer post to `POST /api/leads`. **Phone:** the partner's business number runs through Twilio. A call from an unknown number hits Twilio's incoming-call webhook and creates a Lead (caller ID, time, and optionally the recording and transcript). A missed call can auto-text back "Sorry we missed you. Send photos here: …". |
+| **Contacted** | The contractor calls the lead | The **Call** button uses Twilio click-to-call: Twilio rings the contractor's cell, then connects the customer, so the call shows the business number. Twilio's call-status webhook (`completed`, duration > 0) records the call and moves the card. *Why not read the phone's call log? iPhones don't let apps read it, and Android needs special permissions. Routing calls through the business number works on any phone.* A "Log a call" button covers calls made some other way. |
+| **Quote Sent** | The quote is sent from the estimate builder | The builder emails the quote PDF and a "view & accept" link through Resend or Postmark. The provider's **sent/delivered webhook** moves the card, using the provider's timestamp. An **open** event is logged in history but doesn't move anything. |
+| **Won** | Deposit paid **or** quote signed | **Deposit:** the quote's "Pay deposit" button is a Stripe Checkout or Payment Link tagged with `lead_id` and `kind=deposit`. Stripe's `checkout.session.completed` webhook moves the card. **Signature:** the quote page has a simple typed-name + checkbox acceptance (stored with IP and time). For formal e-signatures, a Dropbox Sign or DocuSign "all signed" webhook does the same. Whichever comes first wins; the second is logged. |
+| **Scheduled** | A job date is set | The contractor picks a date, or the customer picks one from a booking link sent after the deposit. Either writes the date and moves the card. |
+| **Done** | The crew marks the job done | One tap in the app; this one stays human. It triggers the **review request**: a text (Twilio) and email go out that evening with the Google review link, once, honoring STOP / unsubscribe. |
+| **Paid** | Final payment | A Stripe invoice or payment link tagged `kind=final`. The `invoice.paid` / `checkout.session.completed` webhook moves the card. Cash and checks: "Record a payment" in the app (logged with who recorded it). QuickBooks Payments could feed the same event instead of Stripe. |
+
+**How it's built:**
+- **One function decides moves.** `apply_event(lead, event)` runs inside a database transaction. It writes the `events` row, and if the event's stage is *ahead* of the card's stage, it writes a `stage_changes` row and updates the lead. Cards only move forward, so an early payment, a late "delivered" email or a repeated webhook can't drag a card backward. This is the same rule the mockup uses.
+- **Every webhook is verified** (Twilio, Stripe and email providers all sign their requests). Each is **idempotent**: the provider's event ID is a unique key, so retries don't double-log.
+- **Times are the real ones.** `occurred_at` comes from the provider (when the call ended, when Stripe took the money); `received_at` is when we heard about it. The card history shows `occurred_at`.
+- **Live updates:** the dashboard subscribes to changes (Supabase Realtime), so a card moves on the contractor's phone the moment a customer pays.
+- **Exceptions are events too.** A refund (`charge.refunded`), a cancelled job or a lost lead is recorded as an event that flags the card or moves it to a "Closed/Lost" list. There's no hand-dragging. *Decision for Caleb: should an owner be able to correct a wrong move, with a required reason in the history?*
 
 ## 4. Texting and email
 
@@ -87,7 +110,8 @@ Every table carries `partner_id`, and row-level security policies enforce `partn
 | 2 | `/api/leads` + photo upload; website forms post to it | 1 week |
 | 3 | Swap `store.js` to API calls; dashboard reads live data | 1 week |
 | 4 | Estimate PDFs + email | 3–4 days |
-| 5 | Texting (10DLC registration starts on day 1 of the project, since it takes time) | 1 week |
+| 5 | Texting + calls through the business number (10DLC registration starts on day 1 of the project, since it takes time) | 1 week |
+| 5b | Automatic pipeline: event table, `apply_event`, webhooks for Twilio calls, email sent/delivered, Stripe deposit/final payments, quote acceptance | 1–1.5 weeks |
 | 6 | Rain watch + reminders + review automations (scheduled jobs) | 1 week |
 | 7 | Partner onboarding: config form → build → deploy per partner | 1–2 weeks |
 

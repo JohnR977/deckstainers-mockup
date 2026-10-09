@@ -1,11 +1,15 @@
 /* Pro Partner Dashboard — a deliberately simple CRM for a 1–2 man staining crew.
    MOCKUP: fake login, data in localStorage, seeded with FICTIONAL sample customers.
-   The real version is described in CRM_PLAN.md. */
+   The real version is described in CRM_PLAN.md.
+
+   THE PIPELINE IS AUTOMATIC (Caleb's rule): nobody drags or pushes cards. A card moves only
+   when an event happens — see EVENTS below — and every move is time-stamped in its history.
+   For the demo, "Simulate" buttons stand in for outside events (deposit paid, quote signed…). */
 (function () {
   var C = window.DASH_CONFIG;
   var SLUG = C.slug;
-  var AUTH = 'ds:' + SLUG + ':auth', SEEDED = 'ds:' + SLUG + ':seeded', RAIN = 'ds:' + SLUG + ':rain';
-  var STAGES = [['new', 'New'], ['contacted', 'Contacted'], ['estimate', 'Estimate Sent'], ['won', 'Won'], ['scheduled', 'Scheduled'], ['done', 'Done'], ['paid', 'Paid']];
+  var AUTH = 'ds:' + SLUG + ':auth', SEEDED = 'ds:' + SLUG + ':seeded:v2', RAIN = 'ds:' + SLUG + ':rain';
+  var STAGES = [['new', 'Lead'], ['contacted', 'Contacted'], ['estimate', 'Quote Sent'], ['won', 'Won'], ['scheduled', 'Scheduled'], ['done', 'Done'], ['paid', 'Paid']];
   var STAGE_NAME = {}; STAGES.forEach(function (s) { STAGE_NAME[s[0]] = s[1]; });
   var SOURCE = { estimate: 'Photo estimate', calculator: 'Calculator', visualizer: 'Visualizer', contact: 'Contact form', phone: 'Phone call', reminder: 'Re-coat', referral: 'Referral' };
   var view = document.getElementById('view');
@@ -28,6 +32,7 @@
   function workday(offset) { var d = new Date(day(offset)); while (d.getDay() === 0) d.setDate(d.getDate() + 1); return d.toISOString(); }
   function ymd(d) { d = new Date(d); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
   function fromYmd(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2], 9); }
+  function when(d) { d = new Date(d); return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) + ' · ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); }
   function nice(d, withYear) { return new Date(d).toLocaleDateString('en-US', { weekday: withYear ? undefined : 'short', month: 'short', day: 'numeric', year: withYear ? 'numeric' : undefined }); }
   function ago(d) {
     var s = (Date.now() - new Date(d)) / 1000;
@@ -62,6 +67,55 @@
     if (l.estimate) return money(l.estimate.low) + '–' + money(l.estimate.high);
     return '';
   }
+
+  // ---------- AUTOMATIC PIPELINE ----------
+  // Each event moves a card FORWARD to its stage (never backward) and stamps the history.
+  //   lead → Lead · call → Contacted · quote sent → Quote Sent · deposit or signature → Won
+  //   date set → Scheduled · marked done → Done (+ review request goes out) · final payment → Paid
+  var EVENTS = {
+    lead:         { to: 'new',       say: function (l) { return 'New lead from ' + (SOURCE[l.source] || l.source); } },
+    call:         { to: 'contacted', say: function (l, d) { return d.logged ? 'Call logged' + (d.note ? ': “' + d.note + '”' : '') : 'Called ' + first(l.name) + ' from the dashboard'; } },
+    quoteSent:    { to: 'estimate',  say: function (l, d) { return 'Quote sent from the estimate builder: ' + money(d.doc.total); } },
+    deposit:      { to: 'won',       say: function (l, d) { return 'Deposit paid: ' + money(d.amount); } },
+    signed:       { to: 'won',       say: function () { return 'Customer signed the quote'; } },
+    dateSet:      { to: 'scheduled', say: function (l, d) { return 'Job date set: ' + nice(fromYmd(d.date), true); } },
+    done:         { to: 'done',      say: function () { return 'Job marked done'; } },
+    finalPayment: { to: 'paid',      say: function (l, d) { return 'Final payment received: ' + money(d.amount) + (d.how ? ' (' + d.how + ')' : ''); } }
+  };
+  var lastMoved = null;
+  function stageIndex(st) { return STAGES.findIndex(function (x) { return x[0] === st; }); }
+  function applyEvent(l, type, d, at) {
+    var ev = EVENTS[type]; d = d || {}; at = at || new Date().toISOString();
+    l.history = l.history || [];
+    l.history.push({ at: at, text: ev.say(l, d), event: type });
+    if (type === 'quoteSent') { l.estimateDoc = d.doc; l.estimateDoc.sentAt = at; }
+    if (type === 'dateSet') { l.jobDate = d.date; l.days = l.days || 2; }
+    if (type === 'deposit') l.depositPaid = at;
+    if (type === 'signed') l.signedAt = at;
+    if (type === 'finalPayment') l.paidDate = at;
+    var moved = false;
+    if (stageIndex(ev.to) > stageIndex(l.stage || 'new')) {
+      l.history.push({ at: at, text: 'Moved automatically: ' + STAGE_NAME[l.stage || 'new'] + ' → ' + STAGE_NAME[ev.to], move: true });
+      l.stage = ev.to; l.stageAt = at; moved = true;
+    }
+    if (type === 'done') {
+      l.doneDate = l.doneDate || at;
+      if (!l.reviewRequested) { l.reviewRequested = at; l.history.push({ at: at, text: 'Google review request sent automatically by text' + (l.email ? ' and email' : ''), event: 'review' }); }
+    }
+    return moved;
+  }
+  function fire(id, type, d) {
+    var moved = false;
+    update(id, function (l) { moved = applyEvent(l, type, d); });
+    lastMoved = moved ? id : null;
+    return moved;
+  }
+  function depositFor(l) { var t = estTotal(l) || 800; return Math.round(t * ((l.estimateDoc && l.estimateDoc.depositPct) || C.depositPercent) / 100); }
+  function balanceFor(l) { var t = estTotal(l) || 800; return t - (l.depositPaid ? depositFor(l) : 0); }
+  var NEXT = {
+    new: 'Next: call them', contacted: 'Next: send a quote', estimate: 'Waiting on the customer: deposit or signature',
+    won: 'Next: set a job date', scheduled: 'On the calendar', done: 'Waiting on final payment', paid: 'Paid in full'
+  };
 
   // ---------- seed (fictional sample customers) ----------
   function seed() {
@@ -115,12 +169,29 @@
       S({ name: 'Dave Kim', phone: ph('77'), email: 'dkim@example.com', address: at(0, 'Frazier Ave'), source: 'referral', stage: 'paid', createdAt: day(-1090), doneDate: day(-1065), paidDate: day(-1064),
         deck: { sqft: 140, finish: 'solid' }, color: { name: 'Slate Gray', hex: '#5d6164', type: 'solid' }, estimateDoc: { lines: [], discount: 0, depositPct: 25, total: 1340 } })
     ];
-    list.forEach(function (l) { if (!l.history.length) l.history.push({ at: l.createdAt, text: 'Came in (' + (SOURCE[l.source] || l.source) + ')' }); });
+    // Rebuild each sample card's past as real events, so its history shows every automatic move.
+    list.forEach(function (l) {
+      var target = l.stage, notes = l.history.filter(function (h) { return !/^(Came in|Estimate sent|Scheduled\.|Said yes)/.test(h.text); });
+      var t0 = new Date(l.createdAt).getTime(), H = 3600e3, done = l.doneDate && new Date(l.doneDate).getTime();
+      var step = function (i) { var s = t0 + [0, 3 * H, 26 * H, 50 * H, 52 * H][i]; return new Date(done ? Math.min(s, done - (5 - i) * 24 * H) : Math.min(s, Date.now() - (5 - i) * 600e3)).toISOString(); };
+      l.stage = 'new'; l.history = []; var doc = l.estimateDoc;
+      applyEvent(l, 'lead', {}, l.createdAt);
+      var ti = stageIndex(target);
+      if (ti >= 1) applyEvent(l, 'call', {}, step(1));
+      if (ti >= 2) applyEvent(l, 'quoteSent', { doc: doc || { lines: [], discount: 0, depositPct: C.depositPercent, total: estTotal(l) } }, (doc && doc.sentAt) || step(2));
+      if (ti >= 3) applyEvent(l, 'deposit', { amount: depositFor(l) }, step(3));
+      if (ti >= 4 && l.jobDate) applyEvent(l, 'dateSet', { date: l.jobDate }, step(4));
+      if (ti >= 5) { var dd = l.doneDate; l.doneDate = null; applyEvent(l, 'done', {}, dd); }
+      if (ti >= 6) applyEvent(l, 'finalPayment', { amount: balanceFor(l), how: 'check' }, l.paidDate);
+      if (target === 'scheduled' && !l.jobDate) l.stage = 'won';
+      l.history = l.history.concat(notes).sort(function (a, b) { return new Date(a.at) - new Date(b.at); });
+    });
     var existing = (DS.read() || []).filter(function (l) { return !l.sample; });
     list.forEach(function (l) { l.sample = true; });
     save(existing.concat(list).sort(function (a, b) { return new Date(b.createdAt) - new Date(a.createdAt); }));
     var ang = fromYmd(ymd(workday(3))); ang.setDate(ang.getDate() + 1); if (ang.getDay() === 0) ang.setDate(ang.getDate() + 1); setRain([ymd(ang)]); // day 2 of a booked job, to show the rain-delay button
     localStorage.setItem(SEEDED, '1');
+    localStorage.removeItem('ds:' + SLUG + ':seeded'); // old manual-pipeline demo data
   }
 
   // ---------- auth (pretend) ----------
@@ -143,7 +214,7 @@
     document.getElementById('login').hidden = authed;
     document.getElementById('app').hidden = !authed;
     if (!authed) { document.querySelector('#login input').focus(); return; }
-    if (!localStorage.getItem(SEEDED)) seed();
+    if (!localStorage.getItem(SEEDED)) { var keep = (DS.read() || []).filter(function (l) { return !l.sample; }); DS.write(keep); seed(); }
     if (!location.hash) location.hash = '#leads'; else route();
   }
 
@@ -183,7 +254,7 @@
   var leadFilter = 'all';
   function Leads() {
     var all = leads();
-    var filters = [['all', 'All'], ['new', 'New'], ['estimate', 'Photo estimate'], ['calculator', 'Calculator'], ['visualizer', 'Visualizer'], ['contact', 'Contact']];
+    var filters = [['all', 'All'], ['new', 'New leads'], ['estimate', 'Photo estimate'], ['calculator', 'Calculator'], ['visualizer', 'Visualizer'], ['contact', 'Contact']];
     var list = all.filter(function (l) {
       if (leadFilter === 'all') return l.stage !== 'paid';
       if (leadFilter === 'new') return l.stage === 'new';
@@ -215,55 +286,99 @@
       e.preventDefault();
       var f = e.target, d = { name: f.name.value.trim(), phone: f.phone.value.trim(), address: f.address.value.trim(), source: f.source.value, notes: f.notes.value.trim() };
       if (!d.name) return;
-      DS.addLead(d); toast('Lead saved.'); route();
+      var now = new Date().toISOString();
+      d.history = [{ at: now, text: 'New lead from ' + (SOURCE[d.source] || d.source) + ' (entered by hand)', event: 'lead' }]; d.stageAt = now;
+      DS.addLead(d); toast('Lead saved. It starts in Lead.'); route();
     });
   };
 
-  // ---------- PIPELINE ----------
+  // ---------- PIPELINE (automatic, read-only) ----------
   function Pipeline() {
     var all = leads();
-    var cols = STAGES.map(function (s) {
-      var items = all.filter(function (l) { return l.stage === s[0]; });
-      if (s[0] === 'paid') items = items.filter(function (l) { return Date.now() - new Date(l.paidDate || l.createdAt) < 60 * 864e5; });
-      var sum = items.reduce(function (a, l) { return a + estTotal(l); }, 0);
-      return '<section class="col" data-stage="' + s[0] + '"><header><h2>' + s[1] + '</h2><span>' + items.length + (sum ? ' · ' + money(sum) : '') + '</span></header>' +
+    var cols = STAGES.map(function (st) {
+      var items = all.filter(function (l) { return l.stage === st[0]; });
+      if (st[0] === 'paid') items = items.filter(function (l) { return Date.now() - new Date(l.paidDate || l.createdAt) < 60 * 864e5; });
+      items.sort(function (x, y) { return new Date(y.stageAt || y.createdAt) - new Date(x.stageAt || x.createdAt); });
+      var sum = items.reduce(function (acc, l) { return acc + estTotal(l); }, 0);
+      return '<section class="col" data-stage="' + st[0] + '"><header><h2>' + st[1] + '</h2><span>' + items.length + (sum ? ' · ' + money(sum) : '') + '</span></header>' +
         '<ul>' + items.map(function (l) {
-          var i = STAGES.findIndex(function (x) { return x[0] === l.stage; });
-          return '<li class="pcard" draggable="true" data-id="' + l.id + '">' +
+          var nx = l.stage === 'scheduled' && l.jobDate ? 'Job ' + nice(fromYmd(l.jobDate)) : NEXT[l.stage];
+          return '<li class="pcard' + (l.id === lastMoved ? ' just-moved' : '') + '" data-id="' + l.id + '">' +
             '<a href="#customer/' + l.id + '"><strong>' + esc(l.name) + '</strong><span>' + esc((l.address || '').split(',').pop().trim()) + '</span>' +
-            (estLabel(l) ? '<em>' + estLabel(l) + '</em>' : '') + (l.jobDate ? '<span class="pdate">' + ico('cal') + ' ' + nice(fromYmd(l.jobDate)) + '</span>' : '') + '</a>' +
-            '<div class="pmove">' + (i > 0 ? '<button data-move="-1" aria-label="Move back to ' + STAGES[i - 1][1] + '">◀</button>' : '<span></span>') +
-            (i < STAGES.length - 1 ? '<button data-move="1" class="fwd">' + STAGES[i + 1][1] + ' ▶</button>' : '') + '</div></li>';
+            (estLabel(l) ? '<em>' + estLabel(l) + '</em>' : '') +
+            '<span class="pnext">' + esc(nx) + '</span>' +
+            '<span class="pwhen">Moved here ' + ago(l.stageAt || l.createdAt) + '</span></a></li>';
         }).join('') + '</ul></section>';
     }).join('');
-    return head('Pipeline', 'Move each job along as it happens. Tap the button to push it to the next step.') + '<div class="board">' + cols + '</div>' +
+    return head('Pipeline', 'Cards move by themselves when something happens. Nobody drags them.') +
+      '<details class="rules"><summary>How cards move</summary><ol>' +
+        '<li><b>Lead</b>: a new lead comes in from a website form, the calculator, the visualizer or a phone call</li>' +
+        '<li><b>Contacted</b>: you tap <i>Call</i> on the card or log a call</li>' +
+        '<li><b>Quote Sent</b>: you send the quote from the estimate builder</li>' +
+        '<li><b>Won</b>: the customer pays the deposit or signs the quote</li>' +
+        '<li><b>Scheduled</b>: a job date is set</li>' +
+        '<li><b>Done</b>: you mark the job done, and the review request goes out automatically</li>' +
+        '<li><b>Paid</b>: the final payment comes in</li></ol><p class="muted small">Cards only move forward. Every move is time-stamped in the card\'s history.</p></details>' +
+      '<div class="sim-bar"><span class="sim-label">Demo: simulate outside events</span>' +
+        '<button class="b b-sm b-ghost" data-sim="lead">New web lead arrives</button>' +
+        '<button class="b b-sm b-ghost" data-sim="deposit">A customer pays a deposit</button>' +
+        '<button class="b b-sm b-ghost" data-sim="signed">A customer signs a quote</button>' +
+        '<button class="b b-sm b-ghost" data-sim="finalPayment">A customer pays the final bill</button>' +
+        '<button class="b b-sm b-cedar" data-sim="play">▶ Play a demo day</button></div>' +
+      '<div class="board">' + cols + '</div>' +
       '<p class="hint">Paid jobs drop off the board after 60 days. They stay in the customer list and come back as re-coat reminders.</p>';
   }
-  function move(id, dir) {
-    var l = get(id), i = STAGES.findIndex(function (x) { return x[0] === l.stage; }), to = STAGES[i + dir];
-    if (!to) return;
-    setStage(id, to[0]);
+  var DEMO_NAMES = ['Jordan Blake', 'Casey Morgan', 'Riley Hayes', 'Taylor Brooks', 'Avery Lane', 'Drew Carter', 'Morgan Reese', 'Jamie Fields'];
+  function simLead() {
+    var n = DEMO_NAMES[Math.floor(Math.random() * DEMO_NAMES.length)], src = ['estimate', 'calculator', 'visualizer'][Math.floor(Math.random() * 3)];
+    var now = new Date().toISOString(), sq = 150 + Math.round(Math.random() * 25) * 10;
+    var res = DS.addLead({ name: n, phone: (C.business.phone.match(/\(\d{3}\)/) || ['(555)'])[0] + ' 555-01' + (10 + Math.floor(Math.random() * 89)), email: n.split(' ')[0].toLowerCase() + '@example.com',
+      address: 'Sample St area, ' + C.areas[Math.floor(Math.random() * C.areas.length)], source: src, stageAt: now, demo: true,
+      deck: { sqft: sq, size: sq + ' sq ft', condition: 'weathered', finish: 'semi-transparent' },
+      history: [{ at: now, text: 'New lead from ' + SOURCE[src] + ' (simulated)', event: 'lead' }] });
+    lastMoved = res.lead.id;
+    return n.split(' ')[0] + ' came in from the ' + SOURCE[src].toLowerCase() + ' → Lead';
   }
-  function setStage(id, stage) {
-    update(id, function (l) {
-      l.stage = stage;
-      if (stage === 'done' && !l.doneDate) l.doneDate = new Date().toISOString();
-      if (stage === 'paid' && !l.paidDate) l.paidDate = new Date().toISOString();
-      if (stage === 'estimate' && l.estimateDoc && !l.estimateDoc.sentAt) l.estimateDoc.sentAt = new Date().toISOString();
-    }, 'Moved to ' + STAGE_NAME[stage]);
-    toast('Moved to ' + STAGE_NAME[stage] + (stage === 'done' ? '. Send a review request!' : ''));
+  function oldestIn(stage) { return leads().filter(function (l) { return l.stage === stage; }).sort(function (a, b) { return new Date(a.stageAt || a.createdAt) - new Date(b.stageAt || b.createdAt); })[0]; }
+  // Outside events (the customer acts). Returns a sentence for the toast, or null if no card fits.
+  function simulate(type, l) {
+    if (type === 'lead') return simLead();
+    l = l || oldestIn(type === 'finalPayment' ? 'done' : 'estimate');
+    if (!l) return null;
+    if (type === 'deposit') fire(l.id, 'deposit', { amount: depositFor(l) });
+    if (type === 'signed') fire(l.id, 'signed');
+    if (type === 'finalPayment') fire(l.id, 'finalPayment', { amount: balanceFor(l), how: 'paid online' });
+    return { deposit: first(l.name) + ' paid the deposit → Won', signed: first(l.name) + ' signed the quote → Won', finalPayment: first(l.name) + ' paid the final bill → Paid' }[type];
+  }
+  // A scripted day: outside events plus the contractor's own taps, one every ~1.6 seconds.
+  function playDay() {
+    var steps = [
+      function () { return simulate('lead'); },
+      function () { var l = oldestIn('new'); if (!l) return null; fire(l.id, 'call'); return 'You tapped Call on ' + first(l.name) + ' → Contacted'; },
+      function () { var l = oldestIn('contacted'); if (!l) return null; var doc = defaultDoc(l); doc.total = calcDoc(doc).total || C.pricing.minimumJob; fire(l.id, 'quoteSent', { doc: doc }); return 'You sent ' + first(l.name) + ' a quote for ' + money(doc.total) + ' → Quote Sent'; },
+      function () { return simulate('deposit'); },
+      function () { var l = oldestIn('won'); if (!l) return null; var d = new Date(); d.setDate(d.getDate() + 5); if (d.getDay() === 0) d.setDate(d.getDate() + 1); fire(l.id, 'dateSet', { date: ymd(d) }); return 'You set a date for ' + first(l.name) + ' → Scheduled'; },
+      function () { var l = oldestIn('scheduled'); if (!l) return null; fire(l.id, 'done'); return 'You marked ' + first(l.name) + '’s job done → Done (review request sent)'; },
+      function () { return simulate('finalPayment'); }
+    ];
+    var i = 0;
+    (function next() {
+      if (i >= steps.length || location.hash !== '#pipeline') { toast('Demo day finished.'); return; }
+      var msg = steps[i++]();
+      if (msg) { route(); toast(msg); }
+      setTimeout(next, msg ? 1700 : 50);
+    })();
   }
   Pipeline.after = function () {
-    view.querySelectorAll('[data-move]').forEach(function (b) {
-      b.addEventListener('click', function () { move(b.closest('.pcard').dataset.id, +b.dataset.move); route(); });
+    view.querySelectorAll('[data-sim]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.dataset.sim === 'play') { playDay(); return; }
+        var msg = simulate(b.dataset.sim);
+        if (!msg) { toast(b.dataset.sim === 'finalPayment' ? 'No jobs are waiting on a final payment.' : 'No quotes are waiting on the customer.'); return; }
+        route(); toast(msg);
+      });
     });
-    var dragId = null;
-    view.querySelectorAll('.pcard').forEach(function (c) { c.addEventListener('dragstart', function (e) { dragId = c.dataset.id; e.dataTransfer.effectAllowed = 'move'; }); });
-    view.querySelectorAll('.col').forEach(function (col) {
-      col.addEventListener('dragover', function (e) { e.preventDefault(); col.classList.add('over'); });
-      col.addEventListener('dragleave', function () { col.classList.remove('over'); });
-      col.addEventListener('drop', function (e) { e.preventDefault(); col.classList.remove('over'); if (dragId) { setStage(dragId, col.dataset.stage); route(); } });
-    });
+    var mv = view.querySelector('.just-moved'); if (mv) mv.scrollIntoView({ block: 'nearest', inline: 'center' });
   };
 
   // ---------- CUSTOMER CARD ----------
@@ -279,17 +394,18 @@
     var cond = d.condition ? d.condition.charAt(0).toUpperCase() + d.condition.slice(1) : '';
     return '<a class="back" href="#leads">← Leads</a>' +
       '<div class="cust-head"><div><h1>' + esc(l.name) + '</h1><p>' + esc(l.address || 'No address yet') + '</p><p class="meta">' + srcTag(l.source) + ' · came in ' + ago(l.createdAt) + (l.heard ? ' · heard from: ' + esc(l.heard) : '') + '</p></div>' +
-      '<label class="stage-select"><span>Stage</span><select id="stage">' + STAGES.map(function (s) { return '<option value="' + s[0] + '"' + (s[0] === l.stage ? ' selected' : '') + '>' + s[1] + '</option>'; }).join('') + '</select></label></div>' +
+      '<div class="stage-now">' + stagePill(l.stage) + '<small>moved here automatically ' + ago(l.stageAt || l.createdAt) + '</small></div></div>' +
       '<div class="quick">' +
-        (l.phone ? '<a class="q" href="tel:' + digits(l.phone) + '">' + ico('phone') + 'Call</a><a class="q" href="' + smsLink(l.phone, 'Hi ' + first(l.name) + ', this is ' + C.business.name + ' about your deck. ') + '">' + ico('text') + 'Text</a>' : '') +
+        (l.phone ? '<a class="q" data-call href="tel:' + digits(l.phone) + '">' + ico('phone') + 'Call</a><a class="q" href="' + smsLink(l.phone, 'Hi ' + first(l.name) + ', this is ' + C.business.name + ' about your deck. ') + '">' + ico('text') + 'Text</a>' : '') +
         (l.email ? '<a class="q" href="mailto:' + esc(l.email) + '">' + ico('mail') + 'Email</a>' : '') +
         (l.address ? '<a class="q" href="' + maps + '" target="_blank" rel="noopener">' + ico('pin') + 'Map</a>' : '') +
-        '<a class="q q-cedar" href="#estimate/' + l.id + '">' + ico('doc') + (l.estimateDoc ? 'Edit estimate' : 'Build estimate') + '</a>' +
+        '<a class="q q-cedar" href="#estimate/' + l.id + '">' + ico('doc') + (l.estimateDoc ? 'View quote' : 'Build quote') + '</a>' +
       '</div>' +
-      (isDone ? '<section class="card review-card"><h2>' + (l.reviewRequested ? 'Review request sent ✓' : 'Ask for a Google review') + '</h2>' +
-        '<p>' + (l.reviewRequested ? 'Sent ' + ago(l.reviewRequested) + '. You can send a friendly reminder once if they haven\'t left one.' : 'The job is done. Happy customers rarely think to leave a review unless you ask. One tap:') + '</p>' +
-        '<div class="row"><a class="b b-cedar" data-review="sms" href="' + smsLink(l.phone, reviewText) + '">Text the review link</a>' +
-        '<a class="b b-outline" data-review="email" href="' + mailLink(l.email, 'Thanks from ' + C.business.name, reviewText) + '">Email it</a></div>' +
+      nextStep(l) +
+      (isDone ? '<section class="card review-card"><h2>' + (l.reviewRequested ? 'Review request sent automatically ✓' : 'Ask for a Google review') + '</h2>' +
+        '<p>' + (l.reviewRequested ? 'It went out ' + when(l.reviewRequested) + ', when the job was marked done. If they haven\'t left one in a week, you can nudge them once:' : 'Happy customers rarely think to leave a review unless you ask. One tap:') + '</p>' +
+        '<div class="row"><a class="b b-outline b-sm" data-review="sms" href="' + smsLink(l.phone, reviewText) + '">Text a reminder</a>' +
+        '<a class="b b-ghost b-sm" data-review="email" href="' + mailLink(l.email, 'Thanks from ' + C.business.name, reviewText) + '">Email it</a></div>' +
         '<details class="tpl"><summary>See the message</summary><p>' + esc(reviewText) + '</p></details></section>' : '') +
       '<div class="cust-grid">' +
         '<section class="card"><h2>Deck</h2><dl class="dl">' +
@@ -300,33 +416,63 @@
           detail('Job date', l.jobDate ? nice(fromYmd(l.jobDate), true) : '') + detail('Done', l.doneDate ? nice(l.doneDate, true) : '') +
           detail('Re-coat due', l.doneDate ? nice(dueDate(l), true) : '') +
         '</dl>' +
-        (l.stage === 'won' || l.stage === 'scheduled' ? '<label class="f"><span>Job date (2-day job)</span><input type="date" id="jobdate" value="' + (l.jobDate || '') + '"></label>' : '') +
+
         '</section>' +
         '<section class="card"><h2>Photos</h2>' + (l.photos && l.photos.length ? '<div class="photos">' + l.photos.map(function (p) { return '<a href="' + esc(img(p)) + '" target="_blank" rel="noopener"><img src="' + esc(img(p)) + '" alt="Customer photo"></a>'; }).join('') + '</div>' : '<p class="muted">No photos yet. Text them and ask for one wide shot of the whole deck.</p>') + '</section>' +
         '<section class="card"><h2>Notes</h2>' + (l.notes ? '<p class="note">' + esc(l.notes) + '</p>' : '') +
           '<form id="note-form" class="row"><input name="n" placeholder="Add a note…" aria-label="Add a note"><button class="b b-forest" type="submit">Add</button></form></section>' +
-        '<section class="card"><h2>History</h2><ol class="hist">' + (l.history || []).slice().reverse().map(function (h) { return '<li><time>' + nice(h.at) + '</time>' + esc(h.text) + '</li>'; }).join('') + '</ol>' +
+        '<section class="card"><h2>History</h2><ol class="hist">' + (l.history || []).slice().reverse().map(function (h) { return '<li' + (h.move ? ' class="mv"' : '') + '><time>' + when(h.at) + '</time>' + esc(h.text) + '</li>'; }).join('') + '</ol>' +
           '<p class="muted small">Contact: ' + esc(l.phone || '') + (l.email ? ' · ' + esc(l.email) : '') + '</p></section>' +
       '</div>';
   }
+  // The one thing that would move this card next, as a button (or a simulated outside event).
+  function nextStep(l) {
+    var body = '', sim = '';
+    if (l.stage === 'new') body = '<p>Tap <b>Call</b> above, or log a call you made from another phone. Either one moves this card to <b>Contacted</b>.</p>' +
+      '<form id="log-call" class="row"><input name="note" placeholder="What did they say? (optional)" aria-label="Call notes"><button class="b b-forest" type="submit">Log a call</button></form>';
+    else if (l.stage === 'contacted') body = '<p>Build and send the quote. Sending it moves this card to <b>Quote Sent</b>.</p><a class="b b-cedar" href="#estimate/' + l.id + '">' + ico('doc') + ' Build the quote</a>' +
+      '<form id="log-call" class="row log-again"><input name="note" placeholder="Log another call (optional note)" aria-label="Call notes"><button class="b b-ghost" type="submit">Log call</button></form>';
+    else if (l.stage === 'estimate') { body = '<p>Waiting on the customer. The card moves to <b>Won</b> by itself when they <b>pay the deposit</b> (' + money(depositFor(l)) + ') or <b>sign the quote</b>.</p>';
+      sim = '<button class="b b-sm b-ghost" data-simone="deposit">Customer paid the deposit</button><button class="b b-sm b-ghost" data-simone="signed">Customer signed the quote</button>'; }
+    else if (l.stage === 'won') body = '<p>Pick a job date. Setting it moves this card to <b>Scheduled</b>.</p><label class="f"><span>Job date (2-day job)</span><input type="date" id="jobdate" value="' + (l.jobDate || '') + '"></label>';
+    else if (l.stage === 'scheduled') body = '<p>Job on <b>' + (l.jobDate ? nice(fromYmd(l.jobDate), true) : '?') + '</b>. When it\'s finished, mark it done. That moves the card to <b>Done</b> and sends the review request.</p>' +
+      '<label class="f"><span>Change the date</span><input type="date" id="jobdate-change" value="' + (l.jobDate || '') + '"></label><button class="b b-cedar" id="mark-done">Mark job done</button>';
+    else if (l.stage === 'done') { body = '<p>Waiting on the final payment (' + money(balanceFor(l)) + '). The card moves to <b>Paid</b> when it comes in.</p><button class="b b-forest" id="record-pay">Record a cash or check payment</button>';
+      sim = '<button class="b b-sm b-ghost" data-simone="finalPayment">Customer paid the final bill online</button>'; }
+    else return '';
+    return '<section class="card next-card"><h2>What moves this card next</h2>' + body +
+      (sim ? '<div class="sim-bar sim-inline"><span class="sim-label">Demo: simulate the customer</span>' + sim + '</div>' : '') + '</section>';
+  }
   Customer.after = function (id) {
-    var s = document.getElementById('stage');
-    if (s) s.addEventListener('change', function () { setStage(id, s.value); route(); });
+    var call = view.querySelector('[data-call]');
+    if (call) call.addEventListener('click', function () { var m = fire(id, 'call'); if (m) toast('Call logged. Card moved to Contacted.'); setTimeout(route, 300); });
+    var lc = document.getElementById('log-call');
+    if (lc) lc.addEventListener('submit', function (e) { e.preventDefault(); var m = fire(id, 'call', { logged: true, note: lc.note.value.trim() }); toast(m ? 'Call logged. Card moved to Contacted.' : 'Call logged.'); route(); });
     var jd = document.getElementById('jobdate');
-    if (jd) jd.addEventListener('change', function () {
-      update(id, function (l) { l.jobDate = jd.value; l.days = l.days || 2; if (l.stage === 'won') l.stage = 'scheduled'; }, 'Scheduled for ' + nice(fromYmd(jd.value), true));
-      toast('Scheduled.'); route();
-    });
+    if (jd) jd.addEventListener('change', function () { if (!jd.value) return; fire(id, 'dateSet', { date: jd.value }); toast('Date set. Card moved to Scheduled.'); route(); });
+    var jc = document.getElementById('jobdate-change');
+    if (jc) jc.addEventListener('change', function () { if (!jc.value) return; update(id, function (l) { l.jobDate = jc.value; }, 'Job date changed to ' + nice(fromYmd(jc.value), true)); toast('Date changed.'); route(); });
+    var md = document.getElementById('mark-done');
+    if (md) md.addEventListener('click', function () { fire(id, 'done'); toast('Job done. Card moved to Done, and the review request went out.'); route(); });
+    var rp = document.getElementById('record-pay');
+    if (rp) rp.addEventListener('click', function () { var l = get(id); fire(id, 'finalPayment', { amount: balanceFor(l), how: 'cash or check' }); toast('Payment recorded. Card moved to Paid.'); route(); });
+    view.querySelectorAll('[data-simone]').forEach(function (b) { b.addEventListener('click', function () { var msg = simulate(b.dataset.simone, get(id)); toast(msg); route(); }); });
     var nf = document.getElementById('note-form');
     if (nf) nf.addEventListener('submit', function (e) { e.preventDefault(); var v = nf.n.value.trim(); if (!v) return; update(id, function () {}, v); route(); });
     view.querySelectorAll('[data-review]').forEach(function (a) {
-      a.addEventListener('click', function () { update(id, function (l) { l.reviewRequested = new Date().toISOString(); }, 'Review request sent by ' + (a.dataset.review === 'sms' ? 'text' : 'email')); setTimeout(route, 400); });
+      a.addEventListener('click', function () { update(id, function () {}, 'Review reminder sent by ' + (a.dataset.review === 'sms' ? 'text' : 'email')); setTimeout(route, 400); });
     });
   };
 
   // ---------- ESTIMATE BUILDER ----------
+  // Square feet from the deck details, or from text like "16 x 12" / "about 300 sq ft".
+  function sqftOf(d) {
+    if (d.sqft) return d.sqft;
+    var m = /(\d+(?:\.\d+)?)\s*[x×X]\s*(\d+(?:\.\d+)?)/.exec(d.size || ''); if (m) return Math.round(m[1] * m[2]);
+    m = /(\d+)\s*sq/.exec(d.size || ''); return m ? +m[1] : 0;
+  }
   function defaultDoc(l) {
-    var p = C.pricing, d = l.deck || {};
+    var p = C.pricing, d = Object.assign({}, l.deck || {}); d.sqft = sqftOf(d);
     var fin = p.finishes[d.finish] || p.finishes['semi-transparent'];
     var cond = p.condition[d.condition] || p.condition.good;
     var rate = Math.round(((fin.low + fin.high) / 2) * cond.mult * 100) / 100;
@@ -345,14 +491,14 @@
   function Estimate(id) {
     var l = get(id);
     if (!l) return '<p class="empty">Not found.</p>';
-    if (!draft || draft.id !== id) draft = { id: id, doc: JSON.parse(JSON.stringify(l.estimateDoc && l.estimateDoc.lines.length ? l.estimateDoc : defaultDoc(l))) };
+    if (!draft || draft.id !== id) draft = { id: id, doc: JSON.parse(JSON.stringify(l.quoteDraft || (l.estimateDoc && l.estimateDoc.lines.length ? l.estimateDoc : defaultDoc(l)))) };
     var doc = draft.doc, t = calcDoc(doc), B = C.business, w = C.warranty;
     var rows = doc.lines.map(function (x, i) {
       return '<tr><td><input data-i="' + i + '" data-k="label" value="' + esc(x.label) + '" aria-label="Item"></td><td><input data-i="' + i + '" data-k="qty" type="number" step="any" value="' + esc(x.qty) + '" aria-label="Quantity"></td><td class="unit">' + esc(x.unit || '') + '</td><td><input data-i="' + i + '" data-k="price" type="number" step="any" value="' + esc(x.price) + '" aria-label="Price each"></td><td class="amt">' + money((+x.qty || 0) * (+x.price || 0)) + '</td><td><button class="x" data-del="' + i + '" aria-label="Remove line">×</button></td></tr>';
     }).join('');
     var addons = (C.pricing.addOns || []).map(function (a) { return '<button class="fchip" data-addon="' + a.id + '">+ ' + esc(a.label) + '</button>'; }).join('');
     return '<a class="back no-print" href="#customer/' + id + '">← ' + esc(l.name) + '</a>' +
-      head('Estimate', 'Change any number. Totals update as you type.', '<div class="row no-print"><button class="b b-outline" id="print">Print / PDF</button><button class="b b-cedar" id="save-est">Save &amp; mark sent</button></div>') +
+      head('Quote', 'Change any number. Totals update as you type. Sending it moves the card to Quote Sent.', '<div class="row no-print"><button class="b b-ghost" id="print">Print / PDF</button><button class="b b-outline" id="save-draft">Save draft</button><button class="b b-cedar" id="save-est">Send quote</button></div>') +
       '<div class="est-doc">' +
         '<div class="est-top"><div><strong class="est-biz">' + esc(B.name) + '</strong><span>' + esc(B.street) + ', ' + esc(B.city) + ', ' + esc(B.state) + ' ' + esc(B.zip) + '</span><span>' + esc(B.phone) + ' · ' + esc(B.email) + '</span><span>' + esc(B.license) + '</span></div>' +
           '<div class="est-for"><span class="mono">Estimate for</span><strong>' + esc(l.name) + '</strong><span>' + esc(l.address || '') + '</span><span>' + esc(l.phone || '') + '</span><span>' + nice(new Date(), true) + '</span></div></div>' +
@@ -386,10 +532,16 @@
     document.getElementById('disc').addEventListener('change', function (e) { doc.discount = +e.target.value || 0; route(); });
     document.getElementById('dep').addEventListener('change', function (e) { doc.depositPct = +e.target.value || 0; route(); });
     document.getElementById('print').addEventListener('click', function () { window.print(); });
+    document.getElementById('save-draft').addEventListener('click', function () {
+      var t = calcDoc(doc); doc.total = t.total;
+      update(id, function (l) { l.quoteDraft = doc; }, 'Quote draft saved: ' + money(t.total));
+      toast('Draft saved. The card stays where it is until you send it.');
+    });
     document.getElementById('save-est').addEventListener('click', function () {
-      var t = calcDoc(doc); doc.total = t.total; doc.sentAt = new Date().toISOString();
-      update(id, function (l) { l.estimateDoc = doc; if (['new', 'contacted'].indexOf(l.stage) > -1) l.stage = 'estimate'; }, 'Estimate sent: ' + money(t.total));
-      draft = null; toast('Saved. Marked as Estimate Sent.'); location.hash = '#customer/' + id;
+      var t = calcDoc(doc); doc.total = t.total;
+      if (!t.total) { toast('Add the deck size or prices first. A $0 quote can\'t be sent.'); return; }
+      var moved = fire(id, 'quoteSent', { doc: doc });
+      draft = null; toast(moved ? 'Quote sent. Card moved to Quote Sent.' : 'Quote sent.'); location.hash = '#customer/' + id;
     });
   };
 
@@ -447,7 +599,7 @@
       });
     });
     view.querySelectorAll('[data-sched]').forEach(function (inp) {
-      inp.addEventListener('change', function () { update(inp.dataset.sched, function (l) { l.jobDate = inp.value; l.days = 2; l.stage = 'scheduled'; }, 'Scheduled for ' + nice(fromYmd(inp.value), true)); toast('Booked.'); route(); });
+      inp.addEventListener('change', function () { if (!inp.value) return; fire(inp.dataset.sched, 'dateSet', { date: inp.value }); toast('Date set. Card moved to Scheduled.'); route(); });
     });
   };
 
@@ -486,11 +638,13 @@
     view.querySelectorAll('[data-repeat]').forEach(function (b) {
       b.addEventListener('click', function () {
         var o = get(b.dataset.repeat);
-        DS.addLead({ name: o.name, phone: o.phone, email: o.email, address: o.address, source: 'reminder', stage: 'contacted', color: o.color,
+        var now = new Date().toISOString();
+        DS.addLead({ name: o.name, phone: o.phone, email: o.email, address: o.address, source: 'reminder', stageAt: now, color: o.color,
+          history: [{ at: now, text: 'New lead from a re-coat reminder', event: 'lead' }],
           deck: { sqft: o.deck && o.deck.sqft, finish: o.deck && o.deck.finish, condition: 'good', size: o.deck && o.deck.sqft ? o.deck.sqft + ' sq ft' : '' },
           notes: 'Repeat customer. Maintenance coat, same color' + (o.color ? ' (' + o.color.name + ')' : '') + '.' });
         update(o.id, function (l) { l.reminded = l.reminded || new Date().toISOString(); }, 'Added a re-coat job to the pipeline');
-        toast('Added to pipeline as Contacted.'); route();
+        toast('Added to the pipeline as a Lead.'); route();
       });
     });
   };
