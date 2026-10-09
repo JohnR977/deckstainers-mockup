@@ -4,7 +4,7 @@
 
 ## 1. The links
 
-The site is built and committed, but **it isn't on GitHub yet**. This Mac doesn't have the GitHub command-line tool, and creating the repo is your call, so I stopped short of publishing anything. The one-paste steps are in **section 8**. Once that's done, these are the links:
+**It's live** (published 2026-10-08, repo [github.com/JohnR977/deckstainers-mockup](https://github.com/JohnR977/deckstainers-mockup)). Every change saved to `main` rebuilds and republishes the site automatically in about a minute; watch it in the repo's **Actions** tab.
 
 | What | Link | Login |
 |---|---|---|
