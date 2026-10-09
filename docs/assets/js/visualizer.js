@@ -17,20 +17,6 @@
   var sampleId = null, hasMask = false;
   var dataRoot = document.body.dataset.root || '../';
 
-  // Stain behavior by opacity. alpha = how much the stain covers; grain = how much wood texture survives.
-  var MODES = {
-    'transparent':      { alpha: 0.55, grain: 1.0 },
-    'semi-transparent': { alpha: 0.80, grain: 0.85 },
-    'solid':            { alpha: 0.95, grain: 0.28 }
-  };
-  // Rough outlines for the sample photos (fractions of width/height). Homeowners refine with the brush.
-  var PRESETS = {
-    wooded: [[0.20, 1], [0.26, 0.86], [0.35, 0.72], [0.43, 0.67], [0.52, 0.665], [0.70, 0.66], [0.70, 0.70], [0.68, 0.74], [0.72, 0.80], [0.76, 1]],
-    rooftop: [[0, 0.52], [0.18, 0.52], [0.18, 0.545], [1, 0.555], [1, 1], [0, 1]],
-    boards: [[0, 0], [1, 0], [1, 1], [0, 1]]
-  };
-
-  function hexToRgb(h) { var n = parseInt(h.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
   function setStep(n) { document.querySelectorAll('.viz-steps [data-step]').forEach(function (s) { s.classList.toggle('is-on', +s.dataset.step <= n); }); }
 
   // ---------- load an image ----------
@@ -42,8 +28,7 @@
       [base, outC, maskC, ui].forEach(function (c) { c.width = W; c.height = H; });
       bctx.drawImage(img, 0, 0, W, H);
       orig = bctx.getImageData(0, 0, W, H);
-      lum = new Float32Array(W * H);
-      for (var i = 0, p = 0; i < lum.length; i++, p += 4) lum[i] = (0.2126 * orig.data[p] + 0.7152 * orig.data[p + 1] + 0.0722 * orig.data[p + 2]) / 255;
+      lum = Tint.luminance(orig.data);
       outData = octx.createImageData(W, H);
       outData.data.set(orig.data);
       octx.putImageData(outData, 0, 0);
@@ -70,7 +55,7 @@
   document.querySelectorAll('.viz-sample').forEach(function (b) {
     b.addEventListener('click', function () {
       var s = window.SITE.samples.filter(function (x) { return x.id === b.dataset.sample; })[0];
-      load(dataRoot + 'assets/img/' + s.src, s.id);
+      load(dataRoot + 'assets/img/' + s.file, s.id);
     });
   });
   $('viz-new').addEventListener('click', function () {
@@ -162,45 +147,24 @@
   });
   $('viz-clear').addEventListener('click', function () { snapshot(); mctx.clearRect(0, 0, W, H); hasMask = false; render(null); });
   $('viz-toggle-mask').addEventListener('click', function (e) { var on = maskC.classList.toggle('is-visible'); e.currentTarget.classList.toggle('is-on', on); });
+  // Each sample photo's rough deck outline comes from site.config.json → visualizer.samples[].deckOutline
   function applyPreset() {
-    var pts = PRESETS[sampleId]; if (!pts) return;
-    fillPoly(pts.map(function (p) { return { x: p[0] * W, y: p[1] * H }; }), false);
+    var s = window.SITE.samples.filter(function (x) { return x.id === sampleId; })[0];
+    if (!s || !s.deckOutline) return;
+    fillPoly(s.deckOutline.map(function (p) { return { x: p[0] * W, y: p[1] * H }; }), false);
   }
   $('viz-auto').addEventListener('click', applyPreset);
 
-  // ---------- tint ----------
-  function computeMean(m) {
-    var sum = 0, n = 0;
-    for (var i = 0, p = 3; i < lum.length; i += 3, p += 12) { var a = m[p]; if (a > 128) { sum += lum[i]; n++; } }
-    meanL = n ? sum / n : 0.5;
-  }
+  // ---------- tint (math lives in tint.js, shared with the home page teaser) ----------
   function render(rect) {
     if (!orig) return;
     var full = !rect;
     var r = rect || { x0: 0, y0: 0, x1: W, y1: H };
-    var rw = r.x1 - r.x0, rh = r.y1 - r.y0;
-    if (rw <= 0 || rh <= 0) return;
-    var m = mctx.getImageData(r.x0, r.y0, rw, rh).data;
-    if (full) computeMean(m);
-    var mode = MODES[color.type], c = hexToRgb(color.hex);
-    var cl = (0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]) / 255 || 0.01;
-    var od = orig.data, out = outData.data, any = false;
-    for (var y = 0; y < rh; y++) {
-      for (var x = 0; x < rw; x++) {
-        var mi = (y * rw + x) * 4, gi = (r.y0 + y) * W + (r.x0 + x), p = gi * 4;
-        var a = m[mi + 3] / 255 * mode.alpha;
-        if (a <= 0) { out[p] = od[p]; out[p + 1] = od[p + 1]; out[p + 2] = od[p + 2]; continue; }
-        any = true;
-        // target lightness = stain lightness, plus this pixel's difference from the deck average
-        var t = cl + (lum[gi] - meanL) * mode.grain;
-        var f = Math.max(0.05, t) / cl;
-        var tr = c[0] * f, tg = c[1] * f, tb = c[2] * f;
-        out[p] = od[p] + (tr - od[p]) * a;
-        out[p + 1] = od[p + 1] + (tg - od[p + 1]) * a;
-        out[p + 2] = od[p + 2] + (tb - od[p + 2]) * a;
-      }
-    }
-    octx.putImageData(outData, 0, 0, r.x0, r.y0, rw, rh);
+    if (r.x1 - r.x0 <= 0 || r.y1 - r.y0 <= 0) return;
+    var m = mctx.getImageData(r.x0, r.y0, r.x1 - r.x0, r.y1 - r.y0).data;
+    if (full) meanL = Tint.meanOf(lum, m);
+    Tint.apply({ orig: orig.data, out: outData.data, mask: m, lum: lum, mean: meanL, width: W, rect: r, hex: color.hex, type: color.type });
+    octx.putImageData(outData, 0, 0, r.x0, r.y0, r.x1 - r.x0, r.y1 - r.y0);
     if (full) {
       $('viz-get').disabled = !hasMask;
       if (hasMask) setStep(3);
@@ -213,7 +177,7 @@
     color = { hex: btn.dataset.hex, name: btn.dataset.name, type: btn.dataset.opacity };
     $('viz-chip').style.background = color.hex;
     $('viz-chosen-name').textContent = color.name;
-    $('viz-chosen-type').textContent = color.type.charAt(0).toUpperCase() + color.type.slice(1);
+    $('viz-chosen-type').textContent = btn.dataset.typeLabel;
     render(null);
   }
   document.querySelectorAll('.swatch').forEach(function (b) { b.addEventListener('click', function () { choose(b); }); });
@@ -237,8 +201,8 @@
     x.fillStyle = '#1d221f'; x.fillRect(0, 0, c.width, c.height);
     x.drawImage(base, 0, 0); x.drawImage(outC, W + gap, 0);
     x.fillStyle = '#f5f0e6'; x.font = Math.round(bar * 0.38) + 'px Georgia, serif'; x.textBaseline = 'middle';
-    x.fillText('Before', gap, H + bar / 2);
-    x.fillText('After: ' + color.name + ' (' + color.type + ')', W + gap * 2, H + bar / 2);
+    x.fillText(window.SITE.words.viz.before, gap, H + bar / 2);
+    x.fillText(window.SITE.words.viz.after + ' ' + color.name + ' (' + color.type + ')', W + gap * 2, H + bar / 2);
     x.textAlign = 'right'; x.font = Math.round(bar * 0.28) + 'px sans-serif'; x.fillStyle = '#d99b62';
     x.fillText(window.SITE.name + ' · ' + window.SITE.phone, c.width - gap, H + bar / 2);
     return c;

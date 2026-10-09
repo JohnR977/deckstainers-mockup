@@ -5,8 +5,10 @@
   "description": "Turnkey staining-contractor website + simple CRM for Stain & Seal Supply Pro Partners. Mockup: deckstainers.com, Chattanooga.",
   "type": "module",
   "scripts": {
-    "build": "node src/build.mjs site.config.json docs && node src/build.mjs configs/knoxville.config.json docs/demo-knoxville",
-    "build:main": "node src/build.mjs site.config.json docs",
-    "serve": "python3 -m http.server 8080 --directory docs"
+    "build": "node src/build.mjs partners/chattanooga docs && node src/build.mjs partners/knoxville docs/demo-knoxville",
+    "check": "node src/check.mjs",
+    "check:online": "node src/check.mjs --online",
+    "serve": "python3 -m http.server 8080 --directory docs",
+    "audit": "node tools/audit.mjs docs && node tools/audit.mjs docs/demo-knoxville"
   }
 }

@@ -1,6 +1,6 @@
 # Photo & asset credits
 
-Every image on the site is listed here with its source and license. **All stock photos are placeholders.** Swap in real job photos from the Pro Partner before launch (set `placeholder: false` in the config once a photo is your own).
+Every image on the site is listed here with its source and license. Images now live in each partner's folder: `partners/chattanooga/images/` and `partners/knoxville/images/` (the Knoxville folder also holds `logo-holston-hollow.svg`, a made-up demo logo drawn for this project). **All stock photos are placeholders.** Swap in real job photos from the Pro Partner before launch (set `placeholder: false` in the config once a photo is your own).
 
 All photos below were found through [Openverse](https://openverse.org) and checked on the source page. CC0 means "no rights reserved": free for commercial use, no attribution required. We credit them anyway.
 
@@ -33,7 +33,7 @@ All photos below were found through [Openverse](https://openverse.org) and check
 | File | How it was made | Used on site |
 |---|---|---|
 | `ba-before.jpg`, `ba-after.jpg` | `ba-after` is `deck-stained-topdown.jpg`. `ba-before` is the same photo digitally grayed and weathered. **It's an illustration, not a real job.** The site labels it that way. Replace with a real before/after pair. | yes |
-| `teaser-0.jpg` … `teaser-4.jpg` | `hero-wooded-deck.jpg` with only the deck boards tinted by the visualizer's own color math (`tools/render-teaser.py`). | yes |
+| *(home page teaser)* | No longer an image file: the browser tints the first visualizer sample photo live, with the same math as the visualizer (`src/assets/js/tint.js`). | — |
 | `assets/favicon.svg` | Generated from the config (logo mark + theme colors). | yes |
 
 ## Fonts

@@ -28,7 +28,7 @@ File: `src/assets/js/visualizer.js`. Everything runs in the homeowner's browser.
 
 Edges are only as good as the homeowner's brush work. That's the main thing an upgrade fixes.
 
-The homepage teaser images (`teaser-0…4.jpg`) are real output of the same math, rendered by `tools/render-teaser.py`.
+The tint math lives in `src/assets/js/tint.js`, shared with the home page teaser, which tints the first sample photo live in the colors listed in `visualizer.teaserColors`. Sample photos, their deck outlines and teaser colors all come from the partner's `site.config.json` → `visualizer`.
 
 ## Upgrade 1: auto-masking with Segment Anything (recommended next)
 

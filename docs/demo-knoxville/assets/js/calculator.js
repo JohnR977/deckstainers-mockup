@@ -3,6 +3,8 @@
   var form = document.getElementById('calc');
   if (!form) return;
   var P = window.SITE.pricing;
+  var Wd = window.SITE.words.calc;
+  var say = function (key, n) { return Wd[key].replace('{n}', n); };
   var out = function (k) { return document.querySelector('[data-out="' + k + '"]'); };
   var fmt = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
   var round = function (n, to) { return Math.round(n / to) * to; };
@@ -21,12 +23,12 @@
     var lo = 0, hi = 0;
 
     var dLo = sqft * fin.low * cond.mult, dHi = sqft * fin.high * cond.mult;
-    lines.push(['Deck floor · ' + Math.round(sqft) + ' sq ft', dLo, dHi]);
-    if (cond.mult !== 1) lines.push(['Includes prep for ' + cond.label.split(' — ')[0].toLowerCase() + ' wood', null, null]);
+    lines.push([say('floorLine', Math.round(sqft)), dLo, dHi]);
+    if (cond.mult !== 1) lines.push([say('prepLine', cond.label.split(' — ')[0].toLowerCase()), null, null]);
     lo += dLo; hi += dHi;
 
-    if (rail) { var rL = rail * P.railingPerFt.low * cond.mult, rH = rail * P.railingPerFt.high * cond.mult; lines.push(['Railing · ' + rail + ' ft', rL, rH]); lo += rL; hi += rH; }
-    if (stairs) { var sL = stairs * P.stairPerStep.low, sH = stairs * P.stairPerStep.high; lines.push(['Stairs · ' + stairs + ' steps', sL, sH]); lo += sL; hi += sH; }
+    if (rail) { var rL = rail * P.railingPerFt.low * cond.mult, rH = rail * P.railingPerFt.high * cond.mult; lines.push([say('railLine', rail), rL, rH]); lo += rL; hi += rH; }
+    if (stairs) { var sL = stairs * P.stairPerStep.low, sH = stairs * P.stairPerStep.high; lines.push([say('stairLine', stairs), sL, sH]); lo += sL; hi += sH; }
 
     var addons = [];
     form.querySelectorAll('input[name=addon]:checked').forEach(function (cb) {
@@ -48,7 +50,7 @@
     out('deposit').textContent = fmt(lo * P.depositPercent / 100) + '–' + fmt(hi * P.depositPercent / 100);
     out('lines').innerHTML = lines.map(function (l) {
       return '<div><dt>' + l[0] + '</dt><dd>' + (l[1] == null ? '' : (Math.round(l[1]) === Math.round(l[2]) ? fmt(l[1]) : fmt(l[1]) + '–' + fmt(l[2]))) + '</dd></div>';
-    }).join('') + (minHit ? '<div><dt>Minimum job applies</dt><dd>' + fmt(P.minimumJob) + '</dd></div>' : '');
+    }).join('') + (minHit ? '<div><dt>' + Wd.minimumLine + '</dt><dd>' + fmt(P.minimumJob) + '</dd></div>' : '');
 
     state = {
       deck: { sqft: Math.round(sqft), size: mode === 'lw' ? num('deckLength') + ' × ' + num('deckWidth') : Math.round(sqft) + ' sq ft', rail: rail, stairs: stairs,
@@ -63,7 +65,7 @@
 
   DS.extra.calculator = function (d) {
     d.deck = state.deck; d.estimate = state.estimate;
-    d.notes = 'Calculator range ' + fmt(state.estimate.low) + '–' + fmt(state.estimate.high) + '.';
+    d.notes = say('leadNote', fmt(state.estimate.low) + '–' + fmt(state.estimate.high));
     return d;
   };
 })();

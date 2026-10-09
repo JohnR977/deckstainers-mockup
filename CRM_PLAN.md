@@ -39,7 +39,7 @@ Homeowner's browser                     Pro Partner's phone
 
 **Recommended stack: Supabase.** One vendor gives you Postgres, logins, file storage, and row-level security (each partner sees only their own customers). It also has a generous free tier to start. **Neon** plus a separate auth provider is a fine alternative if Caleb's team prefers it.
 
-- **Hosting the websites:** stays static (GitHub Pages, Cloudflare Pages or Netlify). Each partner gets their own build from their own `site.config.json`. A custom domain per partner (e.g. `deckstainers.com` for the Chattanooga partner).
+- **Hosting the websites:** stays static (GitHub Pages, Cloudflare Pages or Netlify). Each partner gets their own build from their own folder (`partners/<name>/site.config.json` + `images/`). Dashboard settings stay apart in `crm.config.json`. A custom domain per partner (e.g. `deckstainers.com` for the Chattanooga partner).
 - **Forms:** the site posts to one API endpoint (`POST /api/leads`) with the partner's `slug`. The endpoint checks a hidden honeypot field and a rate limit, resizes photos, stores them in a bucket, and inserts the lead.
 - **Logins:** email magic link or phone code (no passwords to forget). Roles: `owner`, `crew` (crew can see the schedule and customer cards but not prices, optional), and `admin` (Stain & Seal Supply staff, read-only across partners for support).
 

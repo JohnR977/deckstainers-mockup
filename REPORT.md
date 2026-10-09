@@ -43,7 +43,7 @@ Tip: send a test estimate from the website, then open the dashboard in the **sam
 
 **Pro Partner Dashboard (CRM):** fake login, sample fictional customers, Leads (filter by source), Pipeline (New → Contacted → Estimate Sent → Won → Scheduled → Done → Paid; tap-to-advance, drag on desktop), Customer card (call/text/email/map, deck details, photos, color, notes, history), Estimate builder (printable/PDF), Schedule (month calendar, 2-day jobs, rain days, auto-reschedule), Re-coat reminders (overdue / due soon, prewritten text), Review request. Big buttons and a bottom tab bar on phones. Written plainly.
 
-**Turnkey part:** `site.config.json` holds name, phone, city, service areas, colors, logo mark, prices, maintenance plans, warranty, stain colors, photos and the demo login. `configs/knoxville.config.json` is the fictional **Holston Hollow Deck Co.**, built by the same code.
+**Turnkey part:** each business is **one folder**: `partners/chattanooga/` holds `site.config.json` (every word on every page, every photo name, colors, fonts, logo, prices, warranty, service areas, articles, sources) plus an `images/` folder. Dashboard settings sit apart in `crm.config.json`, so marketing never touches them. `partners/knoxville/` is the fictional **Holston Hollow Deck Co.**, built by the same code with its own image logo, fonts and colors. **[`MARKETING_GUIDE.md`](MARKETING_GUIDE.md)** shows a non-programmer how to change any picture, headline, color, font or the logo on the GitHub website. A checker explains any mistake in plain English, and the site republishes itself in about 2 minutes.
 
 **Docs:** `CRM_PLAN.md` (how the real CRM works: Supabase, logins, texting, email, automations, build order), `VISUALIZER_PLAN.md` (Segment Anything auto-masking, optional AI enhance pass), `CREDITS.md` (every photo with source and license), `README.md` (how to build and add a partner).
 
@@ -77,13 +77,13 @@ Every fact on the site was re-checked against its source. A few research items w
 
 | Item | Where | Notes |
 |---|---|---|
-| **Business name, owner, street address, phone, email** | `site.config.json` → `business` | Phone and email are fake (555 / .example). |
+| **Business name, owner, street address, phone, email** | `partners/chattanooga/site.config.json` → `business` | Phone and email are fake (555 / .example). |
 | **License #, insurance amount, years in business, star rating, review count** | `business` | Shown with SAMPLE tags until `"sample": false`. |
 | **Reviews** | `reviews.items` | Real Google reviews with the customer's OK, or leave the list empty to hide the section. |
 | **Prices, minimum, deposit, add-ons** | `pricing` | Set your own. |
 | **Maintenance plan prices** | `maintenancePlans` | |
 | **Warranty terms** | `warranty` | Have a lawyer read them. |
-| **All photos** | `photos` + `src/assets/img/` | Real job photos at 1600–2000 px. Especially the before/after pair. |
+| **All photos** | `partners/chattanooga/images/` (see MARKETING_GUIDE.md §5) | Real job photos at 1600–2000 px. Especially the before/after pair. |
 | **Owner story** | About page | Placeholder paragraph marked Sample. |
 | **Google review link** | `business.googleReviewUrl` | Used by the dashboard's review request. |
 | **Brands carried** | `business.brandsCarried` | Optional; enables real color names. |
@@ -114,7 +114,8 @@ Checked on vendor pricing pages 2026-10-08. Confirm before quoting a partner.
    cd "/Users/rothimac/orca/workspaces/Deck Stainers Mock Website./leviathan" && git remote add origin https://github.com/JohnR977/deckstainers-mockup.git && git push -u origin leviathan:main
    ```
    (If it asks for a password, GitHub wants a personal access token, not your account password. Or install the GitHub tool with `brew install gh`, run `gh auth login`, and push again.)
-3. On GitHub: **Settings → Pages → Source: Deploy from a branch → Branch: `main`, folder: `/docs` → Save.** Wait about a minute.
+3. On GitHub: **Settings → Pages → Source: GitHub Actions.** That's it. The included workflow (`.github/workflows/deploy.yml`) checks the config, builds both sites and publishes them, now and every time anyone saves a change. Watch it in the **Actions** tab. A green check means it's live.
+   *(Fallback: Source "Deploy from a branch" → `main` / `/docs` also works, but then changes made on the GitHub website won't rebuild automatically.)*
 4. Open https://johnr977.github.io/deckstainers-mockup/
 
 The data is fictional and every page has `noindex`, so a public repo is fine, as the handoff noted.

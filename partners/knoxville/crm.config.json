@@ -1,0 +1,10 @@
+{
+  "_help": "Settings for the Pro Partner Dashboard (CRM). Not for marketing — leave alone.",
+  "demoUser": "demo",
+  "demoPass": "knox2026",
+  "reminderYears": {
+    "transparent": 2,
+    "semi-transparent": 2,
+    "solid": 3
+  }
+}

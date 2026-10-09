@@ -6,7 +6,7 @@
 <title>Deck Stain Color Visualizer — Try Colors on Your Deck | DeckStainers</title>
 <meta name="description" content="Upload a photo of your deck and try transparent, semi-transparent and solid stain colors. Free tool from DeckStainers of Chattanooga.">
 <meta name="robots" content="noindex, nofollow">
-<!-- MOCKUP: remove the robots noindex line at launch (set "mockup": false in site.config.json) -->
+<!-- MOCKUP: set "mockup": false in site.config.json at launch to remove noindex -->
 <link rel="canonical" href="https://johnr977.github.io/deckstainers-mockup/visualizer/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Deck Stain Color Visualizer — Try Colors on Your Deck | DeckStainers">
@@ -16,13 +16,12 @@
 <meta property="og:site_name" content="DeckStainers of Chattanooga">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1f3a2e">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&amp;family=Public+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/site.css">
-<style>:root{--ink:#1d221f;--forest:#1f3a2e;--forest-deep:#142820;--cedar:#b0602b;--cedar-light:#d99b62;--paper:#f5f0e6;--paper-deep:#ebe3d3}</style>
-
+<style>:root{--ink:#1d221f;--forest:#1f3a2e;--forest-deep:#142820;--cedar:#b0602b;--cedar-light:#d99b62;--paper:#f5f0e6;--paper-deep:#ebe3d3;--serif:'Newsreader', Georgia, 'Times New Roman', serif;--sans:'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;--mono:'IBM Plex Mono', ui-monospace, Menlo, monospace}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://johnr977.github.io/deckstainers-mockup/"},{"@type":"ListItem","position":2,"name":"Color Visualizer","item":"https://johnr977.github.io/deckstainers-mockup/visualizer/"}]}</script>
 </head>
 <body class="is-viz" data-site="chattanooga" data-root="../">
@@ -60,11 +59,7 @@
 <section class="viz-app" id="viz">
   <div class="wrap viz-app-grid">
     <div class="viz-stage-col">
-      <div class="viz-steps" role="list">
-        <span role="listitem" data-step="1" class="is-on">1 · Photo</span>
-        <span role="listitem" data-step="2">2 · Mark the deck</span>
-        <span role="listitem" data-step="3">3 · Pick a color</span>
-      </div>
+      <div class="viz-steps" role="list"><span role="listitem" data-step="1" class="is-on">1 · Photo</span><span role="listitem" data-step="2">2 · Mark the deck</span><span role="listitem" data-step="3">3 · Pick a color</span></div>
       <div class="viz-stage" id="viz-stage">
         <div class="viz-empty" id="viz-empty">
           <p><strong>Start with a photo of your deck</strong></p>
@@ -106,19 +101,19 @@
       <div class="swatch-group">
         <h3>Transparent</h3>
         <div class="swatches">
-          <button type="button" class="swatch" data-hex="#c99a63" data-opacity="transparent" data-name="Clear Natural" style="--c:#c99a63"><span class="swatch-chip"></span><span class="swatch-name">Clear Natural</span></button><button type="button" class="swatch" data-hex="#c98a3c" data-opacity="transparent" data-name="Honey Toner" style="--c:#c98a3c"><span class="swatch-chip"></span><span class="swatch-name">Honey Toner</span></button><button type="button" class="swatch" data-hex="#b8673a" data-opacity="transparent" data-name="Cedar Toner" style="--c:#b8673a"><span class="swatch-chip"></span><span class="swatch-name">Cedar Toner</span></button>
+          <button type="button" class="swatch" data-hex="#c99a63" data-opacity="transparent" data-type-label="Transparent" data-name="Clear Natural" style="--c:#c99a63"><span class="swatch-chip"></span><span class="swatch-name">Clear Natural</span></button><button type="button" class="swatch" data-hex="#c98a3c" data-opacity="transparent" data-type-label="Transparent" data-name="Honey Toner" style="--c:#c98a3c"><span class="swatch-chip"></span><span class="swatch-name">Honey Toner</span></button><button type="button" class="swatch" data-hex="#b8673a" data-opacity="transparent" data-type-label="Transparent" data-name="Cedar Toner" style="--c:#b8673a"><span class="swatch-chip"></span><span class="swatch-name">Cedar Toner</span></button>
         </div>
       </div>
       <div class="swatch-group">
         <h3>Semi-transparent</h3>
         <div class="swatches">
-          <button type="button" class="swatch is-on" data-hex="#a85a2c" data-opacity="semi-transparent" data-name="Cedar" style="--c:#a85a2c"><span class="swatch-chip"></span><span class="swatch-name">Cedar</span></button><button type="button" class="swatch" data-hex="#8e3b25" data-opacity="semi-transparent" data-name="Redwood" style="--c:#8e3b25"><span class="swatch-chip"></span><span class="swatch-name">Redwood</span></button><button type="button" class="swatch" data-hex="#7a4a2a" data-opacity="semi-transparent" data-name="Chestnut" style="--c:#7a4a2a"><span class="swatch-chip"></span><span class="swatch-name">Chestnut</span></button><button type="button" class="swatch" data-hex="#5a3a24" data-opacity="semi-transparent" data-name="Walnut" style="--c:#5a3a24"><span class="swatch-chip"></span><span class="swatch-name">Walnut</span></button><button type="button" class="swatch" data-hex="#8b8378" data-opacity="semi-transparent" data-name="Driftwood Gray" style="--c:#8b8378"><span class="swatch-chip"></span><span class="swatch-name">Driftwood Gray</span></button><button type="button" class="swatch" data-hex="#9c7f5e" data-opacity="semi-transparent" data-name="Weathered Oak" style="--c:#9c7f5e"><span class="swatch-chip"></span><span class="swatch-name">Weathered Oak</span></button>
+          <button type="button" class="swatch is-on" data-hex="#a85a2c" data-opacity="semi-transparent" data-type-label="Semi-transparent" data-name="Cedar" style="--c:#a85a2c"><span class="swatch-chip"></span><span class="swatch-name">Cedar</span></button><button type="button" class="swatch" data-hex="#8e3b25" data-opacity="semi-transparent" data-type-label="Semi-transparent" data-name="Redwood" style="--c:#8e3b25"><span class="swatch-chip"></span><span class="swatch-name">Redwood</span></button><button type="button" class="swatch" data-hex="#7a4a2a" data-opacity="semi-transparent" data-type-label="Semi-transparent" data-name="Chestnut" style="--c:#7a4a2a"><span class="swatch-chip"></span><span class="swatch-name">Chestnut</span></button><button type="button" class="swatch" data-hex="#5a3a24" data-opacity="semi-transparent" data-type-label="Semi-transparent" data-name="Walnut" style="--c:#5a3a24"><span class="swatch-chip"></span><span class="swatch-name">Walnut</span></button><button type="button" class="swatch" data-hex="#8b8378" data-opacity="semi-transparent" data-type-label="Semi-transparent" data-name="Driftwood Gray" style="--c:#8b8378"><span class="swatch-chip"></span><span class="swatch-name">Driftwood Gray</span></button><button type="button" class="swatch" data-hex="#9c7f5e" data-opacity="semi-transparent" data-type-label="Semi-transparent" data-name="Weathered Oak" style="--c:#9c7f5e"><span class="swatch-chip"></span><span class="swatch-name">Weathered Oak</span></button>
         </div>
       </div>
       <div class="swatch-group">
         <h3>Solid</h3>
         <div class="swatches">
-          <button type="button" class="swatch" data-hex="#7b2e23" data-opacity="solid" data-name="Barn Red" style="--c:#7b2e23"><span class="swatch-chip"></span><span class="swatch-name">Barn Red</span></button><button type="button" class="swatch" data-hex="#5b3b26" data-opacity="solid" data-name="Saddle Brown" style="--c:#5b3b26"><span class="swatch-chip"></span><span class="swatch-name">Saddle Brown</span></button><button type="button" class="swatch" data-hex="#5d6164" data-opacity="solid" data-name="Slate Gray" style="--c:#5d6164"><span class="swatch-chip"></span><span class="swatch-name">Slate Gray</span></button><button type="button" class="swatch" data-hex="#34363a" data-opacity="solid" data-name="Charcoal" style="--c:#34363a"><span class="swatch-chip"></span><span class="swatch-name">Charcoal</span></button><button type="button" class="swatch" data-hex="#8d8d88" data-opacity="solid" data-name="Pewter" style="--c:#8d8d88"><span class="swatch-chip"></span><span class="swatch-name">Pewter</span></button><button type="button" class="swatch" data-hex="#33463a" data-opacity="solid" data-name="Forest" style="--c:#33463a"><span class="swatch-chip"></span><span class="swatch-name">Forest</span></button>
+          <button type="button" class="swatch" data-hex="#7b2e23" data-opacity="solid" data-type-label="Solid" data-name="Barn Red" style="--c:#7b2e23"><span class="swatch-chip"></span><span class="swatch-name">Barn Red</span></button><button type="button" class="swatch" data-hex="#5b3b26" data-opacity="solid" data-type-label="Solid" data-name="Saddle Brown" style="--c:#5b3b26"><span class="swatch-chip"></span><span class="swatch-name">Saddle Brown</span></button><button type="button" class="swatch" data-hex="#5d6164" data-opacity="solid" data-type-label="Solid" data-name="Slate Gray" style="--c:#5d6164"><span class="swatch-chip"></span><span class="swatch-name">Slate Gray</span></button><button type="button" class="swatch" data-hex="#34363a" data-opacity="solid" data-type-label="Solid" data-name="Charcoal" style="--c:#34363a"><span class="swatch-chip"></span><span class="swatch-name">Charcoal</span></button><button type="button" class="swatch" data-hex="#8d8d88" data-opacity="solid" data-type-label="Solid" data-name="Pewter" style="--c:#8d8d88"><span class="swatch-chip"></span><span class="swatch-name">Pewter</span></button><button type="button" class="swatch" data-hex="#33463a" data-opacity="solid" data-type-label="Solid" data-name="Forest" style="--c:#33463a"><span class="swatch-chip"></span><span class="swatch-name">Forest</span></button>
         </div>
       </div>
       <p class="fine">Generic color names. Real stain looks different on every board, so we'll test it on your wood before we start.</p>
@@ -139,9 +134,7 @@
 </section>
 <section class="sec sec-tint">
   <div class="wrap three-up">
-    <div><h3>Why does it look different from the can?</h3><p>Stain soaks into wood, so the wood's own color shows through, especially on semi-transparent. Old gray wood, new yellow pine and red cedar all take the same stain differently. This tool keeps your wood's grain and light and dark spots, so it's closer to real than a color chip.</p></div>
-    <div><h3>Is my photo private?</h3><p>Yes. The image stays on your device while you work. It's only sent to us if you fill in the form to get the full-size image. See our <a href="../privacy/">privacy page</a>.</p></div>
-    <div><h3>Tips for a good photo</h3><p>Shoot in daylight but not in harsh noon sun. Stand back far enough to get the whole deck. Sweep the leaves off first if you can. Wet boards look darker, so wait until it's dry.</p></div>
+    <div><h3>Why does it look different from the can?</h3><p>Stain soaks into wood, so the wood's own color shows through, especially on semi-transparent. Old gray wood, new yellow pine and red cedar all take the same stain differently. This tool keeps your wood's grain and light and dark spots, so it's closer to real than a color chip.</p></div><div><h3>Is my photo private?</h3><p>Yes. The image stays on your device while you work. It's only sent to us if you fill in the form to get the full-size image. See our <a href="../privacy/">privacy page</a>.</p></div><div><h3>Tips for a good photo</h3><p>Shoot in daylight but not in harsh noon sun. Stand back far enough to get the whole deck. Sweep the leaves off first if you can. Wet boards look darker, so wait until it's dry.</p></div>
   </div>
 </section>
 
@@ -178,12 +171,7 @@
     <div>
       <h2 class="footer-h">Services</h2>
       <ul class="footer-list">
-        <li><a href="../services/deck-staining/">Deck Staining</a></li>
-        <li><a href="../services/deck-cleaning-restoration/">Cleaning &amp; Restoration</a></li>
-        <li><a href="../services/fence-staining/">Fence Staining</a></li>
-        <li><a href="../services/log-home-staining/">Log Homes &amp; Cabins</a></li>
-        <li><a href="../services/pergolas-porches/">Pergolas &amp; Porches</a></li>
-        <li><a href="../services/maintenance-plans/">Maintenance Plans</a></li>
+        <li><a href="../services/deck-staining/">Deck Staining</a></li><li><a href="../services/deck-cleaning-restoration/">Cleaning &amp; Restoration</a></li><li><a href="../services/fence-staining/">Fence Staining</a></li><li><a href="../services/log-home-staining/">Log Homes &amp; Cabins</a></li><li><a href="../services/pergolas-porches/">Pergolas &amp; Porches</a></li><li><a href="../services/maintenance-plans/">Maintenance Plans</a></li>
       </ul>
     </div>
     <div>
@@ -195,14 +183,7 @@
     <div>
       <h2 class="footer-h">Company</h2>
       <ul class="footer-list">
-        <li><a href="../pricing/">Prices &amp; Calculator</a></li>
-        <li><a href="../visualizer/">Color Visualizer</a></li>
-        <li><a href="../estimate/">Get an Estimate</a></li>
-        <li><a href="../warranty/">Warranty</a></li>
-        <li><a href="../learn/">Learn</a></li>
-        <li><a href="../about/">About</a></li>
-        <li><a href="../contact/">Contact</a></li>
-        <li><a href="../privacy/">Privacy</a></li>
+        <li><a href="../pricing/">Prices &amp; Calculator</a></li><li><a href="../visualizer/">Color Visualizer</a></li><li><a href="../estimate/">Get an Estimate</a></li><li><a href="../warranty/">Warranty</a></li><li><a href="../learn/">Learn</a></li><li><a href="../about/">About</a></li><li><a href="../contact/">Contact</a></li><li><a href="../privacy/">Privacy</a></li>
       </ul>
     </div>
   </div>
@@ -215,9 +196,10 @@
   <a href="tel:+14235550142" class="mobile-cta-call"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> Call</a>
   <a href="../estimate/" class="mobile-cta-est">Free Estimate</a>
 </div>
-<script>window.SITE={"slug":"chattanooga","name":"DeckStainers of Chattanooga","phone":"(423) 555-0142","pricing":{"_note":"SAMPLE numbers. Set your own. National averages for context: Angi reports about $2–$4 per sq ft for professional deck staining.","sample":true,"finishes":{"transparent":{"label":"Transparent / toner","low":2.1,"high":2.7},"semi-transparent":{"label":"Semi-transparent","low":2.4,"high":3.1},"solid":{"label":"Solid color","low":2.8,"high":3.6}},"condition":{"good":{"label":"Good — faded, no peeling","mult":1},"weathered":{"label":"Weathered — gray, rough, some mildew","mult":1.25},"peeling":{"label":"Peeling — old coating failing","mult":1.7}},"railingPerFt":{"low":6,"high":9},"stairPerStep":{"low":18,"high":28},"minimumJob":650,"depositPercent":25,"addOns":[{"id":"brighten","label":"Wood brightener","price":0.25,"unit":"sq ft"},{"id":"sand","label":"Sand rough boards","price":0.75,"unit":"sq ft"},{"id":"boards","label":"Replace a deck board","price":45,"unit":"board"},{"id":"screws","label":"Reset popped nails / screws","price":95,"unit":"job"}]},"stains":{"_note":"Generic color names only. If you carry specific brands, list them in business.brandsCarried and you can rename colors to match.","transparent":[{"name":"Clear Natural","hex":"#c99a63"},{"name":"Honey Toner","hex":"#c98a3c"},{"name":"Cedar Toner","hex":"#b8673a"}],"semi-transparent":[{"name":"Cedar","hex":"#a85a2c"},{"name":"Redwood","hex":"#8e3b25"},{"name":"Chestnut","hex":"#7a4a2a"},{"name":"Walnut","hex":"#5a3a24"},{"name":"Driftwood Gray","hex":"#8b8378"},{"name":"Weathered Oak","hex":"#9c7f5e"}],"solid":[{"name":"Barn Red","hex":"#7b2e23"},{"name":"Saddle Brown","hex":"#5b3b26"},{"name":"Slate Gray","hex":"#5d6164"},{"name":"Charcoal","hex":"#34363a"},{"name":"Pewter","hex":"#8d8d88"},{"name":"Forest","hex":"#33463a"}]},"reminderYears":{"transparent":2,"semi-transparent":2,"solid":3},"samples":[{"id":"wooded","label":"Backyard deck in the trees","src":"hero-wooded-deck.jpg"},{"id":"rooftop","label":"Open deck with bench","src":"deck-bench-boards.jpg"},{"id":"boards","label":"Close-up of deck boards","src":"deck-boards-angle.jpg"}]};</script>
+<script>window.SITE={"slug":"chattanooga","name":"DeckStainers of Chattanooga","phone":"(423) 555-0142","pricing":{"_note":"SAMPLE numbers. Set your own. National averages for context: Angi reports about $2–$4 per sq ft for professional deck staining.","sample":true,"finishes":{"transparent":{"label":"Transparent / toner","low":2.1,"high":2.7},"semi-transparent":{"label":"Semi-transparent","low":2.4,"high":3.1},"solid":{"label":"Solid color","low":2.8,"high":3.6}},"condition":{"good":{"label":"Good — faded, no peeling","mult":1},"weathered":{"label":"Weathered — gray, rough, some mildew","mult":1.25},"peeling":{"label":"Peeling — old coating failing","mult":1.7}},"railingPerFt":{"low":6,"high":9},"stairPerStep":{"low":18,"high":28},"minimumJob":650,"depositPercent":25,"addOns":[{"id":"brighten","label":"Wood brightener","price":0.25,"unit":"sq ft"},{"id":"sand","label":"Sand rough boards","price":0.75,"unit":"sq ft"},{"id":"boards","label":"Replace a deck board","price":45,"unit":"board"},{"id":"screws","label":"Reset popped nails / screws","price":95,"unit":"job"}]},"stains":{"_note":"Generic color names only. If you carry specific brands, list them in business.brandsCarried and you can rename colors to match.","transparent":[{"name":"Clear Natural","hex":"#c99a63"},{"name":"Honey Toner","hex":"#c98a3c"},{"name":"Cedar Toner","hex":"#b8673a"}],"semi-transparent":[{"name":"Cedar","hex":"#a85a2c"},{"name":"Redwood","hex":"#8e3b25"},{"name":"Chestnut","hex":"#7a4a2a"},{"name":"Walnut","hex":"#5a3a24"},{"name":"Driftwood Gray","hex":"#8b8378"},{"name":"Weathered Oak","hex":"#9c7f5e"}],"solid":[{"name":"Barn Red","hex":"#7b2e23"},{"name":"Saddle Brown","hex":"#5b3b26"},{"name":"Slate Gray","hex":"#5d6164"},{"name":"Charcoal","hex":"#34363a"},{"name":"Pewter","hex":"#8d8d88"},{"name":"Forest","hex":"#33463a"}]},"samples":[{"id":"wooded","label":"Backyard deck in the trees","file":"hero-wooded-deck.jpg","deckOutline":[[0.2,1],[0.26,0.86],[0.35,0.72],[0.43,0.67],[0.52,0.665],[0.7,0.66],[0.7,0.7],[0.68,0.74],[0.72,0.8],[0.76,1]]},{"id":"rooftop","label":"Open deck with bench","file":"deck-bench-boards.jpg","deckOutline":[[0,0.52],[0.18,0.52],[0.18,0.545],[1,0.555],[1,1],[0,1]]},{"id":"boards","label":"Close-up of deck boards","file":"deck-boards-angle.jpg","deckOutline":[[0,0],[1,0],[1,1],[0,1]]}],"teaser":["Cedar","Redwood","Walnut","Driftwood Gray","Slate Gray"],"words":{"forms":{"_help":"Labels and messages used by every form on the site.","name":"Name","phone":"Mobile phone","phoneShort":"Phone","email":"Email","address":"Street address","message":"Message","optional":"(optional)","chooseOne":"Choose one","missing":"Please fill in: ","storageFull":"Sorry, this demo browser is out of storage. Please call us instead.","photosTrimmed":" (Some photos were too large for this demo.)","success":{"estimate":"Got it, {first}! We'll text you a price range soon.","calculator":"Sent! We'll confirm your range by text.","visualizer":"Sent! Your image is downloading now.","contact":"Thanks, {first}. We'll get back to you today."}},"calc":{"_help":"Words the calculator writes on screen. {n} is a number.","floorLine":"Deck floor · {n} sq ft","prepLine":"Includes prep for {n} wood","railLine":"Railing · {n} ft","stairLine":"Stairs · {n} steps","minimumLine":"Minimum job applies","leadNote":"Calculator range {n}."},"viz":{"before":"Before","after":"After:"},"remove":"Remove photo"}};</script>
 <script src="../assets/js/store.js"></script>
 <script src="../assets/js/site.js"></script>
+<script src="../assets/js/tint.js"></script>
 <script src="../assets/js/visualizer.js"></script>
 </body>
 </html>

@@ -1,5 +1,8 @@
 /* Site-wide behavior: mobile nav, before/after sliders, FAQ, lead forms, photo slots. */
 (function () {
+  var WORDS = (window.SITE && window.SITE.words) || {};
+  var FM = WORDS.forms || {};
+  var fillIn = function (str, o) { return String(str || '').replace(/\{(\w+)\}/g, function (m, k) { return k in o ? o[k] : m; }); };
   var $ = function (s, el) { return (el || document).querySelector(s); };
   var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
 
@@ -19,19 +22,6 @@
     range.addEventListener('input', function () { set(range.value); });
     set(range.value);
   });
-
-  // ---- home visualizer teaser: crossfade real renders from the visualizer ----
-  var demo = $('[data-viz-demo]');
-  if (demo) {
-    var sw = $$('li', demo), tints = $$('.viz-demo-tint', demo), i = 0, timer;
-    var show = function (k) {
-      sw.forEach(function (s, j) { s.classList.toggle('is-on', j === k); });
-      tints.forEach(function (t, j) { t.classList.toggle('is-on', j === k); });
-    };
-    sw.forEach(function (s, j) { s.addEventListener('click', function () { clearInterval(timer); i = j; show(i); }); });
-    show(0);
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(function () { i = (i + 1) % sw.length; show(i); }, 2600);
-  }
 
   // ---- open/close helpers ----
   $$('[data-open]').forEach(function (b) {
@@ -63,7 +53,7 @@
         var im = document.createElement('img'); im.className = 'preview'; im.src = url; im.alt = 'Your photo';
         slot.appendChild(im);
         if (!$('.remove', slot)) {
-          var x = document.createElement('button'); x.type = 'button'; x.className = 'remove'; x.setAttribute('aria-label', 'Remove photo'); x.textContent = '×';
+          var x = document.createElement('button'); x.type = 'button'; x.className = 'remove'; x.setAttribute('aria-label', WORDS.remove || 'Remove photo'); x.textContent = '×';
           x.addEventListener('click', function (e) { e.preventDefault(); photos[n] = null; inp.value = ''; slot.classList.remove('has-img'); var p = $('img.preview', slot); if (p) p.remove(); x.remove(); });
           slot.appendChild(x);
         }
@@ -83,7 +73,7 @@
       if (email && email.value && !/^\S+@\S+\.\S+$/.test(email.value)) bad.push(email);
       if (bad.length) {
         msg.classList.add('err');
-        msg.textContent = 'Please fill in: ' + bad.map(function (el) { return el.closest('.field').querySelector('span').childNodes[0].textContent.trim(); }).join(', ');
+        msg.textContent = FM.missing + bad.map(function (el) { return el.closest('.field').querySelector('span').childNodes[0].textContent.trim(); }).join(', ');
         bad[0].focus();
         return;
       }
@@ -96,15 +86,10 @@
         var priv = {};
         Object.keys(d).forEach(function (k) { if (k.charAt(0) === '_') { priv[k] = d[k]; delete d[k]; } });
         var res = DS.addLead(d);
-        if (!res.ok) { msg.classList.add('err'); msg.textContent = 'Sorry, this demo browser is out of storage. Please call us instead.'; return; }
+        if (!res.ok) { msg.classList.add('err'); msg.textContent = FM.storageFull; return; }
         msg.classList.add('ok');
         var first = (d.name || '').split(' ')[0];
-        msg.textContent = {
-          estimate: 'Got it, ' + first + '! We\'ll text you a price range soon.',
-          calculator: 'Sent! We\'ll confirm your range by text.',
-          visualizer: 'Sent! Your image is downloading now.',
-          contact: 'Thanks, ' + first + '. We\'ll get back to you today.'
-        }[source] + (res.trimmed ? ' (Some photos were too large for this demo.)' : '');
+        msg.textContent = fillIn(FM.success[source], { first: first }) + (res.trimmed ? FM.photosTrimmed : '');
         if (source !== 'visualizer') {
           $$('input:not([type=hidden]), textarea, select', form).forEach(function (el) { if (el.type !== 'file') el.value = ''; });
           $$('.photo-slot', form).forEach(function (s) { s.classList.remove('has-img'); var p = $('img.preview', s); if (p) p.remove(); var x = $('.remove', s); if (x) x.remove(); });

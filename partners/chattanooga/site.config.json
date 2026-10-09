@@ -1,0 +1,2729 @@
+{
+  "_START_HERE": "This file IS the website. Change words, photos, colors, fonts and logo here, then save. Read MARKETING_GUIDE.md first. Photos go in the images folder next to this file.",
+  "website": {
+    "_help": "Leave alone unless you are launching the site.",
+    "slug": "chattanooga",
+    "mockup": true,
+    "siteUrl": "https://johnr977.github.io/deckstainers-mockup/",
+    "launchUrl": "https://deckstainers.com/"
+  },
+  "business": {
+    "_help": "Your business details. Anything written as {\"value\": ..., \"sample\": true} shows a SAMPLE tag on the site until you change it and set sample to false.",
+    "name": "DeckStainers of Chattanooga",
+    "shortName": "DeckStainers",
+    "tagline": "Deck staining & restoration for the Scenic City",
+    "owner": {
+      "value": "Your Name",
+      "sample": true
+    },
+    "phone": "(423) 555-0142",
+    "phoneHref": "+14235550142",
+    "sms": "+14235550142",
+    "email": "hello@deckstainers.example",
+    "street": {
+      "value": "1200 Sample St.",
+      "sample": true
+    },
+    "city": "Chattanooga",
+    "state": "TN",
+    "stateName": "Tennessee",
+    "zip": "37402",
+    "geo": {
+      "lat": 35.0456,
+      "lng": -85.3097
+    },
+    "hours": "Mon–Sat, 7am–6pm",
+    "hoursSchema": [
+      "Mo-Sa 07:00-18:00"
+    ],
+    "yearsInBusiness": {
+      "value": 8,
+      "sample": true
+    },
+    "founded": {
+      "value": 2018,
+      "sample": true
+    },
+    "crewSize": "a two-man crew",
+    "license": {
+      "value": "TN Home Improvement #SAMPLE-00000",
+      "sample": true
+    },
+    "insurance": {
+      "value": "$1,000,000 general liability",
+      "sample": true
+    },
+    "rating": {
+      "value": 4.9,
+      "sample": true
+    },
+    "reviewCount": {
+      "value": 0,
+      "sample": true
+    },
+    "googleReviewUrl": "https://g.page/r/SAMPLE-REPLACE/review",
+    "brandsCarried": [],
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    }
+  },
+  "brand": {
+    "_help": "Colors are hex codes like #1f3a2e (pick them at https://htmlcolorcodes.com). Fonts are names from https://fonts.google.com. Logo: put a file in the images folder and type its name, or leave \"image\" empty to use the text logo.",
+    "colors": {
+      "text": "#1d221f",
+      "primary": "#1f3a2e",
+      "primaryDark": "#142820",
+      "accent": "#b0602b",
+      "accentLight": "#d99b62",
+      "background": "#f5f0e6",
+      "backgroundAlt": "#ebe3d3"
+    },
+    "fonts": {
+      "headings": {
+        "name": "Newsreader",
+        "weights": "400;500;600",
+        "italic": true
+      },
+      "body": {
+        "name": "Public Sans",
+        "weights": "400;500;600;700"
+      },
+      "labels": {
+        "name": "IBM Plex Mono",
+        "weights": "500"
+      }
+    },
+    "logo": {
+      "image": "",
+      "imageHeight": 40,
+      "mark": "DS",
+      "name": "DeckStainers",
+      "subline": "of Chattanooga"
+    },
+    "favicon": ""
+  },
+  "photos": {
+    "_help": "Photos used on the home page and About page. \"file\" is a file in the images folder. \"isStock\": true shows a small \"stock photo\" note on the picture; set it to false once it is your own job photo.",
+    "hero": {
+      "file": "hero-wooded-deck.jpg",
+      "alt": "Stained wood deck beside a stone house, surrounded by hardwood trees",
+      "isStock": true
+    },
+    "about": {
+      "file": "cabin-deck-view.jpg",
+      "alt": "Wood deck and railing on a cabin overlooking a wooded mountain",
+      "isStock": true
+    },
+    "beforeAfter": {
+      "before": "ba-before.jpg",
+      "after": "ba-after.jpg",
+      "alt": "Same deck boards before and after staining",
+      "isIllustration": true
+    }
+  },
+  "wording": {
+    "_help": "Every word on every page lives here. Change the text between the quotes. Words in {curly braces} fill in automatically (see MARKETING_GUIDE.md). **bold**, *italic*, [link text](/pricing/) and {cite:angi} also work.",
+    "site": {
+      "skipLink": "Skip to content",
+      "mockupBar": "Demo site for a Stain & Seal Supply Pro Partner. Business, prices and reviews are samples.",
+      "mockupBarLink": "Open the Pro Partner Dashboard →",
+      "freeEstimateButton": "Free Estimate",
+      "menuButton": "Menu",
+      "stockPhotoNote": "Stock photo — swap in a real job photo",
+      "sampleTag": "Sample",
+      "sampleTagTitle": "Placeholder value — replace in site.config.json",
+      "breadcrumbHome": "Home",
+      "mobileCall": "Call",
+      "mobileEstimate": "Free Estimate"
+    },
+    "nav": [
+      {
+        "label": "Services",
+        "page": "/services/"
+      },
+      {
+        "label": "Prices",
+        "page": "/pricing/"
+      },
+      {
+        "label": "Color Visualizer",
+        "page": "/visualizer/"
+      },
+      {
+        "label": "Service Areas",
+        "page": "/areas/"
+      },
+      {
+        "label": "Learn",
+        "page": "/learn/"
+      },
+      {
+        "label": "About",
+        "page": "/about/"
+      }
+    ],
+    "footer": {
+      "about": "{tagline}. {Crew}, owner on every job.",
+      "insuredLabel": "Insured:",
+      "servicesHeading": "Services",
+      "areasHeading": "Service areas",
+      "companyHeading": "Company",
+      "companyLinks": [
+        {
+          "label": "Prices & Calculator",
+          "page": "/pricing/"
+        },
+        {
+          "label": "Color Visualizer",
+          "page": "/visualizer/"
+        },
+        {
+          "label": "Get an Estimate",
+          "page": "/estimate/"
+        },
+        {
+          "label": "Warranty",
+          "page": "/warranty/"
+        },
+        {
+          "label": "Learn",
+          "page": "/learn/"
+        },
+        {
+          "label": "About",
+          "page": "/about/"
+        },
+        {
+          "label": "Contact",
+          "page": "/contact/"
+        },
+        {
+          "label": "Privacy",
+          "page": "/privacy/"
+        }
+      ],
+      "mockupNote": "Fictional demo business. Photos are free-license stock placeholders — see credits.",
+      "credit": "Website & CRM by Stain & Seal Supply Pro Partners"
+    },
+    "closing": {
+      "kicker": "Ready when you are",
+      "headline": "Send a few photos. Get a price range back, usually the same day.",
+      "button": "Get a Free Estimate",
+      "callPrefix": "or call"
+    },
+    "seo": {
+      "home": {
+        "title": "Deck Staining {city}, {state} | {business}",
+        "description": "{city} deck staining, cleaning and restoration. Free photo estimates, published prices, a stain color visualizer and a written warranty. Call {phone}."
+      },
+      "services": {
+        "title": "Deck Staining & Wood Care Services in {city}, {state} | {short}",
+        "description": "Deck staining, deck cleaning and restoration, fence staining, log home staining, pergolas and maintenance plans in {city}."
+      },
+      "pricing": {
+        "title": "Deck Staining Cost in {city} — Price Calculator | {short}",
+        "description": "See what deck staining costs in {city}. Enter your deck size, railings, stairs and condition for an instant price range. Published rates, no phone tag."
+      },
+      "visualizer": {
+        "title": "Deck Stain Color Visualizer — Try Colors on Your Deck | {short}",
+        "description": "Upload a photo of your deck and try transparent, semi-transparent and solid stain colors. Free tool from {business}."
+      },
+      "estimate": {
+        "title": "Free Deck Staining Estimate in {city} — Send Photos | {short}",
+        "description": "Upload up to 5 photos of your deck and get a price range, usually the same day. Serving {region}."
+      },
+      "areas": {
+        "title": "Deck Staining Service Areas around {city} | {short}",
+        "description": "Deck staining across {region}: {firstAreas} and more."
+      },
+      "area": {
+        "title": "Deck Staining {area}, {areaState} | {short}",
+        "description": "{areaLede} Deck staining and restoration in {area}, {areaState}. Free photo estimates from {business}."
+      },
+      "learn": {
+        "title": "Deck Care Guides for {stateName} Homeowners | {short}",
+        "description": "When to stain, oil vs. water-based, semi-transparent vs. solid, new pressure-treated wood, peeling and how often to restain. With expert sources."
+      },
+      "article": {
+        "title": "{articleTitle} | {short}"
+      },
+      "about": {
+        "title": "About {business}",
+        "description": "{business}: {crew} in {city} that only stains and restores outdoor wood. Licensed, insured, Stain & Seal Supply Pro Partner."
+      },
+      "warranty": {
+        "title": "Deck Staining Warranty — Written Terms | {short}",
+        "description": "Our written warranty: {floorYears} years on deck floors, {railYears} years on railings and fences. What's covered and what isn't."
+      },
+      "contact": {
+        "title": "Contact {business} — {phone}",
+        "description": "Call or text {phone}, email, or send a message. {hours}."
+      },
+      "privacy": {
+        "title": "Privacy Policy | {short}",
+        "description": "How {business} uses the information you send us."
+      },
+      "notFound": {
+        "title": "Page not found | {short}",
+        "description": "Page not found."
+      }
+    },
+    "home": {
+      "hero": {
+        "kicker": "Deck staining & restoration · {city}, {state}",
+        "headline": "{city} deck staining, done by hand and done right.",
+        "lede": "We wash, we brighten, we stain. Most decks take two days. {Crew}, and the owner is on every job.",
+        "button": "Get a Free Estimate",
+        "subline": "Send photos, get a price range. No drive-out needed for most decks.",
+        "photoTagLabel": "Best months to stain here",
+        "photoTagValue": "{bestMonthsAmp}"
+      },
+      "trust": {
+        "ariaLabel": "Why homeowners trust us",
+        "licensed": "Licensed",
+        "insured": "Insured",
+        "rating": "Google rating",
+        "years": "In business",
+        "yearsSuffix": "years",
+        "warranty": "Written warranty",
+        "warrantyValue": "{floorYears}-yr floors · {railYears}-yr rails"
+      },
+      "services": {
+        "kicker": "Services",
+        "headline": "Everything wood, outside the house",
+        "featureLink": "See how we do it"
+      },
+      "process": {
+        "kicker": "How it works",
+        "headline": "Four steps. Usually two days on site.",
+        "steps": [
+          {
+            "title": "Send photos",
+            "text": "Snap 3–5 pictures and send them in. One wide shot of the whole deck helps most. You get a price range the same day, most of the time."
+          },
+          {
+            "title": "Pick a color",
+            "text": "Try colors on a photo of your own deck. We bring real samples to the job so you see it on your wood before we start."
+          },
+          {
+            "title": "We wash & prep",
+            "text": "Day one: low-pressure wash, strip or brighten as needed, fix popped nails. Then the wood has to dry."
+          },
+          {
+            "title": "We stain & seal",
+            "text": "Day two: we brush and back-brush every board. Most decks take two days, start to finish."
+          }
+        ]
+      },
+      "beforeAfter": {
+        "kicker": "Before & after",
+        "headline": "Gray wood isn't dead wood.",
+        "paragraphs": [
+          "That silver look is just the sun-worn top layer. A proper wash and brightener takes it off. The wood underneath is usually fine, and it takes stain beautifully.",
+          "Drag the slider to compare."
+        ],
+        "link": "[How restoration works](/services/deck-cleaning-restoration/)",
+        "beforeLabel": "Before",
+        "afterLabel": "After",
+        "sliderLabel": "Drag to compare before and after",
+        "illustrationNote": "Illustration made from a stock photo. Replace with a real before/after pair from your own jobs."
+      },
+      "finishes": {
+        "kicker": "Finish options",
+        "headline": "Three kinds of stain. Here's the honest difference.",
+        "tableLabel": "Stain finish comparison",
+        "columns": [
+          "Finish",
+          "What you see",
+          "Best for",
+          "Colors",
+          "Sample price"
+        ],
+        "rows": {
+          "transparent": {
+            "name": "Transparent / toner",
+            "look": "Almost all grain. A light tint.",
+            "bestFor": "New or nice wood you want to show off. Needs the most frequent recoats."
+          },
+          "semi-transparent": {
+            "name": "Semi-transparent",
+            "badge": "Our usual pick",
+            "look": "Rich color, grain still shows.",
+            "bestFor": "Most deck floors. Fades instead of peeling, so recoats are easy."
+          },
+          "solid": {
+            "name": "Solid color",
+            "look": "Even color, like paint. Texture only.",
+            "bestFor": "Railings, fences and patched or mismatched wood. Can peel on floors."
+          }
+        },
+        "priceSuffix": "/sq ft",
+        "footnote": "Prices shown are sample rates for a deck in good shape; weathered and peeling decks cost more. [Read: semi-transparent vs. solid](/learn/semi-transparent-vs-solid-deck-stain/)"
+      },
+      "visualizer": {
+        "kicker": "Color visualizer",
+        "headline": "See the color on *your* deck before we open a can.",
+        "text": "Upload a photo of your deck, trace the boards, and try every stain color we carry. Wood grain still shows through on semi-transparent, just like the real thing.",
+        "button": "Try the Visualizer",
+        "photoAlt": "Sample deck photo before staining",
+        "caption": "Real output from the tool: only the deck boards change."
+      },
+      "reviews": {
+        "kicker": "Reviews",
+        "headline": "What neighbors say",
+        "sampleBanner": "These are placeholders, not real reviews. Replace them with your own Google reviews (with permission) in site.config.json, or empty the list to hide this section.",
+        "sampleTag": "Sample review"
+      },
+      "areas": {
+        "kicker": "Service area",
+        "headline": "{metro} and {radius}",
+        "note": "Not sure if you're in range? Send your address with your photos. If we can't get there, we'll point you to another Stain & Seal Supply Pro Partner who can."
+      },
+      "faq": {
+        "kicker": "Questions",
+        "headline": "What homeowners ask us most",
+        "intro": "Straight answers, with links to the experts where it matters. More in our [Learn](/learn/) section.",
+        "items": [
+          {
+            "q": "How much does deck staining cost in {city}?",
+            "a": "Nationally, Angi puts a typical job at $550–$1,250, about $850 on average, or roughly $2 to $4 per square foot ([Angi, 2026](source:angi)). Your price depends on size, railings, stairs and how much prep the wood needs. Our price calculator gives you a range in about a minute."
+          },
+          {
+            "q": "How often does a deck need to be restained?",
+            "a": "Most sources say every two to three years for a deck floor ([Angi](source:angi)). The U.S. Forest Products Lab gives semi-transparent stain about 2–3 years on new smooth decking and 3–6 years on weathered wood ([USDA FPL](source:usdaSouth)). Shade, sun and use change that."
+          },
+          {
+            "q": "When is the best time of year to stain a deck in {city}?",
+            "a": "{bestMonths}. {driestMonth} is the driest month on average here, and {fewestRainDays} have the fewest rainy days ([NOAA normals](source:climate)). Stain needs dry wood and a few dry days."
+          },
+          {
+            "q": "Semi-transparent or solid stain?",
+            "a": "The experts disagree. The U.S. Forest Products Lab says film finishes like solid stain tend to peel on decks ([USDA FPL](source:usdaFinishes)). Consumer Reports says solid scores best in their testing ([via KOMO](source:consumerReports)). We usually suggest semi-transparent on floors and solid on railings, if you want solid."
+          },
+          {
+            "q": "Do you pressure-wash?",
+            "a": "Not the way most people mean it. High pressure can strip wood fibers off the surface ([USDA FPL](source:usdaFinishes)). We use cleaners and low pressure, then a brightener."
+          },
+          {
+            "q": "Can you give me a price from photos?",
+            "a": "Yes. That's how most of our estimates start. Upload up to five photos, including one wide shot of the whole deck, and we'll send a price range. We confirm it in person or by video before we start."
+          },
+          {
+            "q": "Are you licensed?",
+            "a": "In {licenseCounty}, {stateName} requires a Home Improvement license for residential jobs from $3,000 to $24,999 ([TN.gov](source:tnHomeImprovement)). Our license and insurance are listed at the bottom of every page."
+          },
+          {
+            "q": "Do I need to be home?",
+            "a": "No. We just need access to the deck, a water spigot, and pets kept inside. We'll text you when we start, when we finish each day, and before we leave."
+          }
+        ]
+      }
+    },
+    "servicesPage": {
+      "breadcrumb": "Services",
+      "kicker": "Services",
+      "headline": "Deck staining and wood care in {city}",
+      "lede": "One crew, one focus: outdoor wood. Decks, fences, log homes, porches and pergolas, and keeping them nice afterward."
+    },
+    "servicePage": {
+      "headline": "{service} in {city}",
+      "estimateButton": "Get a Free Estimate",
+      "calculatorButton": "Price calculator",
+      "includedKicker": "What's included",
+      "includedHeadline": "What we do, step by step",
+      "includedHeadlinePlans": "Why a plan pays for itself",
+      "faqKicker": "Questions",
+      "faqHeadline": "About {serviceLower}",
+      "otherServices": "Other services"
+    },
+    "plans": {
+      "kicker": "Maintenance plans",
+      "headline": "Pick one. We'll keep track of the rest.",
+      "sampleBanner": "Sample prices. Each Pro Partner sets their own in site.config.json.",
+      "featuredFlag": "Most popular",
+      "choosePrefix": "Choose"
+    },
+    "pricingPage": {
+      "breadcrumb": "Prices",
+      "kicker": "Prices & estimate calculator",
+      "headline": "What will my deck cost?",
+      "lede": "Nobody else around {city} publishes deck staining prices. We do. Put in your deck and get a range in about a minute.",
+      "step1": "How big is the deck?",
+      "measureBy": "Measure by",
+      "modeLW": "Length × width",
+      "modeSqft": "I know the sq ft",
+      "length": "Length (ft)",
+      "width": "Width (ft)",
+      "sqft": "Square feet",
+      "sizeHint": "Two levels? Add them together. A 16×12 deck is 192 sq ft.",
+      "step2": "Railings & stairs",
+      "railing": "Railing (feet)",
+      "stairs": "Stair steps",
+      "railHint": "Measure along the top rail. Count each step once.",
+      "step3": "What shape is it in?",
+      "step4": "Which finish?",
+      "finishHint": "Not sure? [Here's how to choose.](/learn/semi-transparent-vs-solid-deck-stain/)",
+      "step5": "Extras",
+      "optional": "(optional)",
+      "boardsLabel": "How many boards",
+      "ticketLabel": "Estimate range",
+      "sampleRates": "Sample rates",
+      "depositLabel": "Deposit to book:",
+      "ticketNote": "This is a range, not a final price. We confirm it after we see photos or visit. Wood condition can change once it's clean.",
+      "sendButton": "Send me this estimate",
+      "sendSubmit": "Send it",
+      "sheetKicker": "Price sheet",
+      "sheetHeadline": "The numbers behind the calculator",
+      "sheetItem": "Item",
+      "sheetRate": "Sample rate",
+      "sheetFloor": "Deck floor, {finish}",
+      "sheetCondition": "Condition: {condition}",
+      "sheetRailings": "Railings",
+      "sheetStairs": "Stairs",
+      "sheetMinimum": "Minimum job",
+      "perSqft": "/ sq ft",
+      "perFt": "/ ft",
+      "perStep": "/ step",
+      "compareHeadline": "How that compares",
+      "compareParagraphs": [
+        "Angi's 2026 cost guide puts professional deck staining at roughly **$2 to $4 per square foot**, with a typical job between **$550 and $1,250**{cite:angi}. Bob Vila reports a national average around **$775**{cite:bobvila}.",
+        "Peeling decks cost more because the old finish has to be stripped. That's the most labor-heavy part of any job."
+      ],
+      "plansLink": "[Maintenance plans with prices](/services/maintenance-plans/)",
+      "closing": "Want a firm number? Send photos and we'll confirm your range.",
+      "calc": {
+        "_help": "Words the calculator writes on screen. {n} is a number.",
+        "floorLine": "Deck floor · {n} sq ft",
+        "prepLine": "Includes prep for {n} wood",
+        "railLine": "Railing · {n} ft",
+        "stairLine": "Stairs · {n} steps",
+        "minimumLine": "Minimum job applies",
+        "leadNote": "Calculator range {n}."
+      }
+    },
+    "visualizerPage": {
+      "breadcrumb": "Color Visualizer",
+      "kicker": "Color visualizer",
+      "headline": "Try stain colors on your own deck",
+      "lede": "Upload a photo, paint over the deck boards, and pick a color. Everything happens in your browser. Your photo isn't uploaded anywhere unless you ask us to send you the result.",
+      "steps": [
+        "1 · Photo",
+        "2 · Mark the deck",
+        "3 · Pick a color"
+      ],
+      "startHeadline": "Start with a photo of your deck",
+      "uploadButton": "Upload a photo",
+      "orSample": "or try a sample",
+      "tools": {
+        "groupLabel": "Tools",
+        "brush": "Brush",
+        "outline": "Outline",
+        "outlineTip": "Outline: click points, click the first point to close",
+        "eraser": "Eraser",
+        "size": "Brush size",
+        "undo": "Undo",
+        "suggest": "Suggest outline",
+        "clear": "Clear",
+        "showMask": "Show mask",
+        "compare": "Before / after",
+        "newPhoto": "New photo"
+      },
+      "help": "Paint over the deck boards and railings. Use the outline tool for straight edges, and the eraser to clean up. The color shows up as you go.",
+      "colorsHeading": "Stain colors",
+      "groupNames": {
+        "transparent": "Transparent",
+        "semi-transparent": "Semi-transparent",
+        "solid": "Solid"
+      },
+      "colorsNote": "Generic color names. Real stain looks different on every board, so we'll test it on your wood before we start.",
+      "brandsPrefix": "Brands we carry:",
+      "selectedLabel": "Selected",
+      "getButton": "Send me this look",
+      "leadNote": "We'll email the full-size image and save your color with your estimate.",
+      "leadSubmit": "Send & download",
+      "compareBefore": "Before",
+      "compareAfter": "After",
+      "compareLabel": "Compare before and after",
+      "imageBeforeLabel": "Before",
+      "imageAfterLabel": "After:",
+      "infoBoxes": [
+        {
+          "title": "Why does it look different from the can?",
+          "text": "Stain soaks into wood, so the wood's own color shows through, especially on semi-transparent. Old gray wood, new yellow pine and red cedar all take the same stain differently. This tool keeps your wood's grain and light and dark spots, so it's closer to real than a color chip."
+        },
+        {
+          "title": "Is my photo private?",
+          "text": "Yes. The image stays on your device while you work. It's only sent to us if you fill in the form to get the full-size image. See our [privacy page](/privacy/)."
+        },
+        {
+          "title": "Tips for a good photo",
+          "text": "Shoot in daylight but not in harsh noon sun. Stand back far enough to get the whole deck. Sweep the leaves off first if you can. Wet boards look darker, so wait until it's dry."
+        }
+      ],
+      "closing": "Found a color you like? Let's put it on the real thing."
+    },
+    "estimatePage": {
+      "breadcrumb": "Get an Estimate",
+      "kicker": "Free estimate · usually same day",
+      "headline": "Send us a few photos. We'll send a price range.",
+      "lede": "No one has to drive out first for most decks. If we need a closer look, we'll set up a quick visit or a video call.",
+      "photosStep": "Photos",
+      "photosNote": "(up to 5)",
+      "widePhotoTitle": "Wide shot of the whole deck",
+      "widePhotoText": "Stand back. Get it all in one picture. This helps most.",
+      "otherPhotos": [
+        "Close-up of the worst spot",
+        "Railings",
+        "Stairs",
+        "Anything else"
+      ],
+      "removePhoto": "Remove photo",
+      "aboutYouStep": "About you",
+      "aboutDeckStep": "About the deck",
+      "deckSize": "Deck size",
+      "deckSizePlaceholder": "e.g. 16 × 12, or about 300 sq ft",
+      "timeframe": "When do you want it done?",
+      "timeframeOptions": [
+        "As soon as possible",
+        "In the next month",
+        "This fall",
+        "Next spring",
+        "Just getting prices"
+      ],
+      "service": "What else?",
+      "serviceOptions": [
+        "Deck staining",
+        "Deck cleaning / restoration",
+        "Fence",
+        "Log home / cabin",
+        "Pergola / porch",
+        "Maintenance plan"
+      ],
+      "heard": "How did you hear about us?",
+      "heardOptions": [
+        "Google search",
+        "Google Maps",
+        "Friend or neighbor",
+        "Saw your truck or yard sign",
+        "Facebook / Nextdoor",
+        "Stain & Seal Supply",
+        "Other"
+      ],
+      "notes": "Anything we should know?",
+      "notesPlaceholder": "Peeling? Color you have in mind? Dogs in the yard? Gate code?",
+      "submit": "Send for my free estimate",
+      "demoNote": "Demo: your request is saved in this browser only and shows up in the [Pro Partner Dashboard](/dashboard/). Nothing is emailed.",
+      "nextHeadline": "What happens next",
+      "nextSteps": [
+        "**We look at your photos.** Usually within a few hours during the week.",
+        "**You get a price range by text.** Plus any questions we have.",
+        "**We confirm and book.** A quick visit or video call, then a {deposit} deposit holds your date."
+      ],
+      "talkHeadline": "Rather talk?",
+      "talkNote": "{hours}. Texts welcome.",
+      "ballparkHeadline": "Just want a ballpark?",
+      "ballparkLink": "[Use the price calculator](/pricing/)"
+    },
+    "forms": {
+      "_help": "Labels and messages used by every form on the site.",
+      "name": "Name",
+      "phone": "Mobile phone",
+      "phoneShort": "Phone",
+      "email": "Email",
+      "address": "Street address",
+      "message": "Message",
+      "optional": "(optional)",
+      "chooseOne": "Choose one",
+      "missing": "Please fill in: ",
+      "storageFull": "Sorry, this demo browser is out of storage. Please call us instead.",
+      "photosTrimmed": " (Some photos were too large for this demo.)",
+      "success": {
+        "estimate": "Got it, {first}! We'll text you a price range soon.",
+        "calculator": "Sent! We'll confirm your range by text.",
+        "visualizer": "Sent! Your image is downloading now.",
+        "contact": "Thanks, {first}. We'll get back to you today."
+      }
+    },
+    "areasPage": {
+      "breadcrumb": "Service Areas",
+      "kicker": "Service areas",
+      "headline": "Where we stain decks around {metro}",
+      "lede": "Every part of town is hard on wood in its own way. Pick your area to see what we run into there."
+    },
+    "areaPage": {
+      "estimateButton": "Free estimate in {area}",
+      "historicCaption": "George N. Barnard, 1860s. Public domain.",
+      "stockCaption": "Stock photo — swap in a real local job photo",
+      "bestTimeHeadline": "Best time to book in {area}",
+      "bestTimeText": "Same as the rest of the area: {bestMonths} are the sweet spot. The driest months here on average are {driestMonths}{cite:climate}. Fall dates fill first, so get your photos in early. [Why fall works best](/learn/best-time-to-stain-a-deck/).",
+      "seeHeadline": "What we see in {area}",
+      "neighborhoodsHeadline": "Neighborhoods",
+      "nearbyHeadline": "Nearby",
+      "faqKicker": "Local question",
+      "faqHeadline": "Asked in {area}",
+      "closing": "Deck in {area}? Send photos for a price range."
+    },
+    "learnPage": {
+      "breadcrumb": "Learn",
+      "kicker": "Learn",
+      "headline": "Deck care, explained by the people who do it",
+      "lede": "Plain answers, with links to the wood scientists and testers we trust, so you can check our work.",
+      "minRead": "{n} min read",
+      "minShort": "{n} min",
+      "readIt": "Read it"
+    },
+    "articlePage": {
+      "meta": "{n} min read · Updated {date}",
+      "ctaText": "**Want a pro to look at yours?** Send photos and we'll send a price range.",
+      "ctaButton": "Get a Free Estimate",
+      "sourcesHeading": "Sources",
+      "keepReading": "Keep reading",
+      "rainChartLabel": "Average monthly rainfall in {city}, inches",
+      "rainChartCaption": "Average rainfall by month, {station}, in inches. NOAA 1991–2020 normals. August through October highlighted.",
+      "months": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ]
+    },
+    "aboutPage": {
+      "breadcrumb": "About",
+      "kicker": "About us",
+      "headline": "A small crew that only does one thing.",
+      "lede": "We don't build decks, paint living rooms or clean gutters. We stain and restore outdoor wood, and we're picky about it.",
+      "whoHeadline": "Who we are",
+      "whoText": "{business} is {crew} based in {city}. The owner, {owner}, is on every job. The person who gives you the price is the person brushing your deck.",
+      "storyPlaceholder": "Sample: this is where the owner tells their real story. How they got into staining, how long they've been at it, and why they care. Keep it short and true.",
+      "howHeadline": "How we work",
+      "howList": [
+        "**Prep is the job.** Stain is the last 20%. Washing, stripping, brightening and drying are why a finish lasts.",
+        "**Brush, not just spray.** We back-brush every board so the stain goes into the wood.",
+        "**Straight answers.** If your deck needs a builder, not a stainer, we'll tell you.",
+        "**Clean site.** Plants covered, furniture put back, nothing left in the yard.",
+        "**We cite our sources.** When we tell you how long a stain lasts, we link to who said it."
+      ],
+      "licenseHeadline": "Licensed and insured",
+      "licenseText": "Tennessee requires a Home Improvement license for residential jobs from $3,000 to $24,999 in {licenseCounty} and several others{cite:tnHomeImprovement}, and a contractor's license for projects of $25,000 or more{cite:tnContractor}.",
+      "licenseLabel": "License:",
+      "insuranceLabel": "Insurance:",
+      "partnerHeadline": "A Stain & Seal Supply Pro Partner",
+      "partnerText": "We're part of the Stain & Seal Supply Pro Partners program. That means pro-grade products, real training on how to use them, and a network of other staining contractors to send you to if you're outside our area.",
+      "glanceHeadline": "At a glance",
+      "glance": {
+        "crew": "Crew",
+        "years": "In business",
+        "yearsSuffix": "years",
+        "area": "Service area",
+        "hours": "Hours",
+        "warranty": "Warranty",
+        "warrantyValue": "{floorYears}-yr floors / {railYears}-yr vertical"
+      }
+    },
+    "warrantyPage": {
+      "breadcrumb": "Warranty",
+      "kicker": "Written warranty",
+      "sampleTag": "Sample terms",
+      "headline": "Our warranty, in plain English",
+      "yearsUnit": "years",
+      "floorsLabel": "Deck floors, stairs and other walking surfaces",
+      "verticalLabel": "Railings, posts, fences, siding and log walls",
+      "coversHeadline": "What's covered",
+      "excludesHeadline": "What's not covered",
+      "conditionsHeadline": "Your part",
+      "sampleBanner": "Sample warranty terms. Each Pro Partner sets their own term lengths and wording in site.config.json. Have a lawyer read it before launch.",
+      "footnote": "Why is solid stain on floors different? Film finishes like solid stain are known to peel on walking surfaces. See [semi-transparent vs. solid](/learn/semi-transparent-vs-solid-deck-stain/)."
+    },
+    "contactPage": {
+      "breadcrumb": "Contact",
+      "kicker": "Contact",
+      "headline": "Call, text, or send a note",
+      "lede": "We're usually on a deck during the day. Texts get the fastest answer.",
+      "submit": "Send message",
+      "reachHeadline": "Reach us",
+      "textUs": "Text us",
+      "priceHeadline": "Need a price?",
+      "priceLink": "[Send photos for an estimate](/estimate/)"
+    },
+    "privacyPage": {
+      "breadcrumb": "Privacy",
+      "kicker": "Privacy",
+      "headline": "Privacy policy",
+      "lede": "Short version: we use your info to give you a price and do the job. We don't sell it.",
+      "mockupNote": "Demo site: forms on this site save to your own browser only (localStorage) so the dashboard can show them. Nothing is sent to a server. Clear your browser data to remove it.",
+      "sections": [
+        {
+          "h2": "What we collect"
+        },
+        "When you ask for an estimate, use the calculator, or use the color visualizer and ask us to send the result, we collect what you type in (name, phone, email, address, deck details) and any photos you upload.",
+        {
+          "h2": "How we use it"
+        },
+        {
+          "checklist": [
+            "To give you a price and schedule your job",
+            "To text or email you about your job",
+            "To remind you when your deck is due for maintenance, if you're a customer",
+            "To ask for a review after your job, once"
+          ]
+        },
+        {
+          "h2": "What we don't do"
+        },
+        "We don't sell or rent your information. We don't add you to marketing lists you didn't ask for.",
+        {
+          "h2": "The color visualizer"
+        },
+        "Your deck photo is processed in your own browser. It is only sent to us if you fill in the form to get the full-size image.",
+        {
+          "h2": "Cookies and analytics"
+        },
+        "This site doesn't use advertising cookies. The demo uses your browser's local storage to hold form entries for the dashboard.",
+        {
+          "h2": "Questions or removal"
+        },
+        "Email [{email}](mailto:{email}) or call {phone} and we'll delete your information."
+      ]
+    },
+    "notFoundPage": {
+      "kicker": "404",
+      "headline": "That page wandered off.",
+      "text": "Try the [home page](/), our [price calculator](/pricing/), or [call {phone}](tel:{phoneHref})."
+    }
+  },
+  "services": [
+    {
+      "slug": "deck-staining",
+      "name": "Deck Staining",
+      "shortName": "Deck Staining",
+      "photo": "deck-stained-topdown.jpg",
+      "photoAlt": "Freshly stained hardwood deck boards seen from above",
+      "photoIsStock": true,
+      "seoTitle": "Deck Staining in {city}, {state} | {short}",
+      "seoDescription": "Professional deck staining in {city}: low-pressure wash, brightener, two coats brushed in by hand. Sample pricing from {semiFrom}/sq ft. Free photo estimates.",
+      "kicker": "Our main job",
+      "lede": "We wash, we brighten, we stain. Most decks take two days.",
+      "intro": "Most decks we see around {city} aren't ruined. They're gray, a little rough, maybe green on the shady side. Under that is good wood that just needs the right prep and a stain that soaks in.",
+      "steps": [
+        {
+          "title": "Protect",
+          "text": "Cover plants, siding and anything we don't want stain on. Move furniture and grills (and put them back)."
+        },
+        {
+          "title": "Wash",
+          "text": "Low-pressure wash with a cleaner that lifts gray and mildew. No blasting soft wood."
+        },
+        {
+          "title": "Brighten",
+          "text": "Brightener evens out the color and opens the grain so stain soaks in evenly."
+        },
+        {
+          "title": "Dry",
+          "text": "We let it dry. Usually overnight at least, longer in shade. This is the step most people rush."
+        },
+        {
+          "title": "Stain",
+          "text": "Penetrating stain, applied and back-brushed board by board. Rails and spindles by hand."
+        },
+        {
+          "title": "Walk-through",
+          "text": "We walk it with you, touch up anything you point out, and leave care instructions."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How long until we can use the deck?",
+          "a": "Light foot traffic usually the next day. Furniture back in 24–48 hours depending on the product and weather. We'll tell you for your exact stain."
+        },
+        {
+          "q": "Do you sand?",
+          "a": "Only where it helps: raised grain, rough patches, splinters. Sanding a whole deck smooth can actually keep stain from soaking in, so we don't do it by default."
+        },
+        {
+          "q": "What if it rains?",
+          "a": "We watch the forecast closely and reschedule if needed. If rain surprises us before the stain sets, we come back and fix it. That's on us."
+        }
+      ]
+    },
+    {
+      "slug": "deck-cleaning-restoration",
+      "name": "Deck Cleaning & Restoration",
+      "shortName": "Cleaning & Restoration",
+      "photo": "boards-weathered-gray.jpg",
+      "photoAlt": "Gray, weathered deck boards that need cleaning",
+      "photoIsStock": true,
+      "seoTitle": "Deck Cleaning & Restoration in {city} — Wash, Strip, Brighten, Sand | {short}",
+      "seoDescription": "Deck restoration in {city}: remove peeling stain, clean mildew, brighten gray wood and sand rough boards — then seal it right. Photo estimates.",
+      "kicker": "Wash · Strip · Brighten · Sand",
+      "lede": "Gray, green or peeling? That deck can come back.",
+      "intro": "Restoration is everything that happens before the stain goes on. It's the difference between a finish that lasts and one that peels by next summer.",
+      "steps": [
+        {
+          "title": "Wash",
+          "text": "For faded and mildewed decks: a cleaner that kills the green and lifts the gray, rinsed at low pressure."
+        },
+        {
+          "title": "Strip",
+          "text": "For peeling or failing finish: a stripper that softens the old coat so it rinses off without gouging the wood."
+        },
+        {
+          "title": "Brighten",
+          "text": "Neutralizes the stripper or cleaner and brings the wood back to an even, fresh color."
+        },
+        {
+          "title": "Sand",
+          "text": "Spot-sanding for raised grain, splinters and rough board ends."
+        },
+        {
+          "title": "Repair",
+          "text": "Reset popped nails, swap cracked boards, tighten loose rails. Priced per item, no surprises."
+        },
+        {
+          "title": "Seal",
+          "text": "Finish with the right stain for your wood and how you use the deck."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why not just pressure-wash it?",
+          "a": "High pressure tears up soft wood. The U.S. Forest Products Lab warns that power washing can remove wood from the surface. We use cleaners and low pressure instead."
+        },
+        {
+          "q": "How do I know if mine needs stripping?",
+          "a": "If the old coat is peeling, flaking or blotchy, it needs to come off. If it's just faded and gray, a wash and brightener is usually enough. Photos tell us a lot."
+        },
+        {
+          "q": "Can you fix a few bad boards?",
+          "a": "Yes. We replace individual boards and note them on the estimate. For structural problems (posts, joists, ledger), we'll tell you and refer you to a deck builder."
+        }
+      ]
+    },
+    {
+      "slug": "fence-staining",
+      "name": "Fence Staining",
+      "shortName": "Fence Staining",
+      "photo": "fence-cedar.jpg",
+      "photoAlt": "Close-up of cedar fence boards with ivy",
+      "photoIsStock": true,
+      "seoTitle": "Fence Staining in {city} — Privacy, Picket & Board Fences | {short}",
+      "seoDescription": "Wood fence staining in {city}. We spray and back-brush both sides so stain soaks in. Bundle with your deck to save on setup.",
+      "kicker": "Privacy · Picket · Board",
+      "lede": "Fences are vertical, so a good stain lasts longer on them than on a deck floor.",
+      "intro": "A wood fence is a lot of square footage, and most of it has never been sealed. Done right once, a fence stays easy to keep up.",
+      "steps": [
+        {
+          "title": "Clean",
+          "text": "Wash off gray, mildew and dirt so the stain soaks into wood, not grime."
+        },
+        {
+          "title": "Protect",
+          "text": "Cover plants, AC units, cars and the neighbor's side if we're only doing yours."
+        },
+        {
+          "title": "Spray & back-brush",
+          "text": "We spray to cover fast, then brush it in. Spray-only jobs look fine for a season and then fade unevenly."
+        },
+        {
+          "title": "Both sides",
+          "text": "Priced per side. Ask your neighbor. Many split the cost of the other side."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How is fence staining priced?",
+          "a": "By the linear foot and height, per side. Send a photo and the rough length and we'll give you a range."
+        },
+        {
+          "q": "Can my fence match my deck?",
+          "a": "Yes, but fences and decks often look different with the same stain because the wood and sun are different. We'll test it first."
+        }
+      ]
+    },
+    {
+      "slug": "log-home-staining",
+      "name": "Log Home & Cabin Staining",
+      "shortName": "Log Homes & Cabins",
+      "photo": "log-cabin-porch.jpg",
+      "photoAlt": "Log cabin with a covered porch and stacked firewood",
+      "photoIsStock": true,
+      "seoTitle": "Log Home & Cabin Staining in {city} and the Mountains | {short}",
+      "seoDescription": "Log home and cabin staining around {city}: cleaning, old finish removal, and stain made for logs. {cabinAreas}.",
+      "kicker": "Logs · Half-log siding · Cabins",
+      "lede": "Logs move, check and drink stain. They need their own plan.",
+      "intro": "Log walls take more weather than a deck rail and soak up more stain than you'd guess. We clean them, deal with the old finish, and stain them so water runs off instead of in.",
+      "steps": [
+        {
+          "title": "Inspect",
+          "text": "Look for soft spots, open checks on the top side of logs, and chinking gaps. We'll show you what we find."
+        },
+        {
+          "title": "Clean",
+          "text": "Gentle wash for dirt, pollen and mildew. Strip failing finish where needed."
+        },
+        {
+          "title": "Stain",
+          "text": "A log-home stain applied heavy enough to protect and brushed into checks and end grain."
+        },
+        {
+          "title": "Trim & porches",
+          "text": "Doors, window trim, porch posts and decks matched to the walls."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How often do log homes need restaining?",
+          "a": "It depends on sun, overhangs and the product. South and west walls wear fastest. We'll look at each side and tell you which ones need it now."
+        },
+        {
+          "q": "Do you do chinking?",
+          "a": "We handle small chinking repairs as part of a stain job. For a full re-chink we'll refer you to a specialist."
+        }
+      ]
+    },
+    {
+      "slug": "pergolas-porches",
+      "name": "Pergolas, Porches & Gazebos",
+      "shortName": "Pergolas & Porches",
+      "photo": "pavilion-posts.jpg",
+      "photoAlt": "Stained timber pavilion posts and floor with fall trees behind",
+      "photoIsStock": true,
+      "seoTitle": "Pergola, Porch & Gazebo Staining in {city} | {short}",
+      "seoDescription": "Staining for pergolas, porches, gazebos, arbors and swing sets in {city}. Hand-brushed posts and beams, matched to your deck.",
+      "kicker": "Pergolas · Porches · Gazebos · Arbors",
+      "lede": "All the posts, beams and slats that a sprayer misses.",
+      "intro": "Pergolas and gazebos have a lot of edges and end grain, and that's where water gets in. We take the time to brush every face, including the tops of beams you can't see from the ground.",
+      "steps": [
+        {
+          "title": "Overhead work",
+          "text": "Ladders and staging for beams and rafters. We protect the floor and furniture underneath."
+        },
+        {
+          "title": "End grain first",
+          "text": "Cut ends soak up water the fastest, so we seal them first and heaviest."
+        },
+        {
+          "title": "Porch floors",
+          "text": "Covered porch floors get a finish suited to foot traffic and the occasional muddy boot."
+        },
+        {
+          "title": "Match the deck",
+          "text": "If we're doing the deck too, we'll match or coordinate colors."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can you stain a cedar swing set or playset?",
+          "a": "Yes. We use a product suited to it and let it cure properly before the kids are back on it."
+        },
+        {
+          "q": "My porch floor is painted. Can you stain it?",
+          "a": "Sometimes. Tongue-and-groove porch floors are often meant to be painted. We'll tell you honestly which finish fits."
+        }
+      ]
+    },
+    {
+      "slug": "maintenance-plans",
+      "name": "Maintenance Plans",
+      "shortName": "Maintenance Plans",
+      "photo": "brush-on-wood.jpg",
+      "photoAlt": "Brush applying finish to bare wood",
+      "photoIsStock": true,
+      "showPlans": true,
+      "seoTitle": "Deck Maintenance Plans in {city} — Prices Shown | {short}",
+      "seoDescription": "Deck maintenance plans in {city} with real prices: yearly check-ups and maintenance coats every 2–3 years so you never pay to strip a deck again.",
+      "kicker": "Prices shown — no phone tag",
+      "lede": "The cheapest deck to stain is one that never needs stripping.",
+      "intro": "A maintenance coat on a faded deck costs a fraction of a full restoration. The trick is doing it on time. Pick a plan and we keep track of it for you.",
+      "steps": [
+        {
+          "title": "We remember",
+          "text": "We track when your deck was done and reach out before it's due. You don't have to think about it."
+        },
+        {
+          "title": "Same color, same product",
+          "text": "We keep notes on exactly what's on your deck, so every coat matches."
+        },
+        {
+          "title": "Priority dates",
+          "text": "Plan customers get first pick of fall dates, our busiest season."
+        },
+        {
+          "title": "Warranty stays active",
+          "text": "Staying on schedule keeps your warranty going."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What's the difference between a maintenance coat and a full job?",
+          "a": "A full job may include stripping, heavy cleaning, brightening and two coats. A maintenance coat is a gentle wash and one fresh coat over finish that's still sound. It's faster and costs much less."
+        },
+        {
+          "q": "Can I cancel?",
+          "a": "Yes. Yearly plans can be cancelled any time before the next visit is booked. Monthly plans can be cancelled with 30 days' notice."
+        },
+        {
+          "q": "Are these real prices?",
+          "a": "On this demo site they are sample prices. Each Pro Partner sets their own in the site settings."
+        }
+      ]
+    }
+  ],
+  "reviews": {
+    "sample": true,
+    "_note": "These are SAMPLE placeholders. Replace with real Google reviews (with permission) or leave the list empty to hide the section.",
+    "items": [
+      {
+        "name": "Sample Customer",
+        "area": "Signal Mountain",
+        "text": "Sample review — replace with your Google reviews. Put a short, real quote here about how the deck looks and how the crew treated the yard."
+      },
+      {
+        "name": "Sample Customer",
+        "area": "Hixson",
+        "text": "Sample review — replace with your Google reviews. A good one mentions the price matched the quote and the crew showed up when they said."
+      },
+      {
+        "name": "Sample Customer",
+        "area": "East Brainerd",
+        "text": "Sample review — replace with your Google reviews. Ask happy customers to mention the color they picked and the part of town."
+      }
+    ]
+  },
+  "areaGroups": [
+    {
+      "name": "Hamilton County",
+      "slugs": [
+        "chattanooga",
+        "signal-mountain",
+        "lookout-mountain",
+        "red-bank",
+        "hixson",
+        "soddy-daisy",
+        "east-ridge",
+        "east-brainerd",
+        "ooltewah",
+        "collegedale",
+        "harrison",
+        "apison"
+      ]
+    },
+    {
+      "name": "North Georgia",
+      "slugs": [
+        "fort-oglethorpe",
+        "rossville",
+        "chickamauga",
+        "ringgold",
+        "dalton"
+      ]
+    },
+    {
+      "name": "Bradley County",
+      "slugs": [
+        "cleveland"
+      ]
+    }
+  ],
+  "areas": [
+    {
+      "slug": "chattanooga",
+      "name": "Chattanooga",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck staining in Chattanooga, from North Shore porches to Missionary Ridge decks",
+      "lede": "Home base. We work every part of the city, and the decks change a lot from one side of the river to the other.",
+      "photo": "chattanooga-valley-barnard.jpg",
+      "photoAlt": "Historic photograph of Chattanooga Valley and the Tennessee River from Lookout Mountain, 1860s",
+      "photoIsStock": false,
+      "photoCaption": "George N. Barnard, 1860s. Public domain.",
+      "sections": [
+        {
+          "headline": "Older homes, older finishes",
+          "text": "In North Shore, Highland Park, St. Elmo and Riverview, a lot of the porches and back decks have been painted or solid-stained more than once. Layers like that trap water and peel in sheets. Another coat on top won't hold. We strip it back to wood the right way and start the finish over, or we tell you honestly when a board needs replacing first."
+        },
+        {
+          "headline": "Ridge decks get the weather first",
+          "text": "Up on Missionary Ridge and the bluffs, decks sit high and catch full afternoon sun and wind. The finish on the floor and the top rail goes first. Those decks usually need a maintenance coat sooner than one tucked into a shady backyard downtown."
+        },
+        {
+          "headline": "River-bottom humidity",
+          "text": "Low ground near the river and creeks stays damp. You'll see green on the north side of the boards and black spots under planters. We wash that out gently, kill the mildew, and let the wood dry before any stain goes on."
+        }
+      ],
+      "woodNotes": [
+        "Multi-layer paint and solid stain on porches",
+        "Sun-baked deck floors on the ridges",
+        "Mildew on north-facing and low-lying decks"
+      ],
+      "neighborhoods": [
+        "North Shore",
+        "Riverview",
+        "Highland Park",
+        "St. Elmo",
+        "Missionary Ridge",
+        "Brainerd",
+        "Lupton City",
+        "Downtown"
+      ],
+      "faq": {
+        "q": "Do you work on the small porches and decks in the older Chattanooga neighborhoods?",
+        "a": "Yes. Small jobs are welcome. There's a minimum job price, but a 10×12 porch floor is right in our wheelhouse, and those often need stripping more than size."
+      },
+      "nearby": [
+        "red-bank",
+        "lookout-mountain",
+        "east-ridge",
+        "signal-mountain"
+      ]
+    },
+    {
+      "slug": "signal-mountain",
+      "name": "Signal Mountain",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck staining on Signal Mountain: shade, moss and mildew are the enemy",
+      "lede": "Signal Mountain sits up on Walden Ridge under thick hardwoods. Beautiful to live with. Hard on a deck.",
+      "photo": "hero-wooded-deck.jpg",
+      "photoAlt": "Wooden deck under hardwood trees beside a stone house",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Why mountain decks go green",
+          "text": "Under a full canopy, the boards stay damp for days after a rain. Leaves pile up in the gaps and hold water against the wood. That's where mildew, algae and moss get started, and why a Signal deck can look worse at three years than a sunny valley deck at five."
+        },
+        {
+          "headline": "What we do differently up here",
+          "text": "We spend more time on cleaning. We blow out the board gaps, use a mildew wash that's safe for the plants around the deck, and never blast soft wood with high pressure. We also steer most shady decks toward a stain made to resist mildew, and away from thick solid colors that trap moisture."
+        },
+        {
+          "headline": "Log homes and cabins on the mountain",
+          "text": "There are plenty of log and cedar-sided homes on Signal and Walden. We stain those too. They have their own needs, like checking for gaps in the chinking and dealing with old finish on the logs."
+        }
+      ],
+      "woodNotes": [
+        "Heavy shade and slow drying",
+        "Leaf buildup in board gaps",
+        "Mildew-resistant stain recommended",
+        "Log and cedar-sided homes"
+      ],
+      "neighborhoods": [
+        "Town of Signal Mountain",
+        "Walden",
+        "Fairmount",
+        "Mountain Creek Rd area"
+      ],
+      "faq": {
+        "q": "How often will my Signal Mountain deck need a recoat?",
+        "a": "Usually on the shorter end of the range. Shady decks hold moisture and grow mildew faster. A yearly wash plus a maintenance coat every 2 years keeps most of them from ever needing a full strip."
+      },
+      "nearby": [
+        "red-bank",
+        "chattanooga",
+        "hixson",
+        "soddy-daisy"
+      ]
+    },
+    {
+      "slug": "lookout-mountain",
+      "name": "Lookout Mountain",
+      "state": "TN",
+      "county": "Hamilton County (TN) & Walker County (GA)",
+      "headline": "Deck staining on Lookout Mountain, on both sides of the state line",
+      "lede": "The decks up here were built for the view. Many hang off steep lots with long railings and tall stairs.",
+      "photo": "cabin-deck-view.jpg",
+      "photoAlt": "Wood deck and rail on a cabin overlooking a wooded mountain valley",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Built for the view, hard to reach",
+          "text": "Lookout decks tend to be tall, multi-level and on steep ground. That means more railing, more stairs, and more ladder work than a flat backyard deck. We price railings and stairs separately so you can see exactly where the cost is."
+        },
+        {
+          "headline": "Railings show wear first",
+          "text": "Top rails and balusters take the sun and rain straight on and are the first thing your guests touch. On view decks we pay extra attention to the vertical parts. A well-done railing makes the whole deck look new."
+        },
+        {
+          "headline": "Tennessee side or Georgia side",
+          "text": "The mountain crosses the state line, and so do we. Whether your mailbox says Lookout Mountain, TN or Lookout Mountain, GA, the work and the warranty are the same."
+        }
+      ],
+      "woodNotes": [
+        "Tall, multi-level decks on steep lots",
+        "Long runs of railing and stairs",
+        "Wind and full sun on the bluff side, deep shade on the back side"
+      ],
+      "neighborhoods": [
+        "Lookout Mountain, TN",
+        "Lookout Mountain, GA",
+        "Scenic Highway area",
+        "Fairyland"
+      ],
+      "faq": {
+        "q": "Can you stain a deck that's 20 feet off the ground?",
+        "a": "Yes. We set up safely with the right ladders and staging, and we'll tell you up front if a section needs special equipment so there's no surprise on the bill."
+      },
+      "nearby": [
+        "chattanooga",
+        "rossville",
+        "chickamauga",
+        "fort-oglethorpe"
+      ]
+    },
+    {
+      "slug": "red-bank",
+      "name": "Red Bank",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck and porch staining in Red Bank",
+      "lede": "Red Bank sits between downtown and the foot of Signal Mountain. Lots of mid-century homes with decks that were added later on.",
+      "photo": "covered-porch.jpg",
+      "photoAlt": "Covered wooden porch with chairs",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Add-on decks and their quirks",
+          "text": "Many Red Bank homes got their decks years after the house was built. Some were built well, some were weekend jobs. Before we stain, we check the boards, nails and railings, and point out anything loose. A fresh stain shouldn't hide a problem."
+        },
+        {
+          "headline": "Front porches deserve it too",
+          "text": "Covered porches don't get rain, but they get foot traffic, and that wears a finish down in a path from the door to the steps. We can stain a porch floor in a day and blend the worn path back in."
+        },
+        {
+          "headline": "Close by, easy to fit in",
+          "text": "Red Bank is right next to our usual routes. If you're flexible on timing, we can often fit smaller Red Bank jobs in between bigger ones."
+        }
+      ],
+      "woodNotes": [
+        "Add-on decks of mixed quality",
+        "Worn paths on porch floors",
+        "Small-yard jobs that fit between bigger ones"
+      ],
+      "neighborhoods": [
+        "Dayton Blvd corridor",
+        "Morrison Springs",
+        "Red Bank Middle area",
+        "Stringers Ridge side"
+      ],
+      "faq": {
+        "q": "Is my old deck worth staining or should it be replaced?",
+        "a": "Send us photos first. If the framing is sound and most boards are solid, cleaning and staining plus a few new boards costs a fraction of a rebuild. If it isn't safe, we'll tell you."
+      },
+      "nearby": [
+        "chattanooga",
+        "signal-mountain",
+        "hixson"
+      ]
+    },
+    {
+      "slug": "hixson",
+      "name": "Hixson",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck staining in Hixson, from subdivisions to Chickamauga Lake",
+      "lede": "Hixson has a bit of everything: family subdivisions, wooded lots off the ridges, and lake houses on Chickamauga Lake.",
+      "photo": "deck-chairs-rail.jpg",
+      "photoAlt": "Deck with wooden railing and chairs looking into green trees",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "The typical Hixson deck",
+          "text": "A pressure-treated deck off the back of a two-story, about 12 by 16 to 16 by 20, with a set of stairs to the yard. It's 10 to 20 years old and was stained once, maybe twice. Most of these need a good wash, a brightener and two coats of a semi-transparent. That's our bread and butter."
+        },
+        {
+          "headline": "Lake houses take more care",
+          "text": "Decks near Chickamauga Lake see damp mornings, sun off the water and more mildew than a deck in town. Docks and boat-house decks are a different animal. Tell us what you've got and we'll tell you honestly what will last."
+        },
+        {
+          "headline": "Fences too",
+          "text": "A lot of Hixson yards have long privacy fences. If you're getting the deck done, staining the fence the same week saves you a second setup charge."
+        }
+      ],
+      "woodNotes": [
+        "10–20 year old pressure-treated decks",
+        "Lakefront moisture and sun glare",
+        "Long privacy fences"
+      ],
+      "neighborhoods": [
+        "Northgate area",
+        "Middle Valley",
+        "Big Ridge",
+        "Chickamauga Lake shore",
+        "Hixson Pike corridor"
+      ],
+      "faq": {
+        "q": "Can you do my deck and fence in the same visit?",
+        "a": "Yes, and it's cheaper that way. One setup, one cleanup, and matched colors if you want them."
+      },
+      "nearby": [
+        "red-bank",
+        "soddy-daisy",
+        "signal-mountain",
+        "harrison"
+      ]
+    },
+    {
+      "slug": "soddy-daisy",
+      "name": "Soddy-Daisy",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck staining in Soddy-Daisy and along the north end of the lake",
+      "lede": "More land, bigger decks, and plenty of lake homes. Soddy-Daisy jobs tend to be the larger ones on our calendar.",
+      "photo": "log-cabin.jpg",
+      "photoAlt": "Log cabin home in the woods",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Big decks, wraparounds and lake views",
+          "text": "Out here a deck is often a wraparound, or two levels stepping down a slope toward the water. Big decks reward good prep. One bad wash day shows up across 800 square feet. We take our time on day one."
+        },
+        {
+          "headline": "Cabins and log siding",
+          "text": "There are a fair number of log homes and cabin-style places in the area. We handle logs, half-log siding and the decks attached to them, matching colors where we can."
+        },
+        {
+          "headline": "Scheduling out north",
+          "text": "We group north-end jobs on the same days to keep drive time down. That helps us hold the price, and it means your neighbors may see our truck the same week."
+        }
+      ],
+      "woodNotes": [
+        "Large and multi-level decks",
+        "Lake-house moisture",
+        "Log and cabin-style homes"
+      ],
+      "neighborhoods": [
+        "Soddy Lake area",
+        "Sale Creek",
+        "Dayton Pike corridor",
+        "Lakesite"
+      ],
+      "faq": {
+        "q": "Do you charge more to drive out to Soddy-Daisy?",
+        "a": "No trip charge inside our service area. We just schedule north-end jobs together, so your start date may be tied to that week."
+      },
+      "nearby": [
+        "hixson",
+        "signal-mountain",
+        "harrison"
+      ]
+    },
+    {
+      "slug": "east-ridge",
+      "name": "East Ridge",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck staining in East Ridge",
+      "lede": "East Ridge runs right up to the Georgia line along I-75. Lots of brick ranches with a back deck or a covered patio added on.",
+      "photo": "deck-bench-boards.jpg",
+      "photoAlt": "Wide wood deck with a bench",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Ranch homes, low decks",
+          "text": "Many East Ridge decks sit close to the ground. Low decks don't get much air underneath, so the boards stay damp longer and cup or crack. We look closely at those boards, swap out the worst ones, and choose a penetrating stain that lets the wood breathe."
+        },
+        {
+          "headline": "Old solid stain that's failing",
+          "text": "Solid stain was popular here for a while. When it fails on a deck floor, it peels in patches and looks worse than bare wood. Stripping it is more work, so it costs more, but it's the only fix that lasts. Our calculator lets you pick 'peeling' and see the difference."
+        },
+        {
+          "headline": "Quick jobs, honest quotes",
+          "text": "A lot of East Ridge decks are on the smaller side. Send three photos, and most of the time we can quote the job without coming out first."
+        }
+      ],
+      "woodNotes": [
+        "Low decks with poor airflow",
+        "Peeling solid stain on floors",
+        "Smaller decks quoted from photos"
+      ],
+      "neighborhoods": [
+        "Ringgold Rd corridor",
+        "Camp Jordan area",
+        "Belvoir",
+        "East Ridge city center"
+      ],
+      "faq": {
+        "q": "My deck has peeling solid stain. Can you just paint over it?",
+        "a": "We won't. Coating over a failing film just peels again, usually within a year. It has to come off first. We'll show you the price both ways so you can decide."
+      },
+      "nearby": [
+        "chattanooga",
+        "rossville",
+        "east-brainerd",
+        "ringgold"
+      ]
+    },
+    {
+      "slug": "east-brainerd",
+      "name": "East Brainerd",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck staining in East Brainerd subdivisions",
+      "lede": "East Brainerd is subdivision country: newer homes, HOAs, and builder decks that were never stained at all.",
+      "photo": "deck-boards-angle.jpg",
+      "photoAlt": "Close view of wood deck boards",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "The builder deck that never got stained",
+          "text": "The most common thing we see here: a pressure-treated deck the builder left bare. After a few summers it's gray, rough, and starting to split. It's not too late. A cleaning, a brightener, and the right stain bring most of them right back."
+        },
+        {
+          "headline": "HOA colors",
+          "text": "If your neighborhood has an approved color list, send it to us. We'll match it, and you can try the colors on your own deck photo in our visualizer before you send the request to your HOA."
+        },
+        {
+          "headline": "Same street, same week",
+          "text": "When we do one deck in a subdivision, two or three neighbors usually ask. If you get neighbors together for the same week, ask about a neighborhood discount."
+        }
+      ],
+      "woodNotes": [
+        "Builder decks left unstained",
+        "HOA color rules",
+        "Neighbor group scheduling"
+      ],
+      "neighborhoods": [
+        "Hamilton Place area",
+        "Ooltewah-Ringgold Rd",
+        "Gunbarrel Rd corridor",
+        "East Brainerd Rd subdivisions"
+      ],
+      "faq": {
+        "q": "Can you match our HOA's approved colors?",
+        "a": "Yes. Send us the list or the color names, and we'll match them closely. We'll also give you a sample board to show the HOA if they need one."
+      },
+      "nearby": [
+        "ooltewah",
+        "collegedale",
+        "east-ridge",
+        "apison"
+      ]
+    },
+    {
+      "slug": "ooltewah",
+      "name": "Ooltewah",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck staining in Ooltewah: new decks, done right the first time",
+      "lede": "Ooltewah has grown fast. That means a lot of new decks, and new wood has its own rules.",
+      "photo": "brush-on-wood.jpg",
+      "photoAlt": "Brush applying stain to bare wood",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Don't stain new wood too soon",
+          "text": "Fresh pressure-treated lumber is wet from the factory. Stain put on too early just sits on top and flakes. We use a simple water-drop test: if a few drops soak in within a few minutes, the wood is ready. If they bead up, we wait. Our article on new pressure-treated wood explains the timing."
+        },
+        {
+          "headline": "…and don't wait too long",
+          "text": "The other mistake is leaving it bare for years. Sun turns the surface gray and loosens the fibers, and then it has to be cleaned and brightened before it will take stain well. Somewhere in that first year is the sweet spot for most decks."
+        },
+        {
+          "headline": "Start a maintenance plan on day one",
+          "text": "A new deck is the cheapest one to keep nice. Put it on a maintenance plan after the first coat, and you may never pay for stripping."
+        }
+      ],
+      "woodNotes": [
+        "New construction pressure-treated wood",
+        "Water-drop test before first coat",
+        "Maintenance plans from year one"
+      ],
+      "neighborhoods": [
+        "Cambridge Square area",
+        "Hunter Rd",
+        "Ooltewah-Georgetown Rd",
+        "Snow Hill Rd"
+      ],
+      "faq": {
+        "q": "My deck was built this spring. When should I stain it?",
+        "a": "It depends on how wet the lumber was and how much sun it gets. Do the water-drop test, or send us a photo. For most new decks it's a matter of months, not years."
+      },
+      "nearby": [
+        "collegedale",
+        "east-brainerd",
+        "harrison",
+        "apison"
+      ]
+    },
+    {
+      "slug": "collegedale",
+      "name": "Collegedale",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck staining in Collegedale",
+      "lede": "Home to Southern Adventist University and a lot of quiet streets and family homes. The decks here are lived on.",
+      "photo": "porch-living.jpg",
+      "photoAlt": "Porch living area with wooden chairs and plants",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Family decks take a beating",
+          "text": "Grills, kiddie pools, dog paws, bikes. A deck that gets used every day wears a path. We focus extra prep on the high-traffic areas and use a stain that's easy to touch up when the time comes."
+        },
+        {
+          "headline": "Rental and faculty homes",
+          "text": "We also work with landlords who rent near the university. A clean, stained deck helps a rental show better, and we can schedule between tenants so nobody's blocked from the back door."
+        },
+        {
+          "headline": "Quiet crews",
+          "text": "We know these are neighborhood streets. We park neatly, keep music off, and clean up every night."
+        }
+      ],
+      "woodNotes": [
+        "High-traffic family decks",
+        "Rental turnovers",
+        "Touch-up-friendly finishes"
+      ],
+      "neighborhoods": [
+        "Near Southern Adventist University",
+        "Apison Pike corridor",
+        "Little Debbie Pkwy area",
+        "Collegedale Commons area"
+      ],
+      "faq": {
+        "q": "I rent out a house in Collegedale. Can you work between tenants?",
+        "a": "Yes. Tell us the move-out and move-in dates and we'll fit the job in that window, weather allowing."
+      },
+      "nearby": [
+        "ooltewah",
+        "apison",
+        "east-brainerd"
+      ]
+    },
+    {
+      "slug": "harrison",
+      "name": "Harrison",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck and dock-side staining in Harrison",
+      "lede": "Harrison wraps around Chickamauga Lake near Harrison Bay State Park. Many homes here face the water.",
+      "photo": "pavilion-posts.jpg",
+      "photoAlt": "Stained wood posts and floor of an open pavilion beside trees",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "The lake is hard on wood",
+          "text": "Morning fog off the water, high humidity and strong afternoon sun make a rough mix for a deck finish. Stain on a waterfront deck simply works harder. We recommend a penetrating, mildew-resistant semi-transparent and an honest maintenance schedule."
+        },
+        {
+          "headline": "Screened porches and gazebos",
+          "text": "A lot of lake homes have screened porches, gazebos or pergolas down by the water. We stain those posts, rails and floors too, and protect the screens and furniture while we work."
+        },
+        {
+          "headline": "Mind the water",
+          "text": "When we work near the shoreline we use cleaners and methods meant for it, and we keep runoff out of the lake. Your neighbors on the cove will thank you."
+        }
+      ],
+      "woodNotes": [
+        "Waterfront fog, humidity and sun",
+        "Gazebos and screened porches",
+        "Careful runoff control near the shoreline"
+      ],
+      "neighborhoods": [
+        "Harrison Bay area",
+        "Highway 58 corridor",
+        "Bonny Oaks area",
+        "Lake coves"
+      ],
+      "faq": {
+        "q": "Will the stain hurt the lake or my plants?",
+        "a": "We use cleaners and stains suited to the job, cover plants, and control runoff. Tell us about any landscaping you're worried about and we'll plan around it."
+      },
+      "nearby": [
+        "ooltewah",
+        "hixson",
+        "soddy-daisy"
+      ]
+    },
+    {
+      "slug": "apison",
+      "name": "Apison",
+      "state": "TN",
+      "county": "Hamilton County",
+      "headline": "Deck, fence and barn-side staining in Apison",
+      "lede": "Rural east Hamilton County: acreage, horse fences, outbuildings and big decks with a view of the fields.",
+      "photo": "fence-ivy.jpg",
+      "photoAlt": "Weathered wooden fence with ivy",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "More than a deck",
+          "text": "Apison jobs often include a fence line, a porch, and an outbuilding or two. We'll price each piece separately so you can do it all at once or spread it over two seasons."
+        },
+        {
+          "headline": "Long fence runs",
+          "text": "Board fences and privacy fences on acreage are a lot of linear feet. We spray and back-brush so the stain gets into the wood, not just on top of it. Just spraying looks fine for a season and then fades unevenly."
+        },
+        {
+          "headline": "Out-of-the-way is fine",
+          "text": "Long driveway, gravel road, no cell signal? We've seen it. Send photos and a pin on the map and we'll take it from there."
+        }
+      ],
+      "woodNotes": [
+        "Long fence runs on acreage",
+        "Outbuildings and barn siding",
+        "Spray and back-brush for fences"
+      ],
+      "neighborhoods": [
+        "Apison Pike",
+        "East Brainerd Rd east end",
+        "Weatherly Switch Rd area"
+      ],
+      "faq": {
+        "q": "Can you stain my barn or shed too?",
+        "a": "Often, yes. Rough-sawn siding drinks a lot of stain, so it's priced by the wall. Send photos and we'll quote it alongside the deck."
+      },
+      "nearby": [
+        "collegedale",
+        "ooltewah",
+        "ringgold"
+      ]
+    },
+    {
+      "slug": "fort-oglethorpe",
+      "name": "Fort Oglethorpe",
+      "state": "GA",
+      "county": "Catoosa & Walker Counties",
+      "headline": "Deck staining in Fort Oglethorpe, Georgia",
+      "lede": "Just over the state line, next to the Chickamauga battlefield park. A short run from Chattanooga for us.",
+      "photo": "deck-boards-texture.jpg",
+      "photoAlt": "Wooden deck boards in warm light",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Same crew, other side of the line",
+          "text": "Georgia customers get the same process, the same written warranty, and the same price sheet as our Tennessee customers. No surprises because of the address."
+        },
+        {
+          "headline": "Older homes near the park",
+          "text": "Some of the older homes around the historic district and near the park have porches with decades of paint on them. We're careful with those: we test, scrape and strip only what needs to come off."
+        },
+        {
+          "headline": "Newer builds off the highway",
+          "text": "On the newer side of town, it's mostly pressure-treated decks 5 to 15 years old. Most need a wash, brightener and two coats. Our calculator will get you close."
+        }
+      ],
+      "woodNotes": [
+        "Old painted porches near the historic district",
+        "5–15 year old pressure-treated decks",
+        "Same warranty in GA"
+      ],
+      "neighborhoods": [
+        "Battlefield Pkwy corridor",
+        "LaFayette Rd area",
+        "Near Chickamauga Battlefield",
+        "Lakeview area"
+      ],
+      "faq": {
+        "q": "Do you work in Georgia?",
+        "a": "Yes. Fort Oglethorpe, Rossville, Ringgold, Chickamauga and Dalton are all on our regular route."
+      },
+      "nearby": [
+        "rossville",
+        "chickamauga",
+        "ringgold",
+        "east-ridge"
+      ]
+    },
+    {
+      "slug": "rossville",
+      "name": "Rossville",
+      "state": "GA",
+      "county": "Walker County",
+      "headline": "Deck and porch staining in Rossville, Georgia",
+      "lede": "Rossville sits right below the state line, a few minutes from downtown Chattanooga. Lots of older homes with real front porches.",
+      "photo": "boards-old.jpg",
+      "photoAlt": "Old weathered wood boards",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Front porches with history",
+          "text": "Many Rossville homes have deep front porches with tongue-and-groove floors. Those floors were made to be painted, not stained, so we'll talk with you about which finish fits. Not every job is a stain job, and we'll say so."
+        },
+        {
+          "headline": "Weathered back decks",
+          "text": "Out back, it's usually a deck that's gone gray. Gray wood is just sun-damaged surface fibers. We wash and brighten until the clean wood shows, and then stain it."
+        },
+        {
+          "headline": "Budget-friendly options",
+          "text": "If money's tight this year, we can do the deck floor and stairs now and the railings next season. We'll write down the plan so the colors match when we come back."
+        }
+      ],
+      "woodNotes": [
+        "Painted tongue-and-groove porch floors",
+        "Gray, sun-weathered decks",
+        "Phased jobs on a budget"
+      ],
+      "neighborhoods": [
+        "McFarland Ave area",
+        "Mission Ridge Rd",
+        "Rossville Blvd corridor",
+        "Lakeview"
+      ],
+      "faq": {
+        "q": "Can you split the job over two seasons?",
+        "a": "Yes. Floor and stairs first, rails later is the most common split. We'll note your color and product so the second half matches."
+      },
+      "nearby": [
+        "east-ridge",
+        "fort-oglethorpe",
+        "chattanooga",
+        "lookout-mountain"
+      ]
+    },
+    {
+      "slug": "chickamauga",
+      "name": "Chickamauga",
+      "state": "GA",
+      "county": "Walker County",
+      "headline": "Deck staining in Chickamauga, Georgia",
+      "lede": "A small town with farm country all around it. Decks here are often on older farmhouses or newer homes on a few acres.",
+      "photo": "log-cabin-porch.jpg",
+      "photoAlt": "Log cabin with porch and firewood",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "Farmhouse porches and back decks",
+          "text": "Wraparound porches, back decks that step down to a yard, and the odd carport or pole barn. We'll look at all of it and help you decide what's worth doing first."
+        },
+        {
+          "headline": "Full sun, open fields",
+          "text": "Out of the trees, a deck takes the full Georgia sun all afternoon. UV breaks down a finish faster than anything. A semi-transparent with good pigment holds up better than a clear, which can look great for a season and then quit."
+        },
+        {
+          "headline": "Photo estimates save a trip",
+          "text": "It's a drive for us, so photos help. Send a wide shot of the whole deck plus a few close-ups, and you'll usually get a range before we ever come out."
+        }
+      ],
+      "woodNotes": [
+        "Farmhouse wraparound porches",
+        "All-day sun in open fields",
+        "Pigmented stain over clear for UV"
+      ],
+      "neighborhoods": [
+        "Downtown Chickamauga",
+        "Highway 341 corridor",
+        "Lee and Gordon's Mill area",
+        "Crawfish Springs area"
+      ],
+      "faq": {
+        "q": "Why not a clear sealer? I like the natural look.",
+        "a": "Clear finishes have almost no pigment, and pigment is what blocks the sun. In full sun they wear off quickly. A light 'toner' or a semi-transparent keeps the natural look and lasts much longer."
+      },
+      "nearby": [
+        "fort-oglethorpe",
+        "rossville",
+        "lookout-mountain"
+      ]
+    },
+    {
+      "slug": "ringgold",
+      "name": "Ringgold",
+      "state": "GA",
+      "county": "Catoosa County",
+      "headline": "Deck staining in Ringgold, Georgia",
+      "lede": "Ringgold sits along I-75 in Catoosa County. Plenty of homes and decks here were rebuilt after the April 2011 tornado, and many of those decks are now well past their first finish.",
+      "photo": "deck-stained-topdown.jpg",
+      "photoAlt": "Freshly stained deck boards from above",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "The decks built after 2011",
+          "text": "When a whole area rebuilds at once, a lot of decks age on the same clock. Many of the decks put up around 2011 and 2012 got one coat, maybe two, and are now gray and checking. Good bones, tired surface. That's an easy save."
+        },
+        {
+          "headline": "Newer subdivisions",
+          "text": "Ringgold keeps growing, and the new homes come with new pressure-treated decks. Same rule as anywhere: let new lumber dry, test it, then stain within the first year or so."
+        },
+        {
+          "headline": "Fences along the property line",
+          "text": "Many Ringgold yards have a privacy fence that's never been sealed. Fences are vertical, so a stain lasts longer on them than on a deck floor. Doing the fence with the deck is usually a good value."
+        }
+      ],
+      "woodNotes": [
+        "Decks rebuilt after 2011, now ready for refinishing",
+        "New subdivision decks",
+        "Unsealed privacy fences"
+      ],
+      "neighborhoods": [
+        "Downtown Ringgold",
+        "Battlefield Pkwy east",
+        "Highway 41 corridor",
+        "Graysville area"
+      ],
+      "faq": {
+        "q": "My deck is about 13 years old and has never been stained well. Is it too far gone?",
+        "a": "Probably not. Unless boards are soft or cracked deep, a good cleaning and brightening brings most decks that age back. Send photos and we'll tell you."
+      },
+      "nearby": [
+        "fort-oglethorpe",
+        "east-ridge",
+        "apison",
+        "dalton"
+      ]
+    },
+    {
+      "slug": "dalton",
+      "name": "Dalton",
+      "state": "GA",
+      "county": "Whitfield County",
+      "headline": "Deck staining in Dalton, Georgia",
+      "lede": "Dalton is about half an hour down I-75, the edge of our regular route. We come down for full jobs and schedule them in batches.",
+      "photo": "fence-cedar.jpg",
+      "photoAlt": "Cedar fence boards",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "How we handle the drive",
+          "text": "We schedule Dalton work in groups, so we're in town for a few days at a time. If you're flexible on the start date, it helps us keep the price the same as in Chattanooga."
+        },
+        {
+          "headline": "Photo quotes first",
+          "text": "Because it's a drive, we lean on photos. Upload a wide shot of the whole deck plus a few close-ups of the worst spots. We'll give you a written range before anyone gets in the truck."
+        },
+        {
+          "headline": "Bigger lots, bigger decks",
+          "text": "Many Dalton-area homes sit on larger lots with long decks and a fence to match. If you're doing both, book them together so it's one trip, one setup."
+        }
+      ],
+      "woodNotes": [
+        "Batched scheduling on the edge of our route",
+        "Photo-first estimates",
+        "Deck and fence combos"
+      ],
+      "neighborhoods": [
+        "North Dalton",
+        "Walnut Ave area",
+        "Tunnel Hill side",
+        "Rocky Face side"
+      ],
+      "faq": {
+        "q": "Is there a travel charge for Dalton?",
+        "a": "No separate trip charge for full jobs. Very small jobs may need to wait until we have other work in the area."
+      },
+      "nearby": [
+        "ringgold",
+        "fort-oglethorpe",
+        "cleveland"
+      ]
+    },
+    {
+      "slug": "cleveland",
+      "name": "Cleveland",
+      "state": "TN",
+      "county": "Bradley County",
+      "headline": "Deck staining in Cleveland, Tennessee",
+      "lede": "Cleveland is about 30 miles up I-75 in Bradley County. We serve it with planned trips and photo estimates.",
+      "photo": "deck-chairs-rail.jpg",
+      "photoAlt": "Deck with wooden railing and chairs",
+      "photoIsStock": true,
+      "sections": [
+        {
+          "headline": "A growing town, lots of newer decks",
+          "text": "Cleveland has grown a lot, and the newer subdivisions are full of pressure-treated decks that were never finished. Catch them in the first few years and they stay easy and cheap to keep up."
+        },
+        {
+          "headline": "Lake and mountain weekends",
+          "text": "Many Cleveland families also have a weekend place toward the Ocoee or up on a lake. If you've got two decks, we'll quote both and schedule them back to back."
+        },
+        {
+          "headline": "Planned trips",
+          "text": "We group Bradley County jobs together. Get your photos in early in the season to get a good slot, especially for fall."
+        }
+      ],
+      "woodNotes": [
+        "Unfinished subdivision decks",
+        "Second homes toward the Ocoee",
+        "Book early for fall slots"
+      ],
+      "neighborhoods": [
+        "North Cleveland",
+        "Waterville area",
+        "Paul Huff Pkwy corridor",
+        "South Cleveland"
+      ],
+      "faq": {
+        "q": "How far ahead should I book in Cleveland?",
+        "a": "For fall, the best staining season, book by late summer. Spring has more open dates."
+      },
+      "nearby": [
+        "ooltewah",
+        "collegedale",
+        "dalton"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "slug": "best-time-to-stain-a-deck",
+      "title": "The best time to stain a deck in {city}",
+      "short": "Best time to stain in {city}",
+      "description": "Why {bestMonths} are the best months to stain a deck in {city}, with NOAA rainfall numbers and what the wood needs to dry.",
+      "photo": "hero-wooded-deck.jpg",
+      "date": "2026-10-01",
+      "readMinutes": 4,
+      "body": [
+        {
+          "lede": "Short answer: **{bestMonths}**. Spring is our second choice. Midsummer and winter are the hardest. Here's why."
+        },
+        {
+          "h2": "Stain needs dry wood and a few dry days"
+        },
+        "Stain has to soak into the wood. If the boards are wet, it can't. The U.S. Forest Products Laboratory, the government's wood research lab, says to let a deck dry for at least two warm, windy days after cleaning before you finish it{cite:usdaFinishes}. Home Depot's guide for pressure-treated wood says to let it dry 24 hours after cleaning{cite:homeDepot}. On a shady deck in a humid valley, we lean toward the longer number.",
+        "So the real question is: *when does {city} give you a run of dry days?*",
+        {
+          "h2": "What the rainfall numbers say"
+        },
+        "{city} averages about **{annualRain} inches of rain a year**. The driest months on average are {driestMonths}, and {fewestRainDays} have the fewest rainy days{cite:climate}.",
+        {
+          "rainChart": true
+        },
+        "That lines up with what we see on the job. Fall gives us dry spells, cooler afternoons and less direct heat on the boards. Stain that goes on in mild weather soaks in evenly instead of flashing dry on the surface.",
+        {
+          "h2": "Why not July?"
+        },
+        "July is one of the wettest months here on average, and pop-up afternoon storms are common. Hot boards also dry the stain too fast, which leaves lap marks. We still work in summer, but we start early, work in the shade side first, and watch the radar.",
+        {
+          "h2": "Why not winter?"
+        },
+        "Most stains need air and wood temperatures above about 50°F while they dry. Check the label of the product you're using. Winter days are short and the boards stay damp in the morning. We use winter for estimates and booking.",
+        {
+          "h2": "What about humidity?"
+        },
+        "Average humidity here is {humidity}{cite:humidity}. Humidity slows drying, which is one more reason we don't rush the wait between washing and staining.",
+        {
+          "h2": "Bottom line"
+        },
+        {
+          "checklist": [
+            "Book early for {bestMonths}. Those slots fill first.",
+            "Spring works well too once the pollen settles.",
+            "If your deck is peeling or gray now, get it on the calendar. Waiting another season usually means more prep and a bigger bill."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "oil-vs-water-based-deck-stain",
+      "title": "Oil vs. water-based deck stain: the honest answer",
+      "short": "Oil vs. water-based",
+      "description": "Oil-based and water-based deck stains compared in plain English: how long they last, how they wear, and which is easier to redo.",
+      "photo": "deck-stained-topdown.jpg",
+      "date": "2026-09-18",
+      "readMinutes": 4,
+      "body": [
+        {
+          "lede": "You'll hear strong opinions on this. The truth is the experts don't fully agree, and the \"right\" answer depends on how you want to take care of the deck later."
+        },
+        {
+          "h2": "Where the experts disagree"
+        },
+        "Fine Homebuilding says most water-based stains actually *last longer* than oil-based ones, about two to three years. The catch is that when they do wear out, you often have to remove the old coat completely before recoating. Oil-based stains need refinishing more often, but the touch-up is easier{cite:fineHomebuilding}.",
+        "Bob Vila's cost guide puts it the other way, with oil-based lasting about 3 to 5 years and water-based about 2 to 3{cite:bobvila}.",
+        "Both are reputable. The difference comes from the products tested, the climate, and how \"lasting\" gets measured. That's why we don't sell one answer to everybody.",
+        {
+          "h2": "How they wear, in plain words"
+        },
+        {
+          "compare": [
+            {
+              "title": "Oil-based",
+              "items": [
+                "Soaks deep into the wood and brings out the grain",
+                "Wears away slowly. It fades more than it peels.",
+                "Easy to recoat: clean it and add a coat where it's thin{cite:fineHomebuilding}",
+                "Stronger smell, slower to dry, harder cleanup"
+              ]
+            },
+            {
+              "title": "Water-based",
+              "items": [
+                "Holds its color well and dries fast",
+                "Low odor and easy cleanup",
+                "Can last longer between coats{cite:fineHomebuilding}",
+                "When it's done, it may need to be stripped first"
+              ]
+            }
+          ]
+        },
+        {
+          "h2": "What we usually recommend"
+        },
+        "For most decks around {city}, we like a **penetrating, semi-transparent** stain, oil or a modern water-based \"hybrid,\" and a maintenance coat every couple of years. The Forest Products Lab recommends penetrating finishes over film-forming ones for decks{cite:usdaFinishes}. If you want to keep the cost of upkeep low, choose the product that's easiest to recoat. That way your second coat in three years is a quick wash-and-stain, not a strip job.",
+        {
+          "h2": "Already have a finish on there?"
+        },
+        "Stay with the same type if it's in good shape. Putting water-based over oil, or oil over a film that's still on the wood, is a common reason a new coat fails. When we're not sure what's on a deck, we test a spot first."
+      ]
+    },
+    {
+      "slug": "semi-transparent-vs-solid-deck-stain",
+      "title": "Semi-transparent vs. solid stain on a deck",
+      "short": "Semi-transparent vs. solid",
+      "description": "The government wood lab says avoid solid stain on decks. Consumer Reports says solid scores best. Here is how to decide.",
+      "photo": "deck-bench-boards.jpg",
+      "date": "2026-09-04",
+      "readMinutes": 5,
+      "body": [
+        {
+          "lede": "This is the one question where two trusted sources give opposite advice. We'll show you both and tell you how we decide on the job."
+        },
+        {
+          "h2": "Side 1: the wood scientists"
+        },
+        "The U.S. Forest Products Laboratory has studied wood finishes for decades. Their advice for decks is clear: use **penetrating** finishes, not film-forming ones. They write that paints and solid-color stains \"are prone to trap moisture and fail by peeling\"{cite:usdaFinishes}. Another of their guides says paint and solid-color stains \"are not appropriate for fully exposed decks\"{cite:usdaSouth}, and a third says opaque stains shouldn't be used on decks and fences{cite:usdaFinishing}.",
+        "Their own table gives semi-transparent stain on decking about 2–3 years on new smooth wood and 3–6 years on weathered, rougher wood{cite:usdaSouth}.",
+        {
+          "h2": "Side 2: Consumer Reports' testing"
+        },
+        "Consumer Reports tests deck stains on panels outdoors. Their tester told KOMO News that \"solid color staining always fares best in our testing,\" and that a solid color can last seven to 10 years, while clearer stains may need redoing every one to three years{cite:consumerReports}.",
+        {
+          "h2": "Why they disagree"
+        },
+        "They're measuring different things. Consumer Reports rates how the finish *looks and protects* over time on test panels. The Forest Products Lab focuses on how the finish *fails* on a real deck, where water gets in at the board ends, cracks and nail holes. When a solid stain does fail on a floor, it peels, and peeling means stripping. When a semi-transparent wears, it fades, and fading means a quick recoat.",
+        {
+          "h2": "How we decide"
+        },
+        {
+          "compare": [
+            {
+              "title": "We lean semi-transparent when…",
+              "items": [
+                "It's a walking surface: deck floors, stairs",
+                "The deck is shady or damp (think {shadyArea})",
+                "You want to see the wood grain",
+                "You want cheap, easy maintenance coats"
+              ]
+            },
+            {
+              "title": "Solid can make sense when…",
+              "items": [
+                "It's vertical: railings, skirting, fences, siding",
+                "The wood is mismatched or patched and you want one even color",
+                "You understand a failed solid coat means stripping later",
+                "There's good airflow and drainage"
+              ]
+            }
+          ]
+        },
+        "A popular middle path: **semi-transparent on the floor, solid on the railings.** You get a grain look underfoot and a crisp, long-lasting color on the parts you look at most.",
+        "Our written warranty reflects this. Solid stain on deck floors gets a shorter term, and we tell you why up front."
+      ]
+    },
+    {
+      "slug": "staining-new-pressure-treated-wood",
+      "title": "New pressure-treated deck? When to stain it",
+      "short": "Staining new wood",
+      "description": "How long to wait before staining a new pressure-treated deck, the 10-minute sprinkle test, and why waiting too long costs you.",
+      "photo": "brush-on-wood.jpg",
+      "date": "2026-08-21",
+      "readMinutes": 3,
+      "body": [
+        {
+          "lede": "Brand-new deck? Don't stain it the day the builder leaves, and don't wait three years either."
+        },
+        {
+          "h2": "Why you wait"
+        },
+        "Pressure-treated lumber comes from the yard wet. Home Depot's guide says it can take several weeks to dry{cite:homeDepot}. Stain put on wet wood can't soak in. It sits on top and flakes off.",
+        "The Forest Products Lab's deck guide says wood that was treated with a water repellent at the factory, or recently treated, should weather for about 2 to 3 months before finishing{cite:usdaFinishes}.",
+        {
+          "h2": "The 10-minute sprinkle test"
+        },
+        {
+          "steps": [
+            "Sprinkle some water on a few boards in the sun and a few in the shade.",
+            "Watch for 10 minutes.",
+            "If it soaks in, the wood is ready. Plan to stain soon. If it beads up or pools, give it more time{cite:homeDepot}."
+          ]
+        },
+        "One exception: lumber stamped **KDAT** (kiln dried after treatment) has already been dried and can be stained right away{cite:homeDepot}.",
+        {
+          "h2": "Why you don't wait too long"
+        },
+        "Bare wood in the sun turns gray within a season or two. That gray layer is damaged surface fiber. Stain won't stick well to it until it's cleaned and brightened, which adds a step and cost. The Forest Products Lab notes that most decks are retired early because of cracks and checks that timely finishing could have prevented{cite:usdaFinishes}.",
+        {
+          "h2": "Our advice for a new deck"
+        },
+        {
+          "checklist": [
+            "Do the sprinkle test every few weeks after the deck is built.",
+            "When it passes, book the first coat. For most decks that's within the first year.",
+            "Ask about a maintenance plan. A new deck is the cheapest one to keep looking new."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "why-deck-stain-peels",
+      "title": "Why deck stain peels (and how to stop it)",
+      "short": "Why decks peel",
+      "description": "The real reasons deck stain peels: film finishes, wet wood, and coating over old finish. Plus what fixes it for good.",
+      "photo": "boards-weathered-gray.jpg",
+      "date": "2026-08-07",
+      "readMinutes": 4,
+      "body": [
+        {
+          "lede": "Peeling is the number one complaint we hear. It's almost never bad luck. There are a few causes, and they're all fixable."
+        },
+        {
+          "h2": "1. A film finish on a walking surface"
+        },
+        "Paints and solid stains form a film on top of the wood. The Forest Products Lab says film-forming finishes on decks are prone to trap moisture and fail by peeling{cite:usdaFinishes}. Semi-transparent stains, by comparison, won't blister or peel even if water gets into the wood{cite:usdaFinishes}. They fade instead.",
+        {
+          "h2": "2. The wood was wet"
+        },
+        "Stain on damp wood can't grip. That happens when someone stains the day after a rain, the morning after washing, or on brand-new lumber that hasn't dried. The lab recommends at least two warm, windy days of drying after cleaning{cite:usdaFinishes}.",
+        {
+          "h2": "3. New coat on top of a failing coat"
+        },
+        "If the old finish is lifting, a new coat on top is only as strong as what's underneath. It peels right along with it. This is the most common mistake we fix.",
+        {
+          "h2": "4. Too much stain"
+        },
+        "More isn't better. Penetrating stain should soak in. The extra that sits in puddles on top dries into a soft film that scuffs and flakes. We back-brush and wipe off any excess before it dries.",
+        {
+          "h2": "5. Damaged surface from power washing"
+        },
+        "A high-pressure wash can tear up soft wood. The lab warns that aggressive scrubbing or power washing can remove wood from the surface{cite:usdaFinishes}. That fuzzy surface takes stain unevenly. We wash with low pressure and the right cleaner, and let the chemistry do the work.",
+        {
+          "h2": "The fix"
+        },
+        {
+          "steps": [
+            "Strip what's failing, all of it, down to sound wood.",
+            "Brighten the wood so it's open and even.",
+            "Let it dry fully.",
+            "Apply a penetrating stain and back-brush it in.",
+            "Recoat on schedule, before it wears through."
+          ]
+        },
+        "Stripping is the most work we do, so a peeling deck costs more than one that's just faded. Our [price calculator](/pricing/) shows the difference when you choose \"Peeling.\""
+      ]
+    },
+    {
+      "slug": "how-often-to-restain-a-deck",
+      "title": "How often to restain a deck in {stateName} humidity",
+      "short": "How often to restain",
+      "description": "How many years a deck stain really lasts in {stateName}: what Angi, Bob Vila and the U.S. Forest Products Lab say, and what changes it.",
+      "photo": "deck-chairs-rail.jpg",
+      "date": "2026-07-24",
+      "readMinutes": 4,
+      "body": [
+        {
+          "lede": "Most decks around here want attention every **two to three years**. Railings and fences can usually go longer. Here's what the sources say, and what moves the number up or down."
+        },
+        {
+          "h2": "What the sources say"
+        },
+        {
+          "table": {
+            "head": [
+              "Source",
+              "What they say"
+            ],
+            "rows": [
+              [
+                "Angi{cite:angi}",
+                "Restain every two to three years"
+              ],
+              [
+                "Bob Vila{cite:bobvila}",
+                "Oil-based every 3–5 years, water-based 2–3, solid 4–5"
+              ],
+              [
+                "USDA Forest Products Lab{cite:usdaSouth}",
+                "Semi-transparent on decking: 2–3 years on new smooth wood, 3–6 years on weathered rough wood"
+              ],
+              [
+                "USDA Forest Products Lab{cite:usdaFinishes}",
+                "Clear water-repellent sealers: about 1 year on exposed deck surfaces"
+              ]
+            ]
+          }
+        },
+        "Those are averages. The lab's own table says its numbers are for an average location in the continental United States{cite:usdaSouth}. {city} isn't average.",
+        {
+          "h2": "Why {stateName} is harder on decks"
+        },
+        "We get about {annualRain} inches of rain a year here{cite:climate}, and average humidity is {humidity}{cite:humidity}. Wet wood that dries slowly grows mildew, and mildew breaks down a finish from the top. Add strong summer sun on open decks and you get wear from both sides.",
+        {
+          "h2": "What makes yours last longer or shorter"
+        },
+        {
+          "compare": [
+            {
+              "title": "Shorter",
+              "items": [
+                "Full afternoon sun on the deck floor",
+                "Heavy shade and leaf piles",
+                "Clear or very light finishes (less pigment, less UV protection)",
+                "Dogs, grills, planters, kids"
+              ]
+            },
+            {
+              "title": "Longer",
+              "items": [
+                "Vertical surfaces: railings, fences, siding",
+                "Good airflow under and around the deck",
+                "Semi-transparent with good pigment",
+                "A yearly wash and a quick check"
+              ]
+            }
+          ]
+        },
+        {
+          "h2": "The cheapest way to keep a deck nice"
+        },
+        "Recoat *before* it wears through. A maintenance coat on a faded deck costs a fraction of stripping a failed one. That's the whole idea behind our [maintenance plans](/services/maintenance-plans/), and why our dashboard reminds us to call you before your deck needs it.",
+        "And check the structure while you're at it. The North American Deck and Railing Association recommends homeowners check their deck every year{cite:nadra}."
+      ]
+    }
+  ],
+  "pricing": {
+    "_note": "SAMPLE numbers. Set your own. National averages for context: Angi reports about $2–$4 per sq ft for professional deck staining.",
+    "sample": true,
+    "finishes": {
+      "transparent": {
+        "label": "Transparent / toner",
+        "low": 2.1,
+        "high": 2.7
+      },
+      "semi-transparent": {
+        "label": "Semi-transparent",
+        "low": 2.4,
+        "high": 3.1
+      },
+      "solid": {
+        "label": "Solid color",
+        "low": 2.8,
+        "high": 3.6
+      }
+    },
+    "condition": {
+      "good": {
+        "label": "Good — faded, no peeling",
+        "mult": 1.0
+      },
+      "weathered": {
+        "label": "Weathered — gray, rough, some mildew",
+        "mult": 1.25
+      },
+      "peeling": {
+        "label": "Peeling — old coating failing",
+        "mult": 1.7
+      }
+    },
+    "railingPerFt": {
+      "low": 6,
+      "high": 9
+    },
+    "stairPerStep": {
+      "low": 18,
+      "high": 28
+    },
+    "minimumJob": 650,
+    "depositPercent": 25,
+    "addOns": [
+      {
+        "id": "brighten",
+        "label": "Wood brightener",
+        "price": 0.25,
+        "unit": "sq ft"
+      },
+      {
+        "id": "sand",
+        "label": "Sand rough boards",
+        "price": 0.75,
+        "unit": "sq ft"
+      },
+      {
+        "id": "boards",
+        "label": "Replace a deck board",
+        "price": 45,
+        "unit": "board"
+      },
+      {
+        "id": "screws",
+        "label": "Reset popped nails / screws",
+        "price": 95,
+        "unit": "job"
+      }
+    ]
+  },
+  "maintenancePlans": {
+    "sample": true,
+    "plans": [
+      {
+        "id": "check",
+        "name": "Annual Check-Up",
+        "price": 149,
+        "per": "year",
+        "includes": [
+          "Spring wash with a soft cleaner",
+          "Board, nail and railing check",
+          "Touch-up on high-wear spots",
+          "Priority booking in our fall season"
+        ]
+      },
+      {
+        "id": "recoat",
+        "name": "Maintenance Coat",
+        "price": 0.95,
+        "per": "sq ft, every 2–3 years",
+        "featured": true,
+        "includes": [
+          "Gentle wash and brighten",
+          "One fresh maintenance coat of your same color",
+          "No stripping needed if we catch it in time",
+          "Locks in your warranty for another term"
+        ]
+      },
+      {
+        "id": "full",
+        "name": "Worry-Free",
+        "price": 39,
+        "per": "month",
+        "includes": [
+          "Everything in Annual Check-Up",
+          "Maintenance coat when it's due — no extra bill",
+          "Fence or rail touch-ups included",
+          "Transferable if you sell the house"
+        ]
+      }
+    ]
+  },
+  "warranty": {
+    "sample": true,
+    "horizontalYears": 2,
+    "verticalYears": 3,
+    "summary": "If stain we applied peels or flakes off a deck floor within 2 years, or off railings, fences or siding within 3 years, we come back and fix that area for free — labor and materials.",
+    "covers": [
+      "Peeling, flaking or lifting of the finish we applied",
+      "Labor and materials to prep and recoat the failed area",
+      "Railings, posts, fences and log walls for the longer vertical term"
+    ],
+    "excludes": [
+      "Normal fading and wear in high-traffic spots (that is what maintenance coats are for)",
+      "Damage from furniture, grills, pets, planters, ice melt or pressure washing by others",
+      "Wood that is rotten, split or soaked by a leak or bad drainage",
+      "Solid stain on deck floors gets a 1-year term, because film finishes are known to wear faster on walking surfaces"
+    ],
+    "conditions": [
+      "Keep the deck swept and clear of leaf piles",
+      "Call us within 30 days of noticing a problem",
+      "Transferable once to a new owner if you sell the home"
+    ]
+  },
+  "stains": {
+    "_note": "Generic color names only. If you carry specific brands, list them in business.brandsCarried and you can rename colors to match.",
+    "transparent": [
+      {
+        "name": "Clear Natural",
+        "hex": "#c99a63"
+      },
+      {
+        "name": "Honey Toner",
+        "hex": "#c98a3c"
+      },
+      {
+        "name": "Cedar Toner",
+        "hex": "#b8673a"
+      }
+    ],
+    "semi-transparent": [
+      {
+        "name": "Cedar",
+        "hex": "#a85a2c"
+      },
+      {
+        "name": "Redwood",
+        "hex": "#8e3b25"
+      },
+      {
+        "name": "Chestnut",
+        "hex": "#7a4a2a"
+      },
+      {
+        "name": "Walnut",
+        "hex": "#5a3a24"
+      },
+      {
+        "name": "Driftwood Gray",
+        "hex": "#8b8378"
+      },
+      {
+        "name": "Weathered Oak",
+        "hex": "#9c7f5e"
+      }
+    ],
+    "solid": [
+      {
+        "name": "Barn Red",
+        "hex": "#7b2e23"
+      },
+      {
+        "name": "Saddle Brown",
+        "hex": "#5b3b26"
+      },
+      {
+        "name": "Slate Gray",
+        "hex": "#5d6164"
+      },
+      {
+        "name": "Charcoal",
+        "hex": "#34363a"
+      },
+      {
+        "name": "Pewter",
+        "hex": "#8d8d88"
+      },
+      {
+        "name": "Forest",
+        "hex": "#33463a"
+      }
+    ]
+  },
+  "location": {
+    "_help": "Local facts used in the wording, like {metro} and {bestMonths}. Climate numbers must come from a real source (NOAA).",
+    "metro": "Chattanooga",
+    "region": "Hamilton County and North Georgia",
+    "radius": "about 30 miles around",
+    "shadyArea": "Signal Mountain",
+    "cabinAreas": "Signal Mountain, Lookout Mountain and the lake",
+    "licenseCounty": "Hamilton County",
+    "climate": {
+      "station": "Chattanooga airport",
+      "annualRainIn": 55.0,
+      "monthlyRainIn": [
+        5.02,
+        5.03,
+        5.34,
+        4.87,
+        3.94,
+        4.18,
+        5.08,
+        3.67,
+        4.23,
+        3.59,
+        4.8,
+        5.25
+      ],
+      "driestMonths": "October (3.59 in.) and August (3.67 in.)",
+      "fewestRainDays": "September and October",
+      "bestMonths": "September and October",
+      "humidity": "about 72%, and highest in September",
+      "humiditySourceKey": "wikiChattanooga",
+      "sourceKey": "noaaChattanooga"
+    }
+  },
+  "visualizer": {
+    "_help": "Sample deck photos for the color visualizer. \"deckOutline\" marks where the deck is, as fractions of the picture (0 = left/top, 1 = right/bottom). For a photo that is all deck, use [[0,0],[1,0],[1,1],[0,1]]. The home page teaser uses the first sample and the colors listed in teaserColors.",
+    "samples": [
+      {
+        "id": "wooded",
+        "label": "Backyard deck in the trees",
+        "file": "hero-wooded-deck.jpg",
+        "deckOutline": [
+          [
+            0.2,
+            1
+          ],
+          [
+            0.26,
+            0.86
+          ],
+          [
+            0.35,
+            0.72
+          ],
+          [
+            0.43,
+            0.67
+          ],
+          [
+            0.52,
+            0.665
+          ],
+          [
+            0.7,
+            0.66
+          ],
+          [
+            0.7,
+            0.7
+          ],
+          [
+            0.68,
+            0.74
+          ],
+          [
+            0.72,
+            0.8
+          ],
+          [
+            0.76,
+            1
+          ]
+        ]
+      },
+      {
+        "id": "rooftop",
+        "label": "Open deck with bench",
+        "file": "deck-bench-boards.jpg",
+        "deckOutline": [
+          [
+            0,
+            0.52
+          ],
+          [
+            0.18,
+            0.52
+          ],
+          [
+            0.18,
+            0.545
+          ],
+          [
+            1,
+            0.555
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "id": "boards",
+        "label": "Close-up of deck boards",
+        "file": "deck-boards-angle.jpg",
+        "deckOutline": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "teaserColors": [
+      "Cedar",
+      "Redwood",
+      "Walnut",
+      "Driftwood Gray",
+      "Slate Gray"
+    ]
+  },
+  "sources": {
+    "_help": "Every fact on the site links to one of these. Use the key in {cite:key} or [text](source:key). \"short\" is the little label shown in some places.",
+    "angi": {
+      "name": "Angi — How Much Does It Cost to Stain a Deck? (2026 data)",
+      "short": "Angi",
+      "url": "https://www.angi.com/articles/how-much-does-it-cost-stain-deck.htm"
+    },
+    "bobvila": {
+      "name": "Bob Vila — Cost to Stain a Deck",
+      "short": "Bob Vila",
+      "url": "https://www.bobvila.com/articles/cost-to-stain-a-deck/"
+    },
+    "usdaSouth": {
+      "name": "USDA Forest Products Lab — Exterior Wood in the South (FPL-GTR-69), Table 7 and “Decks and Porches”",
+      "short": "USDA FPL",
+      "url": "https://research.fs.usda.gov/download/treesearch/9660.pdf"
+    },
+    "usdaFinishes": {
+      "name": "USDA Forest Products Lab — Finishes for Wood Decks (FinishLine, rev. 2013)",
+      "short": "USDA FPL",
+      "url": "https://buildingadvisor.com/wp-content/uploads/2015/04/USDA-Deck-Finishing.pdf"
+    },
+    "usdaFinishing": {
+      "name": "USDA Forest Products Lab — Finishing Wood Exteriors (FPL-GTR-106)",
+      "short": "USDA FPL",
+      "url": "https://research.fs.usda.gov/download/treesearch/5989.pdf"
+    },
+    "usdaFaq": {
+      "name": "USDA Forest Products Lab — FAQ",
+      "short": "USDA FPL",
+      "url": "https://research.fs.usda.gov/fpl/faq"
+    },
+    "consumerReports": {
+      "name": "KOMO News — Top-rated deck stains from Consumer Reports (2021)",
+      "short": "KOMO",
+      "url": "https://komonews.com/news/consumer/top-rated-deck-stains-from-consumer-reports"
+    },
+    "fineHomebuilding": {
+      "name": "Fine Homebuilding — Deck Stain Versus Sealer",
+      "short": "Fine Homebuilding",
+      "url": "https://www.finehomebuilding.com/project-guides/decks/whats-the-difference-deck-stain"
+    },
+    "homeDepot": {
+      "name": "Home Depot — How to Stain Pressure-Treated Wood",
+      "short": "Home Depot",
+      "url": "https://www.homedepot.com/c/ah/how-to-stain-pressure-treated-wood/9ba683603be9fa5395fab9014d4485af"
+    },
+    "nadra": {
+      "name": "NADRA — Check Your Deck during Deck Safety Month",
+      "short": "NADRA",
+      "url": "https://www.nadra.org/blog/check-your-deck-during-deck-safety-month-in-may"
+    },
+    "nadraChecklist": {
+      "name": "NADRA — Deck safety tips for homeowners (10-point checklist)",
+      "short": "NADRA",
+      "url": "https://www.nadra.org/blog/may-is-deck-safety-month-deck-safety-tips-for-homeowners"
+    },
+    "tnHomeImprovement": {
+      "name": "Tennessee Board for Licensing Contractors — Home Improvement License",
+      "short": "TN.gov",
+      "url": "https://www.tn.gov/commerce/regboards/contractors/license/get/home-improvement.html"
+    },
+    "tnContractor": {
+      "name": "Tennessee Board for Licensing Contractors — Contractor License",
+      "short": "TN.gov",
+      "url": "https://www.tn.gov/commerce/regboards/contractors/license/get/contractor.html"
+    },
+    "noaaChattanooga": {
+      "name": "NOAA NCEI — 1991–2020 monthly precipitation normals, Chattanooga airport (USW00013882)",
+      "short": "NOAA",
+      "url": "https://www.ncei.noaa.gov/access/services/data/v1?dataset=normals-monthly-1991-2020&stations=USW00013882&format=csv&dataTypes=MLY-PRCP-NORMAL&units=standard"
+    },
+    "noaaKnoxville": {
+      "name": "NOAA NCEI — 1991–2020 monthly precipitation normals, Knoxville airport (USW00013891)",
+      "short": "NOAA",
+      "url": "https://www.ncei.noaa.gov/access/services/data/v1?dataset=normals-monthly-1991-2020&stations=USW00013891&format=csv&dataTypes=MLY-PRCP-NORMAL&units=standard"
+    },
+    "wikiChattanooga": {
+      "name": "Wikipedia — Chattanooga climate table (NOAA normals; humidity 1961–1990)",
+      "short": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Chattanooga,_Tennessee#Climate"
+    },
+    "wikiKnoxville": {
+      "name": "Wikipedia — Knoxville climate table",
+      "short": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Knoxville,_Tennessee#Climate"
+    }
+  }
+}
