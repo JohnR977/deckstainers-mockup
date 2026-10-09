@@ -1,0 +1,200 @@
+{
+  "_readme": "ONE file per Pro Partner. Change these values and run `npm run build` to rebuild the whole site. Any value wrapped as {\"value\": ..., \"sample\": true} is a placeholder and shows a SAMPLE tag on the site until you replace it and set sample to false.",
+
+  "slug": "chattanooga",
+  "mockup": true,
+  "siteUrl": "https://johnr977.github.io/deckstainers-mockup/",
+  "launchUrl": "https://deckstainers.com/",
+
+  "business": {
+    "name": "DeckStainers of Chattanooga",
+    "shortName": "DeckStainers",
+    "tagline": "Deck staining & restoration for the Scenic City",
+    "owner": { "value": "Your Name", "sample": true },
+    "phone": "(423) 555-0142",
+    "phoneHref": "+14235550142",
+    "sms": "+14235550142",
+    "email": "hello@deckstainers.example",
+    "street": { "value": "1200 Sample St.", "sample": true },
+    "city": "Chattanooga",
+    "state": "TN",
+    "stateName": "Tennessee",
+    "zip": "37402",
+    "geo": { "lat": 35.0456, "lng": -85.3097 },
+    "hours": "Mon–Sat, 7am–6pm",
+    "hoursSchema": ["Mo-Sa 07:00-18:00"],
+    "yearsInBusiness": { "value": 8, "sample": true },
+    "founded": { "value": 2018, "sample": true },
+    "crewSize": "a two-man crew",
+    "license": { "value": "TN Home Improvement #SAMPLE-00000", "sample": true },
+    "insurance": { "value": "$1,000,000 general liability", "sample": true },
+    "rating": { "value": 4.9, "sample": true },
+    "reviewCount": { "value": 0, "sample": true },
+    "googleReviewUrl": "https://g.page/r/SAMPLE-REPLACE/review",
+    "brandsCarried": [],
+    "social": { "facebook": "", "instagram": "" }
+  },
+
+  "theme": {
+    "ink": "#1d221f",
+    "forest": "#1f3a2e",
+    "forestDeep": "#142820",
+    "cedar": "#b0602b",
+    "cedarLight": "#d99b62",
+    "paper": "#f5f0e6",
+    "paperDeep": "#ebe3d3",
+    "logoMark": "DS"
+  },
+
+  "location": {
+    "metro": "Chattanooga",
+    "region": "Hamilton County and North Georgia",
+    "climate": {
+      "station": "Chattanooga airport",
+      "annualRainIn": 55.00,
+      "monthlyRainIn": [5.02, 5.03, 5.34, 4.87, 3.94, 4.18, 5.08, 3.67, 4.23, 3.59, 4.80, 5.25],
+      "driestMonths": "October (3.59 in.) and August (3.67 in.)",
+      "fewestRainDays": "September and October",
+      "bestMonths": "September and October",
+      "humidity": "about 72% on average, and highest in September",
+      "sourceKey": "noaaChattanooga",
+      "humiditySourceKey": "wikiChattanooga"
+    },
+    "areaGroups": [
+      { "name": "Hamilton County", "slugs": ["chattanooga", "signal-mountain", "lookout-mountain", "red-bank", "hixson", "soddy-daisy", "east-ridge", "east-brainerd", "ooltewah", "collegedale", "harrison", "apison"] },
+      { "name": "North Georgia", "slugs": ["fort-oglethorpe", "rossville", "chickamauga", "ringgold", "dalton"] },
+      { "name": "Bradley County", "slugs": ["cleveland"] }
+    ],
+    "areasFile": "content/chattanooga/areas.json"
+  },
+
+  "pricing": {
+    "_note": "SAMPLE numbers. Set your own. National averages for context: Angi reports about $2–$4 per sq ft for professional deck staining.",
+    "sample": true,
+    "finishes": {
+      "transparent":      { "label": "Transparent / toner", "low": 2.10, "high": 2.70 },
+      "semi-transparent": { "label": "Semi-transparent",    "low": 2.40, "high": 3.10 },
+      "solid":            { "label": "Solid color",         "low": 2.80, "high": 3.60 }
+    },
+    "condition": {
+      "good":       { "label": "Good — faded, no peeling",            "mult": 1.00 },
+      "weathered":  { "label": "Weathered — gray, rough, some mildew", "mult": 1.25 },
+      "peeling":    { "label": "Peeling — old coating failing",        "mult": 1.70 }
+    },
+    "railingPerFt": { "low": 6, "high": 9 },
+    "stairPerStep": { "low": 18, "high": 28 },
+    "minimumJob": 650,
+    "depositPercent": 25,
+    "addOns": [
+      { "id": "brighten", "label": "Wood brightener", "price": 0.25, "unit": "sq ft" },
+      { "id": "sand", "label": "Sand rough boards", "price": 0.75, "unit": "sq ft" },
+      { "id": "boards", "label": "Replace a deck board", "price": 45, "unit": "board" },
+      { "id": "screws", "label": "Reset popped nails / screws", "price": 95, "unit": "job" }
+    ]
+  },
+
+  "maintenancePlans": {
+    "sample": true,
+    "plans": [
+      { "id": "check", "name": "Annual Check-Up", "price": 149, "per": "year",
+        "includes": ["Spring wash with a soft cleaner", "Board, nail and railing check", "Touch-up on high-wear spots", "Priority booking in our fall season"] },
+      { "id": "recoat", "name": "Maintenance Coat", "price": 0.95, "per": "sq ft, every 2–3 years",
+        "featured": true,
+        "includes": ["Gentle wash and brighten", "One fresh maintenance coat of your same color", "No stripping needed if we catch it in time", "Locks in your warranty for another term"] },
+      { "id": "full", "name": "Worry-Free", "price": 39, "per": "month",
+        "includes": ["Everything in Annual Check-Up", "Maintenance coat when it's due — no extra bill", "Fence or rail touch-ups included", "Transferable if you sell the house"] }
+    ]
+  },
+
+  "warranty": {
+    "sample": true,
+    "horizontalYears": 2,
+    "verticalYears": 3,
+    "summary": "If stain we applied peels or flakes off a deck floor within 2 years, or off railings, fences or siding within 3 years, we come back and fix that area for free — labor and materials.",
+    "covers": [
+      "Peeling, flaking or lifting of the finish we applied",
+      "Labor and materials to prep and recoat the failed area",
+      "Railings, posts, fences and log walls for the longer vertical term"
+    ],
+    "excludes": [
+      "Normal fading and wear in high-traffic spots (that is what maintenance coats are for)",
+      "Damage from furniture, grills, pets, planters, ice melt or pressure washing by others",
+      "Wood that is rotten, split or soaked by a leak or bad drainage",
+      "Solid stain on deck floors gets a 1-year term, because film finishes are known to wear faster on walking surfaces"
+    ],
+    "conditions": [
+      "Keep the deck swept and clear of leaf piles",
+      "Call us within 30 days of noticing a problem",
+      "Transferable once to a new owner if you sell the home"
+    ]
+  },
+
+  "process": [
+    { "title": "Send photos", "text": "Snap 3–5 pictures and send them in. One wide shot of the whole deck helps most. You get a price range the same day, most of the time." },
+    { "title": "Pick a color", "text": "Try colors on a photo of your own deck. We bring real samples to the job so you see it on your wood before we start." },
+    { "title": "We wash & prep", "text": "Day one: low-pressure wash, strip or brighten as needed, fix popped nails. Then the wood has to dry." },
+    { "title": "We stain & seal", "text": "Day two: we brush and back-brush every board. Most decks take two days, start to finish." }
+  ],
+
+  "reviews": {
+    "sample": true,
+    "_note": "These are SAMPLE placeholders. Replace with real Google reviews (with permission) or leave the list empty to hide the section.",
+    "items": [
+      { "name": "Sample Customer", "area": "Signal Mountain", "text": "Sample review — replace with your Google reviews. Put a short, real quote here about how the deck looks and how the crew treated the yard." },
+      { "name": "Sample Customer", "area": "Hixson", "text": "Sample review — replace with your Google reviews. A good one mentions the price matched the quote and the crew showed up when they said." },
+      { "name": "Sample Customer", "area": "East Brainerd", "text": "Sample review — replace with your Google reviews. Ask happy customers to mention the color they picked and the part of town." }
+    ]
+  },
+
+  "stains": {
+    "_note": "Generic color names only. If you carry specific brands, list them in business.brandsCarried and you can rename colors to match.",
+    "transparent": [
+      { "name": "Clear Natural", "hex": "#c99a63" },
+      { "name": "Honey Toner", "hex": "#c98a3c" },
+      { "name": "Cedar Toner", "hex": "#b8673a" }
+    ],
+    "semi-transparent": [
+      { "name": "Cedar", "hex": "#a85a2c" },
+      { "name": "Redwood", "hex": "#8e3b25" },
+      { "name": "Chestnut", "hex": "#7a4a2a" },
+      { "name": "Walnut", "hex": "#5a3a24" },
+      { "name": "Driftwood Gray", "hex": "#8b8378" },
+      { "name": "Weathered Oak", "hex": "#9c7f5e" }
+    ],
+    "solid": [
+      { "name": "Barn Red", "hex": "#7b2e23" },
+      { "name": "Saddle Brown", "hex": "#5b3b26" },
+      { "name": "Slate Gray", "hex": "#5d6164" },
+      { "name": "Charcoal", "hex": "#34363a" },
+      { "name": "Pewter", "hex": "#8d8d88" },
+      { "name": "Forest", "hex": "#33463a" }
+    ]
+  },
+
+  "photos": {
+    "_note": "placeholder: true means it's a free stock photo, not your work. Swap in real job photos before launch. Sources and licenses are in CREDITS.md.",
+    "hero":      { "src": "hero-wooded-deck.jpg",   "alt": "Stained wood deck beside a stone house, surrounded by hardwood trees", "placeholder": true },
+    "staining":  { "src": "deck-stained-topdown.jpg", "alt": "Freshly stained hardwood deck boards seen from above", "placeholder": true },
+    "cleaning":  { "src": "boards-weathered-gray.jpg", "alt": "Gray, weathered deck boards that need cleaning", "placeholder": true },
+    "fence":     { "src": "fence-cedar.jpg", "alt": "Close-up of cedar fence boards with ivy", "placeholder": true },
+    "loghome":   { "src": "log-cabin-porch.jpg", "alt": "Log cabin with a covered porch and stacked firewood", "placeholder": true },
+    "pergola":   { "src": "pavilion-posts.jpg", "alt": "Stained timber pavilion posts and floor with fall trees behind", "placeholder": true },
+    "porch":     { "src": "covered-porch.jpg", "alt": "Covered porch with wood chairs and a sofa", "placeholder": true },
+    "maintenance": { "src": "brush-on-wood.jpg", "alt": "Brush applying finish to bare wood", "placeholder": true },
+    "about":     { "src": "cabin-deck-view.jpg", "alt": "Wood deck and railing on a cabin overlooking a wooded mountain", "placeholder": true },
+    "local":     { "src": "chattanooga-valley-barnard.jpg", "alt": "Historic 1860s photograph of Chattanooga Valley seen from Lookout Mountain, by George N. Barnard", "placeholder": false },
+    "beforeAfter": { "before": "ba-before.jpg", "after": "ba-after.jpg", "alt": "Same deck boards before and after staining", "placeholder": true, "illustration": true }
+  },
+
+  "visualizerSamples": [
+    { "id": "wooded", "label": "Backyard deck in the trees", "src": "hero-wooded-deck.jpg" },
+    { "id": "rooftop", "label": "Open deck with bench", "src": "deck-bench-boards.jpg" },
+    { "id": "boards", "label": "Close-up of deck boards", "src": "deck-boards-angle.jpg" }
+  ],
+
+  "dashboard": {
+    "demoUser": "demo",
+    "demoPass": "deck2026",
+    "reminderYears": { "transparent": 2, "semi-transparent": 2, "solid": 3 }
+  }
+}

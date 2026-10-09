@@ -1,0 +1,85 @@
+{
+  "_readme": "Every fact on the site links to one of these. Verified 2026-10-08. If a link dies, fix it here and rebuild.",
+  "angi": {
+    "name": "Angi — How Much Does It Cost to Stain a Deck? (2026 data)",
+    "url": "https://www.angi.com/articles/how-much-does-it-cost-stain-deck.htm",
+    "facts": ["Normal range $550–$1,250; about $850 on average", "$2 to $4 per square foot", "Restain every two to three years"]
+  },
+  "bobvila": {
+    "name": "Bob Vila — Cost to Stain a Deck",
+    "url": "https://www.bobvila.com/articles/cost-to-stain-a-deck/",
+    "facts": ["National average $775 (range $540–$1,250)", "Oil-based every 3–5 yrs; water-based 2–3; solid 4–5"]
+  },
+  "usdaSouth": {
+    "name": "USDA Forest Products Lab — Exterior Wood in the South (FPL-GTR-69), Table 7 and “Decks and Porches”",
+    "url": "https://research.fs.usda.gov/download/treesearch/9660.pdf",
+    "facts": ["Semitransparent stain on decking: 2–3 yrs on new smooth wood, 3–6 yrs on weathered rough wood", "Paint and solid-color stains are not appropriate for fully exposed decks", "Allow 1 or 2 days drying time"]
+  },
+  "usdaFinishes": {
+    "name": "USDA Forest Products Lab — Finishes for Wood Decks (FinishLine, rev. 2013)",
+    "url": "https://buildingadvisor.com/wp-content/uploads/2015/04/USDA-Deck-Finishing.pdf",
+    "facts": ["Penetrating finishes, not film-forming finishes, should be used on wood decks", "Film-forming finishes … prone to trap moisture and fail by peeling", "Power washing can remove wood from the surface", "Allow at least 2 warm, windy days to dry", "Water-repellent preservative lasts about 1 year on exposed deck surfaces"]
+  },
+  "usdaFinishing": {
+    "name": "USDA Forest Products Lab — Finishing Wood Exteriors (FPL-GTR-106)",
+    "url": "https://research.fs.usda.gov/download/treesearch/5989.pdf",
+    "facts": ["Opaque stains should not be used on decks and fences"]
+  },
+  "usdaFaq": {
+    "name": "USDA Forest Products Lab — FAQ",
+    "url": "https://research.fs.usda.gov/fpl/faq"
+  },
+  "consumerReports": {
+    "name": "KOMO News — Top-rated deck stains from Consumer Reports (2021)",
+    "url": "https://komonews.com/news/consumer/top-rated-deck-stains-from-consumer-reports",
+    "facts": ["“Solid color staining always fares best in our testing”", "Clearer stains may need reapplying every one to three years; solid color could buy seven to 10 years"]
+  },
+  "fineHomebuilding": {
+    "name": "Fine Homebuilding — Deck Stain Versus Sealer",
+    "url": "https://www.finehomebuilding.com/project-guides/decks/whats-the-difference-deck-stain",
+    "facts": ["Most water-based stains last longer than oil-based (2–3 yrs) but often must be removed entirely to refinish", "Oil-based refinishing every 1–2 years is less involved: touch up what needs it", "Oil-based has higher VOC content"]
+  },
+  "homeDepot": {
+    "name": "Home Depot — How to Stain Pressure-Treated Wood",
+    "url": "https://www.homedepot.com/c/ah/how-to-stain-pressure-treated-wood/9ba683603be9fa5395fab9014d4485af",
+    "facts": ["New pressure-treated lumber may take several weeks to dry", "Sprinkle test: absorbs within 10 minutes = ready; beads = wait", "KDAT lumber can be stained immediately", "Dry 24 hours after cleaning"]
+  },
+  "nadra": {
+    "name": "NADRA — Check Your Deck during Deck Safety Month",
+    "url": "https://www.nadra.org/blog/check-your-deck-during-deck-safety-month-in-may",
+    "facts": ["Homeowners should check their deck on a yearly basis"]
+  },
+  "nadraChecklist": {
+    "name": "NADRA — Deck safety tips for homeowners (10-point checklist)",
+    "url": "https://www.nadra.org/blog/may-is-deck-safety-month-deck-safety-tips-for-homeowners"
+  },
+  "tnHomeImprovement": {
+    "name": "Tennessee Board for Licensing Contractors — Home Improvement License",
+    "url": "https://www.tn.gov/commerce/regboards/contractors/license/get/home-improvement.html",
+    "facts": ["Required for residential projects $3,000–$24,999 in adopting counties: Bradley, Davidson, Hamilton, Haywood, Knox, Marion, Robertson, Rutherford, Shelby"]
+  },
+  "tnContractor": {
+    "name": "Tennessee Board for Licensing Contractors — Contractor License",
+    "url": "https://www.tn.gov/commerce/regboards/contractors/license/get/contractor.html",
+    "facts": ["Contractor's license required for projects of $25,000 or more"]
+  },
+  "noaaChattanooga": {
+    "name": "NOAA NCEI — 1991–2020 monthly precipitation normals, Chattanooga airport (USW00013882)",
+    "url": "https://www.ncei.noaa.gov/access/services/data/v1?dataset=normals-monthly-1991-2020&stations=USW00013882&format=csv&dataTypes=MLY-PRCP-NORMAL&units=standard",
+    "facts": ["Annual 55.00 in", "Driest: Oct 3.59, Aug 3.67, May 3.94", "Sep and Oct have the fewest rain days (7.9 each)"]
+  },
+  "noaaKnoxville": {
+    "name": "NOAA NCEI — 1991–2020 monthly precipitation normals, Knoxville airport (USW00013891)",
+    "url": "https://www.ncei.noaa.gov/access/services/data/v1?dataset=normals-monthly-1991-2020&stations=USW00013891&format=csv&dataTypes=MLY-PRCP-NORMAL&units=standard",
+    "facts": ["Annual 51.93 in", "Driest: Oct 2.81, Sep 3.49, Aug 3.63"]
+  },
+  "wikiChattanooga": {
+    "name": "Wikipedia — Chattanooga climate table (NOAA normals; humidity 1961–1990)",
+    "url": "https://en.wikipedia.org/wiki/Chattanooga,_Tennessee#Climate",
+    "facts": ["Mean relative humidity about 72% annually, highest in September (77%)"]
+  },
+  "wikiKnoxville": {
+    "name": "Wikipedia — Knoxville climate table",
+    "url": "https://en.wikipedia.org/wiki/Knoxville,_Tennessee#Climate"
+  }
+}

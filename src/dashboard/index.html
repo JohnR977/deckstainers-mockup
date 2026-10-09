@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pro Partner Dashboard · {{SHORT}}</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="{{FOREST}}">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+{{THEME}}
+</head>
+<body class="dash">
+<script>window.DASH_CONFIG = {{CONFIG}};</script>
+
+<!-- LOGIN -->
+<section class="login" id="login" hidden>
+  <form class="login-card" id="login-form" autocomplete="off">
+    <div class="login-brand"><span class="logo-mark">DS</span><div><strong>{{SHORT}}</strong><small>Pro Partner Dashboard</small></div></div>
+    <h1>Sign in</h1>
+    <label class="f"><span>Username</span><input name="u" autocapitalize="off" required></label>
+    <label class="f"><span>Password</span><input name="p" type="password" required></label>
+    <button class="b b-cedar b-block" type="submit">Sign in</button>
+    <p class="login-msg" role="status"></p>
+    <p class="login-demo">Demo login: <code id="demo-creds"></code></p>
+    <p class="login-note">Mockup only. This is a pretend login and all data stays in this browser. The real version uses secure accounts. See CRM_PLAN.md.</p>
+    <p><a href="../">← Back to the website</a></p>
+  </form>
+</section>
+
+<!-- APP -->
+<div class="app" id="app" hidden>
+  <header class="top">
+    <a class="top-brand" href="#leads"><span class="logo-mark">DS</span><span><strong>{{SHORT}}</strong><small>Dashboard</small></span></a>
+    <nav class="tabs" aria-label="Dashboard">
+      <a href="#leads" data-tab="leads"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Leads</span><b class="badge" id="badge-new" hidden></b></a>
+      <a href="#pipeline" data-tab="pipeline"><svg viewBox="0 0 24 24"><path d="M4 5h4v14H4zM10 5h4v9h-4zM16 5h4v6h-4z"/></svg><span>Pipeline</span></a>
+      <a href="#schedule" data-tab="schedule"><svg viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5"/></svg><span>Schedule</span></a>
+      <a href="#reminders" data-tab="reminders"><svg viewBox="0 0 24 24"><path d="M12 4a6 6 0 0 1 6 6v4l2 3H4l2-3v-4a6 6 0 0 1 6-6zM10 20h4"/></svg><span>Re-coats</span><b class="badge" id="badge-due" hidden></b></a>
+    </nav>
+    <div class="top-right">
+      <a class="top-link" href="../" target="_blank" rel="noopener">View website</a>
+      <button class="top-link" id="reset-demo" type="button">Reset demo</button>
+      <button class="top-link" id="logout" type="button">Sign out</button>
+    </div>
+  </header>
+  <main class="view" id="view" tabindex="-1"></main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

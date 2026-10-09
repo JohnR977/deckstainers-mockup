@@ -1,0 +1,12 @@
+{
+  "name": "deckstainers-mockup",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Turnkey staining-contractor website + simple CRM for Stain & Seal Supply Pro Partners. Mockup: deckstainers.com, Chattanooga.",
+  "type": "module",
+  "scripts": {
+    "build": "node src/build.mjs site.config.json docs && node src/build.mjs configs/knoxville.config.json docs/demo-knoxville",
+    "build:main": "node src/build.mjs site.config.json docs",
+    "serve": "python3 -m http.server 8080 --directory docs"
+  }
+}

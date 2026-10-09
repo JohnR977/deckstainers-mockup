@@ -1,0 +1,344 @@
+[
+  {
+    "slug": "chattanooga",
+    "name": "Chattanooga",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck staining in Chattanooga, from North Shore porches to Missionary Ridge decks",
+    "lede": "Home base. We work every part of the city, and the decks change a lot from one side of the river to the other.",
+    "image": "chattanooga-valley-barnard.jpg",
+    "imageAlt": "Historic photograph of Chattanooga Valley and the Tennessee River from Lookout Mountain, 1860s",
+    "sections": [
+      { "h": "Older homes, older finishes", "p": "In North Shore, Highland Park, St. Elmo and Riverview, a lot of the porches and back decks have been painted or solid-stained more than once. Layers like that trap water and peel in sheets. Another coat on top won't hold. We strip it back to wood the right way and start the finish over, or we tell you honestly when a board needs replacing first." },
+      { "h": "Ridge decks get the weather first", "p": "Up on Missionary Ridge and the bluffs, decks sit high and catch full afternoon sun and wind. The finish on the floor and the top rail goes first. Those decks usually need a maintenance coat sooner than one tucked into a shady backyard downtown." },
+      { "h": "River-bottom humidity", "p": "Low ground near the river and creeks stays damp. You'll see green on the north side of the boards and black spots under planters. We wash that out gently, kill the mildew, and let the wood dry before any stain goes on." }
+    ],
+    "woodNotes": ["Multi-layer paint and solid stain on porches", "Sun-baked deck floors on the ridges", "Mildew on north-facing and low-lying decks"],
+    "neighborhoods": ["North Shore", "Riverview", "Highland Park", "St. Elmo", "Missionary Ridge", "Brainerd", "Lupton City", "Downtown"],
+    "faq": { "q": "Do you work on the small porches and decks in the older Chattanooga neighborhoods?", "a": "Yes. Small jobs are welcome. There's a minimum job price, but a 10×12 porch floor is right in our wheelhouse, and those often need stripping more than size." },
+    "nearby": ["red-bank", "lookout-mountain", "east-ridge", "signal-mountain"]
+  },
+  {
+    "slug": "signal-mountain",
+    "name": "Signal Mountain",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck staining on Signal Mountain: shade, moss and mildew are the enemy",
+    "lede": "Signal Mountain sits up on Walden Ridge under thick hardwoods. Beautiful to live with. Hard on a deck.",
+    "image": "hero-wooded-deck.jpg",
+    "imageAlt": "Wooden deck under hardwood trees beside a stone house",
+    "sections": [
+      { "h": "Why mountain decks go green", "p": "Under a full canopy, the boards stay damp for days after a rain. Leaves pile up in the gaps and hold water against the wood. That's where mildew, algae and moss get started, and why a Signal deck can look worse at three years than a sunny valley deck at five." },
+      { "h": "What we do differently up here", "p": "We spend more time on cleaning. We blow out the board gaps, use a mildew wash that's safe for the plants around the deck, and never blast soft wood with high pressure. We also steer most shady decks toward a stain made to resist mildew, and away from thick solid colors that trap moisture." },
+      { "h": "Log homes and cabins on the mountain", "p": "There are plenty of log and cedar-sided homes on Signal and Walden. We stain those too. They have their own needs, like checking for gaps in the chinking and dealing with old finish on the logs." }
+    ],
+    "woodNotes": ["Heavy shade and slow drying", "Leaf buildup in board gaps", "Mildew-resistant stain recommended", "Log and cedar-sided homes"],
+    "neighborhoods": ["Town of Signal Mountain", "Walden", "Fairmount", "Mountain Creek Rd area"],
+    "faq": { "q": "How often will my Signal Mountain deck need a recoat?", "a": "Usually on the shorter end of the range. Shady decks hold moisture and grow mildew faster. A yearly wash plus a maintenance coat every 2 years keeps most of them from ever needing a full strip." },
+    "nearby": ["red-bank", "chattanooga", "hixson", "soddy-daisy"]
+  },
+  {
+    "slug": "lookout-mountain",
+    "name": "Lookout Mountain",
+    "state": "TN",
+    "county": "Hamilton County (TN) & Walker County (GA)",
+    "headline": "Deck staining on Lookout Mountain, on both sides of the state line",
+    "lede": "The decks up here were built for the view. Many hang off steep lots with long railings and tall stairs.",
+    "image": "cabin-deck-view.jpg",
+    "imageAlt": "Wood deck and rail on a cabin overlooking a wooded mountain valley",
+    "sections": [
+      { "h": "Built for the view, hard to reach", "p": "Lookout decks tend to be tall, multi-level and on steep ground. That means more railing, more stairs, and more ladder work than a flat backyard deck. We price railings and stairs separately so you can see exactly where the cost is." },
+      { "h": "Railings show wear first", "p": "Top rails and balusters take the sun and rain straight on and are the first thing your guests touch. On view decks we pay extra attention to the vertical parts. A well-done railing makes the whole deck look new." },
+      { "h": "Tennessee side or Georgia side", "p": "The mountain crosses the state line, and so do we. Whether your mailbox says Lookout Mountain, TN or Lookout Mountain, GA, the work and the warranty are the same." }
+    ],
+    "woodNotes": ["Tall, multi-level decks on steep lots", "Long runs of railing and stairs", "Wind and full sun on the bluff side, deep shade on the back side"],
+    "neighborhoods": ["Lookout Mountain, TN", "Lookout Mountain, GA", "Scenic Highway area", "Fairyland"],
+    "faq": { "q": "Can you stain a deck that's 20 feet off the ground?", "a": "Yes. We set up safely with the right ladders and staging, and we'll tell you up front if a section needs special equipment so there's no surprise on the bill." },
+    "nearby": ["chattanooga", "rossville", "chickamauga", "fort-oglethorpe"]
+  },
+  {
+    "slug": "red-bank",
+    "name": "Red Bank",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck and porch staining in Red Bank",
+    "lede": "Red Bank sits between downtown and the foot of Signal Mountain. Lots of mid-century homes with decks that were added later on.",
+    "image": "covered-porch.jpg",
+    "imageAlt": "Covered wooden porch with chairs",
+    "sections": [
+      { "h": "Add-on decks and their quirks", "p": "Many Red Bank homes got their decks years after the house was built. Some were built well, some were weekend jobs. Before we stain, we check the boards, nails and railings, and point out anything loose. A fresh stain shouldn't hide a problem." },
+      { "h": "Front porches deserve it too", "p": "Covered porches don't get rain, but they get foot traffic, and that wears a finish down in a path from the door to the steps. We can stain a porch floor in a day and blend the worn path back in." },
+      { "h": "Close by, easy to fit in", "p": "Red Bank is right next to our usual routes. If you're flexible on timing, we can often fit smaller Red Bank jobs in between bigger ones." }
+    ],
+    "woodNotes": ["Add-on decks of mixed quality", "Worn paths on porch floors", "Small-yard jobs that fit between bigger ones"],
+    "neighborhoods": ["Dayton Blvd corridor", "Morrison Springs", "Red Bank Middle area", "Stringers Ridge side"],
+    "faq": { "q": "Is my old deck worth staining or should it be replaced?", "a": "Send us photos first. If the framing is sound and most boards are solid, cleaning and staining plus a few new boards costs a fraction of a rebuild. If it isn't safe, we'll tell you." },
+    "nearby": ["chattanooga", "signal-mountain", "hixson"]
+  },
+  {
+    "slug": "hixson",
+    "name": "Hixson",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck staining in Hixson, from subdivisions to Chickamauga Lake",
+    "lede": "Hixson has a bit of everything: family subdivisions, wooded lots off the ridges, and lake houses on Chickamauga Lake.",
+    "image": "deck-chairs-rail.jpg",
+    "imageAlt": "Deck with wooden railing and chairs looking into green trees",
+    "sections": [
+      { "h": "The typical Hixson deck", "p": "A pressure-treated deck off the back of a two-story, about 12 by 16 to 16 by 20, with a set of stairs to the yard. It's 10 to 20 years old and was stained once, maybe twice. Most of these need a good wash, a brightener and two coats of a semi-transparent. That's our bread and butter." },
+      { "h": "Lake houses take more care", "p": "Decks near Chickamauga Lake see damp mornings, sun off the water and more mildew than a deck in town. Docks and boat-house decks are a different animal. Tell us what you've got and we'll tell you honestly what will last." },
+      { "h": "Fences too", "p": "A lot of Hixson yards have long privacy fences. If you're getting the deck done, staining the fence the same week saves you a second setup charge." }
+    ],
+    "woodNotes": ["10–20 year old pressure-treated decks", "Lakefront moisture and sun glare", "Long privacy fences"],
+    "neighborhoods": ["Northgate area", "Middle Valley", "Big Ridge", "Chickamauga Lake shore", "Hixson Pike corridor"],
+    "faq": { "q": "Can you do my deck and fence in the same visit?", "a": "Yes, and it's cheaper that way. One setup, one cleanup, and matched colors if you want them." },
+    "nearby": ["red-bank", "soddy-daisy", "signal-mountain", "harrison"]
+  },
+  {
+    "slug": "soddy-daisy",
+    "name": "Soddy-Daisy",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck staining in Soddy-Daisy and along the north end of the lake",
+    "lede": "More land, bigger decks, and plenty of lake homes. Soddy-Daisy jobs tend to be the larger ones on our calendar.",
+    "image": "log-cabin.jpg",
+    "imageAlt": "Log cabin home in the woods",
+    "sections": [
+      { "h": "Big decks, wraparounds and lake views", "p": "Out here a deck is often a wraparound, or two levels stepping down a slope toward the water. Big decks reward good prep. One bad wash day shows up across 800 square feet. We take our time on day one." },
+      { "h": "Cabins and log siding", "p": "There are a fair number of log homes and cabin-style places in the area. We handle logs, half-log siding and the decks attached to them, matching colors where we can." },
+      { "h": "Scheduling out north", "p": "We group north-end jobs on the same days to keep drive time down. That helps us hold the price, and it means your neighbors may see our truck the same week." }
+    ],
+    "woodNotes": ["Large and multi-level decks", "Lake-house moisture", "Log and cabin-style homes"],
+    "neighborhoods": ["Soddy Lake area", "Sale Creek", "Dayton Pike corridor", "Lakesite"],
+    "faq": { "q": "Do you charge more to drive out to Soddy-Daisy?", "a": "No trip charge inside our service area. We just schedule north-end jobs together, so your start date may be tied to that week." },
+    "nearby": ["hixson", "signal-mountain", "harrison"]
+  },
+  {
+    "slug": "east-ridge",
+    "name": "East Ridge",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck staining in East Ridge",
+    "lede": "East Ridge runs right up to the Georgia line along I-75. Lots of brick ranches with a back deck or a covered patio added on.",
+    "image": "deck-bench-boards.jpg",
+    "imageAlt": "Wide wood deck with a bench",
+    "sections": [
+      { "h": "Ranch homes, low decks", "p": "Many East Ridge decks sit close to the ground. Low decks don't get much air underneath, so the boards stay damp longer and cup or crack. We look closely at those boards, swap out the worst ones, and choose a penetrating stain that lets the wood breathe." },
+      { "h": "Old solid stain that's failing", "p": "Solid stain was popular here for a while. When it fails on a deck floor, it peels in patches and looks worse than bare wood. Stripping it is more work, so it costs more, but it's the only fix that lasts. Our calculator lets you pick 'peeling' and see the difference." },
+      { "h": "Quick jobs, honest quotes", "p": "A lot of East Ridge decks are on the smaller side. Send three photos, and most of the time we can quote the job without coming out first." }
+    ],
+    "woodNotes": ["Low decks with poor airflow", "Peeling solid stain on floors", "Smaller decks quoted from photos"],
+    "neighborhoods": ["Ringgold Rd corridor", "Camp Jordan area", "Belvoir", "East Ridge city center"],
+    "faq": { "q": "My deck has peeling solid stain. Can you just paint over it?", "a": "We won't. Coating over a failing film just peels again, usually within a year. It has to come off first. We'll show you the price both ways so you can decide." },
+    "nearby": ["chattanooga", "rossville", "east-brainerd", "ringgold"]
+  },
+  {
+    "slug": "east-brainerd",
+    "name": "East Brainerd",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck staining in East Brainerd subdivisions",
+    "lede": "East Brainerd is subdivision country: newer homes, HOAs, and builder decks that were never stained at all.",
+    "image": "deck-boards-angle.jpg",
+    "imageAlt": "Close view of wood deck boards",
+    "sections": [
+      { "h": "The builder deck that never got stained", "p": "The most common thing we see here: a pressure-treated deck the builder left bare. After a few summers it's gray, rough, and starting to split. It's not too late. A cleaning, a brightener, and the right stain bring most of them right back." },
+      { "h": "HOA colors", "p": "If your neighborhood has an approved color list, send it to us. We'll match it, and you can try the colors on your own deck photo in our visualizer before you send the request to your HOA." },
+      { "h": "Same street, same week", "p": "When we do one deck in a subdivision, two or three neighbors usually ask. If you get neighbors together for the same week, ask about a neighborhood discount." }
+    ],
+    "woodNotes": ["Builder decks left unstained", "HOA color rules", "Neighbor group scheduling"],
+    "neighborhoods": ["Hamilton Place area", "Ooltewah-Ringgold Rd", "Gunbarrel Rd corridor", "East Brainerd Rd subdivisions"],
+    "faq": { "q": "Can you match our HOA's approved colors?", "a": "Yes. Send us the list or the color names, and we'll match them closely. We'll also give you a sample board to show the HOA if they need one." },
+    "nearby": ["ooltewah", "collegedale", "east-ridge", "apison"]
+  },
+  {
+    "slug": "ooltewah",
+    "name": "Ooltewah",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck staining in Ooltewah: new decks, done right the first time",
+    "lede": "Ooltewah has grown fast. That means a lot of new decks, and new wood has its own rules.",
+    "image": "brush-on-wood.jpg",
+    "imageAlt": "Brush applying stain to bare wood",
+    "sections": [
+      { "h": "Don't stain new wood too soon", "p": "Fresh pressure-treated lumber is wet from the factory. Stain put on too early just sits on top and flakes. We use a simple water-drop test: if a few drops soak in within a few minutes, the wood is ready. If they bead up, we wait. Our article on new pressure-treated wood explains the timing." },
+      { "h": "…and don't wait too long", "p": "The other mistake is leaving it bare for years. Sun turns the surface gray and loosens the fibers, and then it has to be cleaned and brightened before it will take stain well. Somewhere in that first year is the sweet spot for most decks." },
+      { "h": "Start a maintenance plan on day one", "p": "A new deck is the cheapest one to keep nice. Put it on a maintenance plan after the first coat, and you may never pay for stripping." }
+    ],
+    "woodNotes": ["New construction pressure-treated wood", "Water-drop test before first coat", "Maintenance plans from year one"],
+    "neighborhoods": ["Cambridge Square area", "Hunter Rd", "Ooltewah-Georgetown Rd", "Snow Hill Rd"],
+    "faq": { "q": "My deck was built this spring. When should I stain it?", "a": "It depends on how wet the lumber was and how much sun it gets. Do the water-drop test, or send us a photo. For most new decks it's a matter of months, not years." },
+    "nearby": ["collegedale", "east-brainerd", "harrison", "apison"]
+  },
+  {
+    "slug": "collegedale",
+    "name": "Collegedale",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck staining in Collegedale",
+    "lede": "Home to Southern Adventist University and a lot of quiet streets and family homes. The decks here are lived on.",
+    "image": "porch-living.jpg",
+    "imageAlt": "Porch living area with wooden chairs and plants",
+    "sections": [
+      { "h": "Family decks take a beating", "p": "Grills, kiddie pools, dog paws, bikes. A deck that gets used every day wears a path. We focus extra prep on the high-traffic areas and use a stain that's easy to touch up when the time comes." },
+      { "h": "Rental and faculty homes", "p": "We also work with landlords who rent near the university. A clean, stained deck helps a rental show better, and we can schedule between tenants so nobody's blocked from the back door." },
+      { "h": "Quiet crews", "p": "We know these are neighborhood streets. We park neatly, keep music off, and clean up every night." }
+    ],
+    "woodNotes": ["High-traffic family decks", "Rental turnovers", "Touch-up-friendly finishes"],
+    "neighborhoods": ["Near Southern Adventist University", "Apison Pike corridor", "Little Debbie Pkwy area", "Collegedale Commons area"],
+    "faq": { "q": "I rent out a house in Collegedale. Can you work between tenants?", "a": "Yes. Tell us the move-out and move-in dates and we'll fit the job in that window, weather allowing." },
+    "nearby": ["ooltewah", "apison", "east-brainerd"]
+  },
+  {
+    "slug": "harrison",
+    "name": "Harrison",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck and dock-side staining in Harrison",
+    "lede": "Harrison wraps around Chickamauga Lake near Harrison Bay State Park. Many homes here face the water.",
+    "image": "pavilion-posts.jpg",
+    "imageAlt": "Stained wood posts and floor of an open pavilion beside trees",
+    "sections": [
+      { "h": "The lake is hard on wood", "p": "Morning fog off the water, high humidity and strong afternoon sun make a rough mix for a deck finish. Stain on a waterfront deck simply works harder. We recommend a penetrating, mildew-resistant semi-transparent and an honest maintenance schedule." },
+      { "h": "Screened porches and gazebos", "p": "A lot of lake homes have screened porches, gazebos or pergolas down by the water. We stain those posts, rails and floors too, and protect the screens and furniture while we work." },
+      { "h": "Mind the water", "p": "When we work near the shoreline we use cleaners and methods meant for it, and we keep runoff out of the lake. Your neighbors on the cove will thank you." }
+    ],
+    "woodNotes": ["Waterfront fog, humidity and sun", "Gazebos and screened porches", "Careful runoff control near the shoreline"],
+    "neighborhoods": ["Harrison Bay area", "Highway 58 corridor", "Bonny Oaks area", "Lake coves"],
+    "faq": { "q": "Will the stain hurt the lake or my plants?", "a": "We use cleaners and stains suited to the job, cover plants, and control runoff. Tell us about any landscaping you're worried about and we'll plan around it." },
+    "nearby": ["ooltewah", "hixson", "soddy-daisy"]
+  },
+  {
+    "slug": "apison",
+    "name": "Apison",
+    "state": "TN",
+    "county": "Hamilton County",
+    "headline": "Deck, fence and barn-side staining in Apison",
+    "lede": "Rural east Hamilton County: acreage, horse fences, outbuildings and big decks with a view of the fields.",
+    "image": "fence-ivy.jpg",
+    "imageAlt": "Weathered wooden fence with ivy",
+    "sections": [
+      { "h": "More than a deck", "p": "Apison jobs often include a fence line, a porch, and an outbuilding or two. We'll price each piece separately so you can do it all at once or spread it over two seasons." },
+      { "h": "Long fence runs", "p": "Board fences and privacy fences on acreage are a lot of linear feet. We spray and back-brush so the stain gets into the wood, not just on top of it. Just spraying looks fine for a season and then fades unevenly." },
+      { "h": "Out-of-the-way is fine", "p": "Long driveway, gravel road, no cell signal? We've seen it. Send photos and a pin on the map and we'll take it from there." }
+    ],
+    "woodNotes": ["Long fence runs on acreage", "Outbuildings and barn siding", "Spray and back-brush for fences"],
+    "neighborhoods": ["Apison Pike", "East Brainerd Rd east end", "Weatherly Switch Rd area"],
+    "faq": { "q": "Can you stain my barn or shed too?", "a": "Often, yes. Rough-sawn siding drinks a lot of stain, so it's priced by the wall. Send photos and we'll quote it alongside the deck." },
+    "nearby": ["collegedale", "ooltewah", "ringgold"]
+  },
+  {
+    "slug": "fort-oglethorpe",
+    "name": "Fort Oglethorpe",
+    "state": "GA",
+    "county": "Catoosa & Walker Counties",
+    "headline": "Deck staining in Fort Oglethorpe, Georgia",
+    "lede": "Just over the state line, next to the Chickamauga battlefield park. A short run from Chattanooga for us.",
+    "image": "deck-boards-texture.jpg",
+    "imageAlt": "Wooden deck boards in warm light",
+    "sections": [
+      { "h": "Same crew, other side of the line", "p": "Georgia customers get the same process, the same written warranty, and the same price sheet as our Tennessee customers. No surprises because of the address." },
+      { "h": "Older homes near the park", "p": "Some of the older homes around the historic district and near the park have porches with decades of paint on them. We're careful with those: we test, scrape and strip only what needs to come off." },
+      { "h": "Newer builds off the highway", "p": "On the newer side of town, it's mostly pressure-treated decks 5 to 15 years old. Most need a wash, brightener and two coats. Our calculator will get you close." }
+    ],
+    "woodNotes": ["Old painted porches near the historic district", "5–15 year old pressure-treated decks", "Same warranty in GA"],
+    "neighborhoods": ["Battlefield Pkwy corridor", "LaFayette Rd area", "Near Chickamauga Battlefield", "Lakeview area"],
+    "faq": { "q": "Do you work in Georgia?", "a": "Yes. Fort Oglethorpe, Rossville, Ringgold, Chickamauga and Dalton are all on our regular route." },
+    "nearby": ["rossville", "chickamauga", "ringgold", "east-ridge"]
+  },
+  {
+    "slug": "rossville",
+    "name": "Rossville",
+    "state": "GA",
+    "county": "Walker County",
+    "headline": "Deck and porch staining in Rossville, Georgia",
+    "lede": "Rossville sits right below the state line, a few minutes from downtown Chattanooga. Lots of older homes with real front porches.",
+    "image": "boards-old.jpg",
+    "imageAlt": "Old weathered wood boards",
+    "sections": [
+      { "h": "Front porches with history", "p": "Many Rossville homes have deep front porches with tongue-and-groove floors. Those floors were made to be painted, not stained, so we'll talk with you about which finish fits. Not every job is a stain job, and we'll say so." },
+      { "h": "Weathered back decks", "p": "Out back, it's usually a deck that's gone gray. Gray wood is just sun-damaged surface fibers. We wash and brighten until the clean wood shows, and then stain it." },
+      { "h": "Budget-friendly options", "p": "If money's tight this year, we can do the deck floor and stairs now and the railings next season. We'll write down the plan so the colors match when we come back." }
+    ],
+    "woodNotes": ["Painted tongue-and-groove porch floors", "Gray, sun-weathered decks", "Phased jobs on a budget"],
+    "neighborhoods": ["McFarland Ave area", "Mission Ridge Rd", "Rossville Blvd corridor", "Lakeview"],
+    "faq": { "q": "Can you split the job over two seasons?", "a": "Yes. Floor and stairs first, rails later is the most common split. We'll note your color and product so the second half matches." },
+    "nearby": ["east-ridge", "fort-oglethorpe", "chattanooga", "lookout-mountain"]
+  },
+  {
+    "slug": "chickamauga",
+    "name": "Chickamauga",
+    "state": "GA",
+    "county": "Walker County",
+    "headline": "Deck staining in Chickamauga, Georgia",
+    "lede": "A small town with farm country all around it. Decks here are often on older farmhouses or newer homes on a few acres.",
+    "image": "log-cabin-porch.jpg",
+    "imageAlt": "Log cabin with porch and firewood",
+    "sections": [
+      { "h": "Farmhouse porches and back decks", "p": "Wraparound porches, back decks that step down to a yard, and the odd carport or pole barn. We'll look at all of it and help you decide what's worth doing first." },
+      { "h": "Full sun, open fields", "p": "Out of the trees, a deck takes the full Georgia sun all afternoon. UV breaks down a finish faster than anything. A semi-transparent with good pigment holds up better than a clear, which can look great for a season and then quit." },
+      { "h": "Photo estimates save a trip", "p": "It's a drive for us, so photos help. Send a wide shot of the whole deck plus a few close-ups, and you'll usually get a range before we ever come out." }
+    ],
+    "woodNotes": ["Farmhouse wraparound porches", "All-day sun in open fields", "Pigmented stain over clear for UV"],
+    "neighborhoods": ["Downtown Chickamauga", "Highway 341 corridor", "Lee and Gordon's Mill area", "Crawfish Springs area"],
+    "faq": { "q": "Why not a clear sealer? I like the natural look.", "a": "Clear finishes have almost no pigment, and pigment is what blocks the sun. In full sun they wear off quickly. A light 'toner' or a semi-transparent keeps the natural look and lasts much longer." },
+    "nearby": ["fort-oglethorpe", "rossville", "lookout-mountain"]
+  },
+  {
+    "slug": "ringgold",
+    "name": "Ringgold",
+    "state": "GA",
+    "county": "Catoosa County",
+    "headline": "Deck staining in Ringgold, Georgia",
+    "lede": "Ringgold sits along I-75 in Catoosa County. Plenty of homes and decks here were rebuilt after the April 2011 tornado, and many of those decks are now well past their first finish.",
+    "image": "deck-stained-topdown.jpg",
+    "imageAlt": "Freshly stained deck boards from above",
+    "sections": [
+      { "h": "The decks built after 2011", "p": "When a whole area rebuilds at once, a lot of decks age on the same clock. Many of the decks put up around 2011 and 2012 got one coat, maybe two, and are now gray and checking. Good bones, tired surface. That's an easy save." },
+      { "h": "Newer subdivisions", "p": "Ringgold keeps growing, and the new homes come with new pressure-treated decks. Same rule as anywhere: let new lumber dry, test it, then stain within the first year or so." },
+      { "h": "Fences along the property line", "p": "Many Ringgold yards have a privacy fence that's never been sealed. Fences are vertical, so a stain lasts longer on them than on a deck floor. Doing the fence with the deck is usually a good value." }
+    ],
+    "woodNotes": ["Decks rebuilt after 2011, now ready for refinishing", "New subdivision decks", "Unsealed privacy fences"],
+    "neighborhoods": ["Downtown Ringgold", "Battlefield Pkwy east", "Highway 41 corridor", "Graysville area"],
+    "faq": { "q": "My deck is about 13 years old and has never been stained well. Is it too far gone?", "a": "Probably not. Unless boards are soft or cracked deep, a good cleaning and brightening brings most decks that age back. Send photos and we'll tell you." },
+    "nearby": ["fort-oglethorpe", "east-ridge", "apison", "dalton"]
+  },
+  {
+    "slug": "dalton",
+    "name": "Dalton",
+    "state": "GA",
+    "county": "Whitfield County",
+    "headline": "Deck staining in Dalton, Georgia",
+    "lede": "Dalton is about half an hour down I-75, the edge of our regular route. We come down for full jobs and schedule them in batches.",
+    "image": "fence-cedar.jpg",
+    "imageAlt": "Cedar fence boards",
+    "sections": [
+      { "h": "How we handle the drive", "p": "We schedule Dalton work in groups, so we're in town for a few days at a time. If you're flexible on the start date, it helps us keep the price the same as in Chattanooga." },
+      { "h": "Photo quotes first", "p": "Because it's a drive, we lean on photos. Upload a wide shot of the whole deck plus a few close-ups of the worst spots. We'll give you a written range before anyone gets in the truck." },
+      { "h": "Bigger lots, bigger decks", "p": "Many Dalton-area homes sit on larger lots with long decks and a fence to match. If you're doing both, book them together so it's one trip, one setup." }
+    ],
+    "woodNotes": ["Batched scheduling on the edge of our route", "Photo-first estimates", "Deck and fence combos"],
+    "neighborhoods": ["North Dalton", "Walnut Ave area", "Tunnel Hill side", "Rocky Face side"],
+    "faq": { "q": "Is there a travel charge for Dalton?", "a": "No separate trip charge for full jobs. Very small jobs may need to wait until we have other work in the area." },
+    "nearby": ["ringgold", "fort-oglethorpe", "cleveland"]
+  },
+  {
+    "slug": "cleveland",
+    "name": "Cleveland",
+    "state": "TN",
+    "county": "Bradley County",
+    "headline": "Deck staining in Cleveland, Tennessee",
+    "lede": "Cleveland is about 30 miles up I-75 in Bradley County. We serve it with planned trips and photo estimates.",
+    "image": "deck-chairs-rail.jpg",
+    "imageAlt": "Deck with wooden railing and chairs",
+    "sections": [
+      { "h": "A growing town, lots of newer decks", "p": "Cleveland has grown a lot, and the newer subdivisions are full of pressure-treated decks that were never finished. Catch them in the first few years and they stay easy and cheap to keep up." },
+      { "h": "Lake and mountain weekends", "p": "Many Cleveland families also have a weekend place toward the Ocoee or up on a lake. If you've got two decks, we'll quote both and schedule them back to back." },
+      { "h": "Planned trips", "p": "We group Bradley County jobs together. Get your photos in early in the season to get a good slot, especially for fall." }
+    ],
+    "woodNotes": ["Unfinished subdivision decks", "Second homes toward the Ocoee", "Book early for fall slots"],
+    "neighborhoods": ["North Cleveland", "Waterville area", "Paul Huff Pkwy corridor", "South Cleveland"],
+    "faq": { "q": "How far ahead should I book in Cleveland?", "a": "For fall, the best staining season, book by late summer. Spring has more open dates." },
+    "nearby": ["ooltewah", "collegedale", "dalton"]
+  }
+]
