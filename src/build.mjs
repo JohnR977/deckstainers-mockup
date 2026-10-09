@@ -59,12 +59,9 @@ const city = `${B.city}, ${B.state}`;
 const biz = L.businessSchema(cfg, orderedAreas);
 const crumbsLd = (list) => L.breadcrumbSchema(cfg, list);
 
-// ---------- clean output (keep any nested demo folders) ----------
+// ---------- output ----------
+// Files are overwritten in place, never deleted (project rule: move throwaways to _to_delete/ by hand).
 fs.mkdirSync(outDir, { recursive: true });
-for (const f of fs.readdirSync(outDir)) {
-  if (f.startsWith('demo-')) continue;
-  fs.rmSync(path.join(outDir, f), { recursive: true, force: true });
-}
 
 // ---------- pages ----------
 addPage({
