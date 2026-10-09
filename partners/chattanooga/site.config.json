@@ -97,13 +97,13 @@
       }
     },
     "logo": {
-      "image": "",
-      "imageHeight": 40,
+      "image": "deckstainers-logo-horizontal.png",
+      "imageHeight": 44,
       "mark": "DS",
       "name": "DeckStainers",
       "subline": "of Chattanooga"
     },
-    "favicon": ""
+    "favicon": "deckstainers-favicon.png"
   },
   "photos": {
     "_help": "Photos used on the home page and About page. \"file\" is a file in the images folder. \"isStock\": true shows a small \"stock photo\" note on the picture; set it to false once it is your own job photo.",
