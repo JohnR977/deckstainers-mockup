@@ -48,6 +48,7 @@ function emit(relPath, html) {
 
 function addPage({ path: p, title, description, body, current, schema = [], ogImage, scripts, bodyClass, priority = 0.6 }) {
   const depth = p ? p.split('/').filter(Boolean).length : 0;
+  if (description.length > 160) description = description.slice(0, 157).replace(/[\s,;:]+\S*$/, '') + '…';
   const html = L.page(cfg, { path: p, depth, title, description, body: body(L.makeRel(depth)), current, schema, ogImage, scripts, areas: orderedAreas, bodyClass });
   emit(p + 'index.html', html);
   pages.push({ path: p, priority });

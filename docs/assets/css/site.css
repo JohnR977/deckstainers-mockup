@@ -38,6 +38,7 @@ ul, ol { padding-left: 1.2em; }
 button { font: inherit; }
 :focus-visible { outline: 3px solid var(--cedar); outline-offset: 2px; }
 
+[hidden] { display: none !important; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
 .wrap-narrow { max-width: 760px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -532,6 +533,7 @@ legend small { font: 400 .9rem var(--sans); color: var(--muted); }
 .viz-chosen strong { font: 500 1.2rem var(--serif); }
 .viz-chosen small { color: var(--muted); }
 #viz-lead { margin-top: 14px; }
+.viz-side .fine { margin-top: 14px; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1080px) {
@@ -581,6 +583,10 @@ legend small { font: 400 .9rem var(--sans); color: var(--muted); }
   .mobile-cta-est { background: var(--cedar); color: #fff; }
 }
 @media (max-width: 600px) {
+  .viz-samples { flex-wrap: nowrap; gap: 8px; }
+  .viz-sample { width: auto; flex: 1; }
+  .viz-sample span { font-size: .72rem; }
+  .viz-stage { min-height: 300px; }
   .trust-list { grid-template-columns: 1fr 1fr; }
   .trust-list li { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--rule); }
   .trust-list li:nth-child(-n+2) { border-top: 0; }
