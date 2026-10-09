@@ -11,9 +11,21 @@
   var view = document.getElementById('view');
 
   // ---------- helpers ----------
+  var ICONS = {
+    phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
+    text: '<path d="M4 5h16v11H9l-5 4z"/>',
+    mail: '<path d="M3 6h18v12H3zM3 7l9 6 9-6"/>',
+    pin: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+    doc: '<path d="M6 3h9l4 4v14H6zM9 12h7M9 16h7M9 8h3"/>',
+    cal: '<path d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5"/>',
+    rain: '<path d="M7 15a4 4 0 0 1 .5-8 5 5 0 0 1 9.5 1.5A3.5 3.5 0 0 1 17 15zM9 18l-1 2M13 18l-1 2M17 18l-1 2"/>',
+    cloud: '<path d="M7 17a4 4 0 0 1 .5-8 5 5 0 0 1 9.5 1.5A3.5 3.5 0 0 1 17 17z"/>'
+  };
+  function ico(n) { return '<svg class="i" viewBox="0 0 24 24" aria-hidden="true">' + ICONS[n] + '</svg>'; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function money(n) { return '$' + Math.round(n || 0).toLocaleString('en-US'); }
   function day(offset, hour) { var d = new Date(); d.setHours(hour == null ? 10 : hour, 0, 0, 0); d.setDate(d.getDate() + offset); return d.toISOString(); }
+  function workday(offset) { var d = new Date(day(offset)); while (d.getDay() === 0) d.setDate(d.getDate() + 1); return d.toISOString(); }
   function ymd(d) { d = new Date(d); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
   function fromYmd(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2], 9); }
   function nice(d, withYear) { return new Date(d).toLocaleDateString('en-US', { weekday: withYear ? undefined : 'short', month: 'short', day: 'numeric', year: withYear ? 'numeric' : undefined }); }
@@ -53,57 +65,61 @@
 
   // ---------- seed (fictional sample customers) ----------
   function seed() {
+    // Addresses and phone numbers come from this partner's own config, so every demo looks local.
+    var A = C.areas, AC = (C.business.phone.match(/\(\d{3}\)/) || ['(555)'])[0];
+    var at = function (i, street) { return street + ' area, ' + A[i % A.length]; };
+    var ph = function (n) { return AC + ' 555-01' + n; };
     var S = function (o) { return Object.assign({ id: DS.uid(), photos: [], history: [], notes: '' }, o); };
     var h = function (at, text) { return { at: at, text: text }; };
     var list = [
-      S({ name: 'Megan Alvarez', phone: '(423) 555-0181', email: 'megan.a@example.com', address: 'Ridge Trail Rd, Signal Mountain', source: 'estimate', stage: 'new', createdAt: day(0, new Date().getHours() - 2),
+      S({ name: 'Megan Alvarez', phone: ph('81'), email: 'megan.a@example.com', address: at(1, 'Ridge Trail Rd'), source: 'estimate', stage: 'new', createdAt: day(0, new Date().getHours() - 2),
         deck: { size: '20 × 14', sqft: 280, rail: 40, stairs: 6, condition: 'weathered', finish: 'semi-transparent' }, timeframe: 'This fall', heard: 'Google search',
         photos: ['assets/img/hero-wooded-deck.jpg'], notes: 'Lots of mildew on the shady side. Two dogs.' }),
-      S({ name: 'Darnell Hughes', phone: '(423) 555-0127', email: 'dhughes@example.com', address: 'Hixson Pike area, Hixson', source: 'calculator', stage: 'new', createdAt: day(0, Math.max(7, new Date().getHours() - 5)),
+      S({ name: 'Darnell Hughes', phone: ph('27'), email: 'dhughes@example.com', address: at(4, 'Pike Rd'), source: 'calculator', stage: 'new', createdAt: day(0, Math.max(7, new Date().getHours() - 5)),
         deck: { size: '16 × 12', sqft: 192, rail: 28, stairs: 4, condition: 'weathered', finish: 'semi-transparent' }, estimate: { low: 1000, high: 1290 } }),
-      S({ name: 'Priya Raman', phone: '(423) 555-0164', email: 'priya.r@example.com', address: 'Snow Hill Rd area, Ooltewah', source: 'visualizer', stage: 'new', createdAt: day(-1, 19),
+      S({ name: 'Priya Raman', phone: ph('64'), email: 'priya.r@example.com', address: at(8, 'Snow Hill Rd'), source: 'visualizer', stage: 'new', createdAt: day(-1, 19),
         color: { name: 'Driftwood Gray', hex: '#8b8378', type: 'semi-transparent' }, deck: { finish: 'semi-transparent' }, photos: ['assets/img/deck-bench-boards.jpg'], notes: 'Tried Driftwood Gray in the color visualizer.' }),
-      S({ name: 'Tom & Linda Brewer', phone: '(423) 555-0109', email: 'brewers@example.com', address: 'Ringgold Rd area, East Ridge', source: 'estimate', stage: 'contacted', createdAt: day(-3, 9),
+      S({ name: 'Tom & Linda Brewer', phone: ph('09'), email: 'brewers@example.com', address: at(6, 'Ringgold Rd'), source: 'estimate', stage: 'contacted', createdAt: day(-3, 9),
         deck: { size: 'about 300 sq ft', sqft: 300, rail: 36, stairs: 5, condition: 'peeling', finish: 'semi-transparent' }, photos: ['assets/img/boards-weathered-gray.jpg', 'assets/img/boards-old.jpg'],
         notes: 'Old solid stain peeling on the floor. Needs a full strip.', history: [h(day(-3, 9), 'Came in from the website (estimate)'), h(day(-2, 8), 'Texted. They want it done before Thanksgiving.')] }),
-      S({ name: 'Chris Watts', phone: '(423) 555-0133', email: 'cwatts@example.com', address: 'Dayton Blvd area, Red Bank', source: 'contact', stage: 'contacted', createdAt: day(-4, 14),
+      S({ name: 'Chris Watts', phone: ph('33'), email: 'cwatts@example.com', address: at(3, 'Dayton Blvd'), source: 'contact', stage: 'contacted', createdAt: day(-4, 14),
         notes: 'Small front porch floor and steps. Asked if we do porches.', history: [h(day(-4, 14), 'Came in from the website (contact)'), h(day(-4, 16), 'Called back, left voicemail.')] }),
-      S({ name: 'Jasmine Cole', phone: '(423) 555-0172', email: 'jcole@example.com', address: 'Gunbarrel Rd area, East Brainerd', source: 'estimate', stage: 'estimate', createdAt: day(-6, 11),
+      S({ name: 'Jasmine Cole', phone: ph('72'), email: 'jcole@example.com', address: at(7, 'Gunbarrel Rd'), source: 'estimate', stage: 'estimate', createdAt: day(-6, 11),
         deck: { size: '18 × 14', sqft: 252, rail: 32, stairs: 4, condition: 'weathered', finish: 'semi-transparent' }, photos: ['assets/img/deck-boards-angle.jpg'],
         estimateDoc: { lines: [{ label: 'Deck floor wash, brighten, semi-transparent stain', qty: 252, unit: 'sq ft', price: 3.4 }, { label: 'Railing', qty: 32, unit: 'ft', price: 9 }, { label: 'Stairs', qty: 4, unit: 'steps', price: 24 }], discount: 0, depositPct: C.depositPercent, total: 1240, sentAt: day(-5, 10) },
         history: [h(day(-6, 11), 'Came in from the website (estimate)'), h(day(-5, 10), 'Estimate sent: $1,240')] }),
-      S({ name: 'Robert Ellison', phone: '(423) 555-0118', email: 'rellison@example.com', address: 'Scenic Hwy area, Lookout Mountain', source: 'phone', stage: 'estimate', createdAt: day(-8, 15),
+      S({ name: 'Robert Ellison', phone: ph('18'), email: 'rellison@example.com', address: at(2, 'Scenic Hwy'), source: 'phone', stage: 'estimate', createdAt: day(-8, 15),
         deck: { size: 'two levels, ~620 sq ft', sqft: 620, rail: 110, stairs: 14, condition: 'weathered', finish: 'semi-transparent' }, color: { name: 'Walnut', hex: '#5a3a24', type: 'semi-transparent' },
         estimateDoc: { lines: [{ label: 'Deck floors, two levels', qty: 620, unit: 'sq ft', price: 3.3 }, { label: 'Railing', qty: 110, unit: 'ft', price: 8.5 }, { label: 'Stairs', qty: 14, unit: 'steps', price: 26 }], discount: 0, depositPct: C.depositPercent, total: 3345, sentAt: day(-7, 10) },
         history: [h(day(-8, 15), 'Phone call. Tall deck, needs ladders.'), h(day(-7, 10), 'Estimate sent: $3,345')] }),
-      S({ name: 'Kevin Doyle', phone: '(423) 555-0150', email: 'kdoyle@example.com', address: 'Apison Pike area, Collegedale', source: 'referral', stage: 'won', createdAt: day(-10, 10),
+      S({ name: 'Kevin Doyle', phone: ph('50'), email: 'kdoyle@example.com', address: at(9, 'Apison Pike'), source: 'referral', stage: 'won', createdAt: day(-10, 10),
         deck: { size: '14 × 12', sqft: 168, rail: 24, stairs: 3, condition: 'good', finish: 'semi-transparent' }, color: { name: 'Cedar', hex: '#a85a2c', type: 'semi-transparent' }, estimate: { low: 760, high: 980 },
         history: [h(day(-10, 10), 'Referral from a past customer.'), h(day(-2, 17), 'Said yes! Deposit paid. Needs a date.')] }),
-      S({ name: 'Angela Moreno', phone: '(423) 555-0144', email: 'amoreno@example.com', address: 'Hwy 58 area, Harrison', source: 'estimate', stage: 'scheduled', createdAt: day(-14, 10), jobDate: ymd(day(3)), days: 2,
+      S({ name: 'Angela Moreno', phone: ph('44'), email: 'amoreno@example.com', address: at(10, 'Hwy 58'), source: 'estimate', stage: 'scheduled', createdAt: day(-14, 10), jobDate: ymd(workday(3)), days: 2,
         deck: { size: 'lakeside, ~400 sq ft', sqft: 400, rail: 60, stairs: 8, condition: 'weathered', finish: 'semi-transparent' }, color: { name: 'Chestnut', hex: '#7a4a2a', type: 'semi-transparent' }, estimateDoc: { lines: [], discount: 0, depositPct: 25, total: 2180 },
         history: [h(day(-14, 10), 'Came in from the website (estimate)'), h(day(-6, 12), 'Scheduled.')] }),
-      S({ name: 'Sam Patel', phone: '(423) 555-0196', email: 'spatel@example.com', address: 'Dayton Pike area, Soddy-Daisy', source: 'calculator', stage: 'scheduled', createdAt: day(-12, 10), jobDate: ymd(day(8)), days: 2,
+      S({ name: 'Sam Patel', phone: ph('96'), email: 'spatel@example.com', address: at(5, 'Dayton Pike'), source: 'calculator', stage: 'scheduled', createdAt: day(-12, 10), jobDate: ymd(workday(8)), days: 2,
         deck: { size: '24 × 16', sqft: 384, rail: 48, stairs: 6, condition: 'good', finish: 'transparent' }, color: { name: 'Honey Toner', hex: '#c98a3c', type: 'transparent' }, estimate: { low: 1250, high: 1560 } }),
-      S({ name: 'Grace Whitfield', phone: '(706) 555-0122', email: 'gwhitfield@example.com', address: 'McFarland Ave area, Rossville', source: 'estimate', stage: 'done', createdAt: day(-30, 10), jobDate: ymd(day(-6)), doneDate: day(-5, 16),
+      S({ name: 'Grace Whitfield', phone: ph('22'), email: 'gwhitfield@example.com', address: at(13, 'McFarland Ave'), source: 'estimate', stage: 'done', createdAt: day(-30, 10), jobDate: ymd(workday(-6)), doneDate: day(-5, 16),
         deck: { size: '12 × 10', sqft: 120, rail: 22, stairs: 3, condition: 'weathered', finish: 'semi-transparent' }, color: { name: 'Redwood', hex: '#8e3b25', type: 'semi-transparent' }, estimateDoc: { lines: [], discount: 0, depositPct: 25, total: 720 },
         history: [h(day(-5, 16), 'Job done. Customer happy with Redwood.')] }),
-      S({ name: 'Mike Turner', phone: '(706) 555-0187', email: 'mturner@example.com', address: 'Battlefield Pkwy area, Fort Oglethorpe', source: 'estimate', stage: 'paid', createdAt: day(-45, 10), doneDate: day(-20, 15), paidDate: day(-19, 9), reviewRequested: day(-19, 9),
+      S({ name: 'Mike Turner', phone: ph('87'), email: 'mturner@example.com', address: at(12, 'Battlefield Pkwy'), source: 'estimate', stage: 'paid', createdAt: day(-45, 10), doneDate: day(-20, 15), paidDate: day(-19, 9), reviewRequested: day(-19, 9),
         deck: { sqft: 260, finish: 'semi-transparent' }, color: { name: 'Walnut', hex: '#5a3a24', type: 'semi-transparent' }, estimateDoc: { lines: [], discount: 0, depositPct: 25, total: 1460 } }),
       // Past customers: these drive the re-coat reminders.
-      S({ name: 'Helen Brooks', phone: '(423) 555-0105', email: 'hbrooks@example.com', address: 'Mountain Creek Rd area, Signal Mountain', source: 'estimate', stage: 'paid', createdAt: day(-760), doneDate: day(-715), paidDate: day(-714),
+      S({ name: 'Helen Brooks', phone: ph('05'), email: 'hbrooks@example.com', address: at(1, 'Mountain Creek Rd'), source: 'estimate', stage: 'paid', createdAt: day(-760), doneDate: day(-715), paidDate: day(-714),
         deck: { sqft: 310, finish: 'semi-transparent' }, color: { name: 'Cedar', hex: '#a85a2c', type: 'semi-transparent' }, estimateDoc: { lines: [], discount: 0, depositPct: 25, total: 1520 } }),
-      S({ name: 'Luis Ortega', phone: '(423) 555-0168', email: 'lortega@example.com', address: 'Middle Valley area, Hixson', source: 'phone', stage: 'paid', createdAt: day(-830), doneDate: day(-790), paidDate: day(-789),
+      S({ name: 'Luis Ortega', phone: ph('68'), email: 'lortega@example.com', address: at(4, 'Middle Valley Rd'), source: 'phone', stage: 'paid', createdAt: day(-830), doneDate: day(-790), paidDate: day(-789),
         deck: { sqft: 220, finish: 'semi-transparent' }, color: { name: 'Chestnut', hex: '#7a4a2a', type: 'semi-transparent' }, estimateDoc: { lines: [], discount: 0, depositPct: 25, total: 1090 } }),
-      S({ name: 'Beth Carver', phone: '(423) 555-0139', email: 'bcarver@example.com', address: 'Hunter Rd area, Ooltewah', source: 'estimate', stage: 'paid', createdAt: day(-640), doneDate: day(-610), paidDate: day(-609),
+      S({ name: 'Beth Carver', phone: ph('39'), email: 'bcarver@example.com', address: at(8, 'Hunter Rd'), source: 'estimate', stage: 'paid', createdAt: day(-640), doneDate: day(-610), paidDate: day(-609),
         deck: { sqft: 180, finish: 'semi-transparent' }, color: { name: 'Weathered Oak', hex: '#9c7f5e', type: 'semi-transparent' }, estimateDoc: { lines: [], discount: 0, depositPct: 25, total: 880 } }),
-      S({ name: 'Dave Kim', phone: '(423) 555-0177', email: 'dkim@example.com', address: 'North Shore, Chattanooga', source: 'referral', stage: 'paid', createdAt: day(-1090), doneDate: day(-1065), paidDate: day(-1064),
+      S({ name: 'Dave Kim', phone: ph('77'), email: 'dkim@example.com', address: at(0, 'Frazier Ave'), source: 'referral', stage: 'paid', createdAt: day(-1090), doneDate: day(-1065), paidDate: day(-1064),
         deck: { sqft: 140, finish: 'solid' }, color: { name: 'Slate Gray', hex: '#5d6164', type: 'solid' }, estimateDoc: { lines: [], discount: 0, depositPct: 25, total: 1340 } })
     ];
     list.forEach(function (l) { if (!l.history.length) l.history.push({ at: l.createdAt, text: 'Came in (' + (SOURCE[l.source] || l.source) + ')' }); });
     var existing = (DS.read() || []).filter(function (l) { return !l.sample; });
     list.forEach(function (l) { l.sample = true; });
     save(existing.concat(list).sort(function (a, b) { return new Date(b.createdAt) - new Date(a.createdAt); }));
-    setRain([ymd(day(4))]);
+    var ang = fromYmd(ymd(workday(3))); ang.setDate(ang.getDate() + 1); if (ang.getDay() === 0) ang.setDate(ang.getDate() + 1); setRain([ymd(ang)]); // day 2 of a booked job, to show the rain-delay button
     localStorage.setItem(SEEDED, '1');
   }
 
@@ -215,7 +231,7 @@
           var i = STAGES.findIndex(function (x) { return x[0] === l.stage; });
           return '<li class="pcard" draggable="true" data-id="' + l.id + '">' +
             '<a href="#customer/' + l.id + '"><strong>' + esc(l.name) + '</strong><span>' + esc((l.address || '').split(',').pop().trim()) + '</span>' +
-            (estLabel(l) ? '<em>' + estLabel(l) + '</em>' : '') + (l.jobDate ? '<span class="pdate">📅 ' + nice(fromYmd(l.jobDate)) + '</span>' : '') + '</a>' +
+            (estLabel(l) ? '<em>' + estLabel(l) + '</em>' : '') + (l.jobDate ? '<span class="pdate">' + ico('cal') + ' ' + nice(fromYmd(l.jobDate)) + '</span>' : '') + '</a>' +
             '<div class="pmove">' + (i > 0 ? '<button data-move="-1" aria-label="Move back to ' + STAGES[i - 1][1] + '">◀</button>' : '<span></span>') +
             (i < STAGES.length - 1 ? '<button data-move="1" class="fwd">' + STAGES[i + 1][1] + ' ▶</button>' : '') + '</div></li>';
         }).join('') + '</ul></section>';
@@ -265,10 +281,10 @@
       '<div class="cust-head"><div><h1>' + esc(l.name) + '</h1><p>' + esc(l.address || 'No address yet') + '</p><p class="meta">' + srcTag(l.source) + ' · came in ' + ago(l.createdAt) + (l.heard ? ' · heard from: ' + esc(l.heard) : '') + '</p></div>' +
       '<label class="stage-select"><span>Stage</span><select id="stage">' + STAGES.map(function (s) { return '<option value="' + s[0] + '"' + (s[0] === l.stage ? ' selected' : '') + '>' + s[1] + '</option>'; }).join('') + '</select></label></div>' +
       '<div class="quick">' +
-        (l.phone ? '<a class="q" href="tel:' + digits(l.phone) + '"><b>📞</b>Call</a><a class="q" href="' + smsLink(l.phone, 'Hi ' + first(l.name) + ', this is ' + C.business.name + ' about your deck. ') + '"><b>💬</b>Text</a>' : '') +
-        (l.email ? '<a class="q" href="mailto:' + esc(l.email) + '"><b>✉️</b>Email</a>' : '') +
-        (l.address ? '<a class="q" href="' + maps + '" target="_blank" rel="noopener"><b>📍</b>Map</a>' : '') +
-        '<a class="q q-cedar" href="#estimate/' + l.id + '"><b>🧾</b>' + (l.estimateDoc ? 'Edit estimate' : 'Build estimate') + '</a>' +
+        (l.phone ? '<a class="q" href="tel:' + digits(l.phone) + '">' + ico('phone') + 'Call</a><a class="q" href="' + smsLink(l.phone, 'Hi ' + first(l.name) + ', this is ' + C.business.name + ' about your deck. ') + '">' + ico('text') + 'Text</a>' : '') +
+        (l.email ? '<a class="q" href="mailto:' + esc(l.email) + '">' + ico('mail') + 'Email</a>' : '') +
+        (l.address ? '<a class="q" href="' + maps + '" target="_blank" rel="noopener">' + ico('pin') + 'Map</a>' : '') +
+        '<a class="q q-cedar" href="#estimate/' + l.id + '">' + ico('doc') + (l.estimateDoc ? 'Edit estimate' : 'Build estimate') + '</a>' +
       '</div>' +
       (isDone ? '<section class="card review-card"><h2>' + (l.reviewRequested ? 'Review request sent ✓' : 'Ask for a Google review') + '</h2>' +
         '<p>' + (l.reviewRequested ? 'Sent ' + ago(l.reviewRequested) + '. You can send a friendly reminder once if they haven\'t left one.' : 'The job is done. Happy customers rarely think to leave a review unless you ask. One tap:') + '</p>' +
@@ -393,13 +409,13 @@
       var k = ymd(d), isRain = rain.indexOf(k) > -1, inMonth = d.getMonth() === m.getMonth(), today = k === ymd(now);
       var items = byDay[k] || [];
       cells += '<div class="day' + (inMonth ? '' : ' out') + (today ? ' today' : '') + (isRain ? ' rain' : '') + '" data-day="' + k + '">' +
-        '<div class="day-h"><span>' + d.getDate() + '</span><button class="rain-btn" data-rain="' + k + '" aria-label="' + (isRain ? 'Clear rain' : 'Mark rain') + ' on ' + nice(d) + '" title="Mark a rain day">' + (isRain ? '🌧' : '☁︎') + '</button></div>' +
+        '<div class="day-h"><span>' + d.getDate() + '</span><button class="rain-btn" data-rain="' + k + '" aria-label="' + (isRain ? 'Clear rain' : 'Mark rain') + ' on ' + nice(d) + '" title="Mark a rain day">' + (isRain ? ico('rain') : ico('cloud')) + '</button></div>' +
         items.map(function (it) { return '<a class="job' + (isRain ? ' clash' : '') + '" href="#customer/' + it.l.id + '">' + esc(first(it.l.name)) + ' <small>day ' + it.n + '</small></a>'; }).join('') + '</div>';
     }
     var clashes = jobs.filter(function (l) { return l.stage !== 'done' && jobDays(l).some(function (d) { return rain.indexOf(d) > -1; }); });
     var upcoming = jobs.filter(function (l) { return l.stage === 'scheduled' && fromYmd(l.jobDate) >= new Date(now.getFullYear(), now.getMonth(), now.getDate()); }).sort(function (a, b) { return a.jobDate < b.jobDate ? -1 : 1; });
-    return head('Schedule', 'Most jobs take 2 days: wash day, then stain day. Tap ☁︎ on a day to mark rain.', '<div class="row"><button class="b b-ghost" data-mo="-1">◀</button><strong class="mo">' + m.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) + '</strong><button class="b b-ghost" data-mo="1">▶</button></div>') +
-      (clashes.length ? '<div class="alert">🌧 <strong>' + clashes.length + ' job' + (clashes.length > 1 ? 's' : '') + ' land on a rain day.</strong> ' + clashes.map(function (l) { return '<button class="b b-sm b-cedar" data-push="' + l.id + '">Move ' + esc(first(l.name)) + ' to next dry day</button>'; }).join(' ') + '</div>' : '') +
+    return head('Schedule', 'Most jobs take 2 days: wash day, then stain day. Tap the cloud on a day to mark it as a rain day.', '<div class="row"><button class="b b-ghost" data-mo="-1">◀</button><strong class="mo">' + m.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) + '</strong><button class="b b-ghost" data-mo="1">▶</button></div>') +
+      (clashes.length ? '<div class="alert">' + ico('rain') + ' <strong>' + clashes.length + (clashes.length > 1 ? ' jobs land' : ' job lands') + ' on a rain day.</strong> ' + clashes.map(function (l) { return '<button class="b b-sm b-cedar" data-push="' + l.id + '">Move ' + esc(first(l.name)) + ' to next dry day</button>'; }).join(' ') + '</div>' : '') +
       '<div class="sched"><div class="cal"><div class="dow">' + ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div><div class="grid">' + cells + '</div></div>' +
       '<aside class="sched-side">' +
         '<section class="card"><h2>Next up</h2>' + (upcoming.length ? '<ul class="up">' + upcoming.map(function (l) { return '<li><a href="#customer/' + l.id + '"><strong>' + nice(fromYmd(l.jobDate)) + '</strong> ' + esc(l.name) + '<small>' + esc(l.address || '') + '</small></a></li>'; }).join('') + '</ul>' : '<p class="muted">Nothing booked.</p>') + '</section>' +

@@ -13,7 +13,7 @@
   function calc() {
     var mode = form.elements.mode.value;
     form.querySelectorAll('[data-mode]').forEach(function (el) { el.hidden = el.dataset.mode !== mode; });
-    var sqft = mode === 'lw' ? num('length') * num('width') : num('sqft');
+    var sqft = mode === 'lw' ? num('deckLength') * num('deckWidth') : num('sqft');
     var rail = num('rail'), stairs = num('stairs');
     var cond = P.condition[form.elements.condition.value];
     var fin = P.finishes[form.elements.finish.value];
@@ -51,7 +51,7 @@
     }).join('') + (minHit ? '<div><dt>Minimum job applies</dt><dd>' + fmt(P.minimumJob) + '</dd></div>' : '');
 
     state = {
-      deck: { sqft: Math.round(sqft), size: mode === 'lw' ? num('length') + ' × ' + num('width') : Math.round(sqft) + ' sq ft', rail: rail, stairs: stairs,
+      deck: { sqft: Math.round(sqft), size: mode === 'lw' ? num('deckLength') + ' × ' + num('deckWidth') : Math.round(sqft) + ' sq ft', rail: rail, stairs: stairs,
         condition: form.elements.condition.value, finish: form.elements.finish.value, addons: addons },
       estimate: { low: lo, high: hi }
     };

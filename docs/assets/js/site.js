@@ -20,19 +20,17 @@
     set(range.value);
   });
 
-  // ---- home visualizer teaser: cycle swatches over the photo ----
+  // ---- home visualizer teaser: crossfade real renders from the visualizer ----
   var demo = $('[data-viz-demo]');
   if (demo) {
-    var sw = $$('li', demo), img = $('img', demo), i = 0;
-    var tint = function (k) {
+    var sw = $$('li', demo), tints = $$('.viz-demo-tint', demo), i = 0, timer;
+    var show = function (k) {
       sw.forEach(function (s, j) { s.classList.toggle('is-on', j === k); });
-      // A light CSS approximation for the teaser. The real tool does per-pixel tinting.
-      var hues = ['sepia(.55) saturate(1.3) hue-rotate(-12deg)', 'sepia(.7) saturate(1.6) hue-rotate(-25deg) brightness(.92)', 'sepia(.5) saturate(1.1) brightness(.85)', 'sepia(.6) brightness(.72) saturate(1.2)', 'grayscale(.7) brightness(1.02)'];
-      img.style.filter = hues[k % hues.length];
+      tints.forEach(function (t, j) { t.classList.toggle('is-on', j === k); });
     };
-    sw.forEach(function (s, j) { s.addEventListener('click', function () { i = j; tint(i); }); });
-    tint(0);
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(function () { i = (i + 1) % sw.length; tint(i); }, 2600);
+    sw.forEach(function (s, j) { s.addEventListener('click', function () { clearInterval(timer); i = j; show(i); }); });
+    show(0);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(function () { i = (i + 1) % sw.length; show(i); }, 2600);
   }
 
   // ---- open/close helpers ----

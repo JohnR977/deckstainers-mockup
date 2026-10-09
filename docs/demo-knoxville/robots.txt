@@ -1,0 +1,6 @@
+# MOCKUP: every page also carries <meta name="robots" content="noindex">.
+# At launch set "mockup": false in site.config.json and rebuild.
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+Sitemap: https://johnr977.github.io/deckstainers-mockup/demo-knoxville/sitemap.xml

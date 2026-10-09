@@ -15,7 +15,7 @@ function rainChart(cfg) {
   }).join('');
   return `<figure class="rain-chart" aria-label="Average monthly rainfall in ${cfg.business.city}, inches">
     <div class="rain-bars">${bars}</div>
-    <figcaption>Average rainfall by month, ${c.station}, in inches. NOAA 1991–2020 normals. Fall months highlighted.</figcaption>
+    <figcaption>Average rainfall by month, ${c.station}, in inches. NOAA 1991–2020 normals. August through October highlighted.</figcaption>
   </figure>`;
 }
 
@@ -131,7 +131,7 @@ ${rainChart(cfg)}
     <h3>We lean semi-transparent when…</h3>
     <ul>
       <li>It's a walking surface: deck floors, stairs</li>
-      <li>The deck is shady or damp (hello, Signal Mountain)</li>
+      <li>The deck is shady or damp (think ${cfg.location.shadyArea})</li>
       <li>You want to see the wood grain</li>
       <li>You want cheap, easy maintenance coats</li>
     </ul>

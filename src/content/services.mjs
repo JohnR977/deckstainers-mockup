@@ -77,7 +77,7 @@ export function services(cfg) {
       name: 'Log Home & Cabin Staining',
       photo: 'loghome',
       title: `Log Home & Cabin Staining in ${city} and the Mountains`,
-      description: `Log home and cabin staining around ${city}: cleaning, old finish removal, and stain made for logs. Signal Mountain, Lookout and the lake.`,
+      description: `Log home and cabin staining around ${city}: cleaning, old finish removal, and stain made for logs. ${cfg.location.cabinAreas}.`,
       kicker: 'Logs · Half-log siding · Cabins',
       lede: 'Logs move, check and drink stain. They need their own plan.',
       intro: 'Log walls take more weather than a deck rail and soak up more stain than you\'d guess. We clean them, deal with the old finish, and stain them so water runs off instead of in.',

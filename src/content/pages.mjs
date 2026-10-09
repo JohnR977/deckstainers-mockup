@@ -1,5 +1,8 @@
 import { esc, val, show, isSample, money, icon, photo, crumbs, cap } from '../lib/layout.mjs';
 
+// Which swatches the homepage teaser shows. Matches the images pre-rendered by tools/render-teaser.py.
+export const TEASER = [['semi-transparent', 0], ['semi-transparent', 1], ['semi-transparent', 3], ['semi-transparent', 4], ['solid', 2]];
+
 // ---------- small building blocks ----------
 const sectionHead = (num, kicker, title, extra = '') =>
   `<div class="sec-head">${num ? `<span class="sec-num">${num}</span>` : ''}<p class="kicker">${kicker}</p><h2>${title}</h2>${extra}</div>`;
@@ -15,7 +18,7 @@ export function homeFaqs(cfg, src) {
     { q: 'Semi-transparent or solid stain?', a: `The experts disagree. The U.S. Forest Products Lab says film finishes like solid stain tend to peel on decks (${link('usdaFinishes', 'USDA FPL')}). Consumer Reports says solid scores best in their testing (${link('consumerReports', 'via KOMO')}). We usually suggest semi-transparent on floors and solid on railings, if you want solid.` },
     { q: 'Do you pressure-wash?', a: `Not the way most people mean it. High pressure can strip wood fibers off the surface (${link('usdaFinishes', 'USDA FPL')}). We use cleaners and low pressure, then a brightener.` },
     { q: 'Can you give me a price from photos?', a: 'Yes. That\'s how most of our estimates start. Upload up to five photos, including one wide shot of the whole deck, and we\'ll send a price range. We confirm it in person or by video before we start.' },
-    { q: 'Are you licensed?', a: `In Hamilton County, Tennessee requires a Home Improvement license for residential jobs from $3,000 to $24,999 (${link('tnHomeImprovement', 'TN.gov')}). Our license and insurance are listed at the bottom of every page.` },
+    { q: 'Are you licensed?', a: `In ${cfg.location.licenseCounty}, ${cfg.business.stateName} requires a Home Improvement license for residential jobs from $3,000 to $24,999 (${link('tnHomeImprovement', 'TN.gov')}). Our license and insurance are listed at the bottom of every page.` },
     { q: 'Do I need to be home?', a: 'No. We just need access to the deck, a water spigot, and pets kept inside. We\'ll text you when we start, when we finish each day, and before we leave.' }
   ];
 }
@@ -67,7 +70,7 @@ function trustBar(cfg) {
   return `<section class="trust" aria-label="Why homeowners trust us"><div class="wrap"><ul class="trust-list">${items.map(([k, v]) => `<li><span class="trust-k">${k}</span><span class="trust-v">${v}</span></li>`).join('')}</ul></div></section>`;
 }
 
-function reviewsBlock(cfg) {
+function reviewsBlock(cfg, num) {
   const rv = cfg.reviews;
   if (!rv.items || !rv.items.length) return '';
   const [first, ...rest] = rv.items;
@@ -77,7 +80,7 @@ function reviewsBlock(cfg) {
     </blockquote>`;
   return `<section class="sec reviews">
   <div class="wrap">
-    ${sectionHead('06', 'Reviews', 'What neighbors say')}
+    ${sectionHead(num, 'Reviews', 'What neighbors say')}
     ${rv.sample ? '<p class="sample-banner">These are placeholders, not real reviews. Replace them with your own Google reviews (with permission) in site.config.json, or empty the list to hide this section.</p>' : ''}
     <div class="reviews-grid">
       ${q(first, true)}
@@ -94,6 +97,8 @@ export function home(cfg, r, { services, areas, areaGroups, src }) {
   const [main, ...others] = services;
   const faqs = homeFaqs(cfg, src);
   const fin = cfg.pricing.finishes;
+  const hasReviews = cfg.reviews.items && cfg.reviews.items.length;
+  let k = 0; const n = () => String(++k).padStart(2, '0');
   const body = `
 <section class="hero">
   <div class="wrap hero-grid">
@@ -121,7 +126,7 @@ ${trustBar(cfg)}
 
 <section class="sec services-sec">
   <div class="wrap">
-    ${sectionHead('01', 'Services', 'Everything wood, outside the house')}
+    ${sectionHead(n(), 'Services', 'Everything wood, outside the house')}
     <div class="svc-layout">
       <a class="svc-feature" href="${r('services/' + main.slug + '/')}">
         ${photo(cfg, r, main.photo, { cls: 'svc-feature-photo' })}
@@ -141,7 +146,7 @@ ${trustBar(cfg)}
 
 <section class="sec process-sec">
   <div class="wrap">
-    ${sectionHead('02', 'How it works', 'Four steps. Usually two days on site.')}
+    ${sectionHead(n(), 'How it works', 'Four steps. Usually two days on site.')}
     <ol class="process">
       ${cfg.process.map((s, i) => `<li><span class="process-n">${i + 1}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`).join('')}
     </ol>
@@ -151,7 +156,7 @@ ${trustBar(cfg)}
 <section class="sec ba-sec">
   <div class="wrap ba-grid">
     <div class="ba-copy">
-      ${sectionHead('03', 'Before &amp; after', 'Gray wood isn\'t dead wood.')}
+      ${sectionHead(n(), 'Before &amp; after', 'Gray wood isn\'t dead wood.')}
       <p>That silver look is just the sun-worn top layer. A proper wash and brightener takes it off. The wood underneath is usually fine, and it takes stain beautifully.</p>
       <p>Drag the slider to compare.</p>
       <a class="arrow-link" href="${r('services/deck-cleaning-restoration/')}">How restoration works ${icon('arrow')}</a>
@@ -162,7 +167,7 @@ ${trustBar(cfg)}
 
 <section class="sec finishes-sec">
   <div class="wrap">
-    ${sectionHead('04', 'Finish options', 'Three kinds of stain. Here\'s the honest difference.')}
+    ${sectionHead(n(), 'Finish options', 'Three kinds of stain. Here\'s the honest difference.')}
     <div class="spec-table" role="table" aria-label="Stain finish comparison">
       <div class="spec-row spec-head" role="row">
         <span role="columnheader">Finish</span><span role="columnheader">What you see</span><span role="columnheader">Best for</span><span role="columnheader">Colors</span><span role="columnheader">Sample price</span>
@@ -196,25 +201,29 @@ ${trustBar(cfg)}
 <section class="sec viz-teaser">
   <div class="wrap viz-grid">
     <div class="viz-copy">
-      <p class="kicker kicker-light">05 · Color visualizer</p>
+      <p class="kicker kicker-light">${n()} · Color visualizer</p>
       <h2>See the color on <em>your</em> deck before we open a can.</h2>
       <p>Upload a photo of your deck, trace the boards, and try every stain color we carry. Wood grain still shows through on semi-transparent, just like the real thing.</p>
       <a class="btn btn-cedar btn-lg" href="${r('visualizer/')}">${icon('brush')} Try the Visualizer</a>
     </div>
     <div class="viz-demo" data-viz-demo>
-      <img src="${r('assets/img/' + cfg.visualizerSamples[0].src)}" alt="Sample deck photo" loading="lazy">
+      <div class="viz-demo-frame">
+        <img src="${r('assets/img/' + cfg.visualizerSamples[0].src)}" alt="Sample deck photo before staining" loading="lazy">
+        ${TEASER.map((t, i) => `<img class="viz-demo-tint" data-k="${i}" src="${r('assets/img/teaser-' + i + '.jpg')}" alt="" loading="lazy">`).join('')}
+      </div>
       <ul class="viz-demo-swatches">
-        ${cfg.stains['semi-transparent'].slice(0, 5).map(s => `<li style="background:${s.hex}"><span>${esc(s.name)}</span></li>`).join('')}
+        ${TEASER.map(([type, i]) => { const s = cfg.stains[type][i]; return `<li style="background:${s.hex}"><span>${esc(s.name)}</span></li>`; }).join('')}
       </ul>
+      <p class="viz-demo-cap">Real output from the tool: only the deck boards change.</p>
     </div>
   </div>
 </section>
 
-${reviewsBlock(cfg)}
+${hasReviews ? reviewsBlock(cfg, n()) : ''}
 
 <section class="sec areas-sec">
   <div class="wrap">
-    ${sectionHead('07', 'Service area', `${esc(cfg.location.metro)} and about 30 miles around`)}
+    ${sectionHead(n(), 'Service area', `${esc(cfg.location.metro)} and ${esc(cfg.location.radius)}`)}
     <div class="areas-cols">
       ${areaGroups.map(g => `<div><h3>${esc(g.name)}</h3><ul>${g.areas.map(a => `<li><a href="${r('areas/' + a.slug + '/')}">${esc(a.name)}</a></li>`).join('')}</ul></div>`).join('')}
       <div class="areas-note">
@@ -226,7 +235,7 @@ ${reviewsBlock(cfg)}
 
 <section class="sec faq-sec">
   <div class="wrap faq-grid">
-    <div>${sectionHead('08', 'Questions', 'What homeowners ask us most')}
+    <div>${sectionHead(n(), 'Questions', 'What homeowners ask us most')}
       <p>Straight answers, with links to the experts where it matters. More in our <a href="${r('learn/')}">Learn</a> section.</p>
     </div>
     ${faqList(faqs)}
@@ -350,9 +359,9 @@ export function pricingPage(cfg, r, src) {
           <label><input type="radio" name="mode" value="sqft"><span>I know the sq ft</span></label>
         </div>
         <div class="field-row" data-mode="lw">
-          <label class="field"><span>Length (ft)</span><input type="number" name="length" min="0" step="1" value="16" inputmode="numeric"></label>
+          <label class="field"><span>Length (ft)</span><input type="number" name="deckLength" min="0" step="1" value="16" inputmode="numeric"></label>
           <span class="times">×</span>
-          <label class="field"><span>Width (ft)</span><input type="number" name="width" min="0" step="1" value="12" inputmode="numeric"></label>
+          <label class="field"><span>Width (ft)</span><input type="number" name="deckWidth" min="0" step="1" value="12" inputmode="numeric"></label>
         </div>
         <div class="field-row" data-mode="sqft" hidden>
           <label class="field"><span>Square feet</span><input type="number" name="sqft" min="0" step="10" value="192" inputmode="numeric"></label>
@@ -755,7 +764,7 @@ export function aboutPage(cfg, r, src) {
         <li><strong>We cite our sources.</strong> When we tell you how long a stain lasts, we link to who said it.</li>
       </ul>
       <h2>Licensed and insured</h2>
-      <p>Tennessee requires a Home Improvement license for residential jobs from $3,000 to $24,999 in Hamilton County and several others<sup class="fn"><a href="${src.tnHomeImprovement.url}" target="_blank" rel="noopener">TN.gov</a></sup>, and a contractor's license for projects of $25,000 or more<sup class="fn"><a href="${src.tnContractor.url}" target="_blank" rel="noopener">TN.gov</a></sup>.</p>
+      <p>Tennessee requires a Home Improvement license for residential jobs from $3,000 to $24,999 in ${esc(cfg.location.licenseCounty)} and several others<sup class="fn"><a href="${src.tnHomeImprovement.url}" target="_blank" rel="noopener">TN.gov</a></sup>, and a contractor's license for projects of $25,000 or more<sup class="fn"><a href="${src.tnContractor.url}" target="_blank" rel="noopener">TN.gov</a></sup>.</p>
       <p>License: ${show(b.license)}<br>Insurance: ${show(b.insurance)}</p>
       <h2>A Stain &amp; Seal Supply Pro Partner</h2>
       <p>We're part of the Stain &amp; Seal Supply Pro Partners program. That means pro-grade products, real training on how to use them, and a network of other staining contractors to send you to if you're outside our area.</p>

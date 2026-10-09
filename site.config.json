@@ -56,10 +56,14 @@
       "driestMonths": "October (3.59 in.) and August (3.67 in.)",
       "fewestRainDays": "September and October",
       "bestMonths": "September and October",
-      "humidity": "about 72% on average, and highest in September",
+      "humidity": "about 72%, and highest in September",
       "sourceKey": "noaaChattanooga",
       "humiditySourceKey": "wikiChattanooga"
     },
+    "radius": "about 30 miles around",
+    "shadyArea": "Signal Mountain",
+    "cabinAreas": "Signal Mountain, Lookout Mountain and the lake",
+    "licenseCounty": "Hamilton County",
     "areaGroups": [
       { "name": "Hamilton County", "slugs": ["chattanooga", "signal-mountain", "lookout-mountain", "red-bank", "hixson", "soddy-daisy", "east-ridge", "east-brainerd", "ooltewah", "collegedale", "harrison", "apison"] },
       { "name": "North Georgia", "slugs": ["fort-oglethorpe", "rossville", "chickamauga", "ringgold", "dalton"] },

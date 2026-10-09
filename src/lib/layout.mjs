@@ -41,7 +41,7 @@ export function logo(cfg, r) {
   const b = cfg.business;
   return `<a class="logo" href="${r('')}" aria-label="${esc(b.name)} home">
     <span class="logo-mark" aria-hidden="true">${esc(cfg.theme.logoMark)}</span>
-    <span class="logo-text"><strong>${esc(b.shortName)}</strong><small>of ${esc(b.city)}</small></span>
+    <span class="logo-text"><strong>${esc(b.shortName)}</strong><small>${esc(b.logoSub || 'of ' + b.city)}</small></span>
   </a>`;
 }
 

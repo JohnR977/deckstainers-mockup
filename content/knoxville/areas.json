@@ -1,0 +1,116 @@
+[
+  {
+    "slug": "knoxville",
+    "name": "Knoxville",
+    "state": "TN",
+    "county": "Knox County",
+    "headline": "Deck and porch staining in Knoxville, from Fourth and Gill to South Knox",
+    "lede": "The city has some of the oldest porches in East Tennessee and some of the shadiest backyards. We work both.",
+    "image": "covered-porch.jpg",
+    "imageAlt": "Covered wooden porch with chairs",
+    "sections": [
+      { "h": "Old porches, many coats", "p": "In Fourth and Gill, Old North and Parkridge, the porches are often a hundred years old and have been painted more times than anyone can count. A stain won't hold on that. We figure out what's on there first, then either prep it for paint or strip it back for stain. We'll tell you honestly which makes sense." },
+      { "h": "South Knox shade", "p": "South Knoxville's ridges and hollows put a lot of decks under trees. Those boards stay wet, go green and get slick. We spend most of the job on cleaning and drying, and pick a stain that holds up to mildew." },
+      { "h": "River lots in Sequoyah Hills", "p": "Bigger homes along the river tend to have big decks and long railings. We price railings separately so you can see where the money goes." }
+    ],
+    "woodNotes": ["Century-old painted porches", "Shady, mildew-prone decks in South Knox", "Long railings on river lots"],
+    "neighborhoods": ["Fourth and Gill", "Old North Knoxville", "Sequoyah Hills", "South Knoxville", "Holston Hills", "Bearden"],
+    "faq": { "q": "My porch floor is painted. Should I stain it?", "a": "Usually not. Old tongue-and-groove porch floors were made for paint. We'll look and tell you which finish will last." },
+    "nearby": ["powell", "farragut", "maryville"]
+  },
+  {
+    "slug": "farragut",
+    "name": "Farragut",
+    "state": "TN",
+    "county": "Knox County",
+    "headline": "Deck staining in Farragut subdivisions and lake homes",
+    "lede": "West Knox County is mostly neighborhoods built from the '80s on, plus homes on Fort Loudoun Lake. The decks are big and the HOAs are particular.",
+    "image": "deck-boards-angle.jpg",
+    "imageAlt": "Close view of wood deck boards",
+    "sections": [
+      { "h": "Second and third finishes", "p": "Most Farragut decks are on their second or third stain job. If the last one was solid color and it's peeling, it has to come off before we start again. If it was semi-transparent, a good wash and a fresh coat is often all it takes." },
+      { "h": "Working with your HOA", "p": "Many neighborhoods here have approved color lists. Send it to us and try the colors on your own deck in the visualizer before you turn in the request." },
+      { "h": "Fort Loudoun Lake homes", "p": "Waterfront decks get morning fog and full afternoon sun off the lake. We plan for that with a mildew-resistant, well-pigmented stain and an honest schedule for touch-ups." }
+    ],
+    "woodNotes": ["Decks on their 2nd or 3rd finish", "HOA color approval", "Lakefront sun and moisture"],
+    "neighborhoods": ["Village Green", "Fox Den", "Concord area", "Turkey Creek side", "Fort Loudoun Lake shore"],
+    "faq": { "q": "Can you give me something to show my HOA?", "a": "Yes. We'll send the color name and a picture of it on your deck from our visualizer, and bring a sample board if they want one." },
+    "nearby": ["knoxville", "oak-ridge", "maryville"]
+  },
+  {
+    "slug": "powell",
+    "name": "Powell",
+    "state": "TN",
+    "county": "Knox County",
+    "headline": "Deck staining in Powell",
+    "lede": "North Knox County mixes older homes on bigger lots with newer subdivisions. A lot of the decks here have never been finished at all.",
+    "image": "deck-bench-boards.jpg",
+    "imageAlt": "Wide wood deck with a bench",
+    "sections": [
+      { "h": "Never-stained decks", "p": "We see a lot of pressure-treated decks in Powell that went straight from the builder to the weather. Gray and rough isn't the end. Cleaning and brightening usually brings them right back, and then they take stain well." },
+      { "h": "Fences and outbuildings", "p": "Bigger lots mean longer fences and the occasional shed or barn. If we're already set up for the deck, adding the fence is the cheapest time to do it." },
+      { "h": "Quick quotes from photos", "p": "Send a wide shot of the deck and a couple of close-ups. Most Powell decks we can price without a visit." }
+    ],
+    "woodNotes": ["Unfinished builder decks", "Long fences on bigger lots", "Photo quotes"],
+    "neighborhoods": ["Emory Rd corridor", "Brickey area", "Beaver Creek area", "Clinton Hwy side"],
+    "faq": { "q": "My deck is 8 years old and never stained. Too late?", "a": "Almost never. Unless boards are soft, a proper cleaning and brightener gets it ready for stain." },
+    "nearby": ["knoxville", "oak-ridge"]
+  },
+  {
+    "slug": "maryville",
+    "name": "Maryville",
+    "state": "TN",
+    "county": "Blount County",
+    "headline": "Deck staining in Maryville with a view of the Smokies",
+    "lede": "Blount County homes face the mountains, so the decks face west and south, straight into the afternoon sun.",
+    "image": "cabin-deck-view.jpg",
+    "imageAlt": "Wood deck and railing overlooking a wooded mountain valley",
+    "sections": [
+      { "h": "Sun is the main enemy here", "p": "A deck that faces the mountains usually faces the sun all afternoon. UV breaks finish down faster than rain. We lean toward a semi-transparent with good pigment, and away from clear sealers, which tend to quit after a season in full sun." },
+      { "h": "Tall decks on sloped lots", "p": "Hillside homes mean tall decks with long stairs. We price stairs and railings on their own lines so there's no guessing." },
+      { "h": "Around the college and downtown", "p": "Older homes near downtown and Maryville College often have porches with years of paint. We'll tell you whether yours wants stain or paint." }
+    ],
+    "woodNotes": ["West- and south-facing decks in full sun", "Tall decks and long stairs on slopes", "Older painted porches near downtown"],
+    "neighborhoods": ["Downtown Maryville", "Near Maryville College", "Sandy Springs area", "Montvale Rd area"],
+    "faq": { "q": "Why does my mountain-view deck fade so fast?", "a": "Because it faces the sun all afternoon. More pigment in the stain helps. So does a maintenance coat every couple of years before it wears through." },
+    "nearby": ["seymour", "knoxville", "farragut"]
+  },
+  {
+    "slug": "seymour",
+    "name": "Seymour",
+    "state": "TN",
+    "county": "Sevier & Blount Counties",
+    "headline": "Cabin and deck staining in Seymour and the foothills",
+    "lede": "On the way to the mountains: log homes, cabins and a lot of rental properties with decks that get heavy use.",
+    "image": "log-cabin.jpg",
+    "imageAlt": "Log cabin in the woods",
+    "sections": [
+      { "h": "Log homes and cabins", "p": "Logs check, move and soak up stain. We clean them, deal with the old finish, and brush stain into the checks and end grain where water gets in." },
+      { "h": "Rental cabin owners", "p": "If you rent your cabin, a tired deck shows up in guest photos. Tell us your open dates and we'll schedule the work between bookings, weather permitting." },
+      { "h": "Hot tubs and grills", "p": "Cabin decks often have hot tubs and grills sitting on them. We work around them, and we'll point out any boards that are getting soft under the tub." }
+    ],
+    "woodNotes": ["Log walls and half-log siding", "Rental turnovers", "Hot tub and grill areas"],
+    "neighborhoods": ["Chapman Hwy corridor", "Boyds Creek area", "Seymour Heights", "Foothills toward Sevierville"],
+    "faq": { "q": "Can you work between cabin rentals?", "a": "Yes. Give us the open dates. Most cabin decks are two days; log walls take longer and we'll plan for that." },
+    "nearby": ["maryville", "knoxville"]
+  },
+  {
+    "slug": "oak-ridge",
+    "name": "Oak Ridge",
+    "state": "TN",
+    "county": "Anderson & Roane Counties",
+    "headline": "Deck staining in Oak Ridge",
+    "lede": "Oak Ridge was built fast in the 1940s. A lot of those small original homes have decks that were added decades later, and they need careful work.",
+    "image": "deck-chairs-rail.jpg",
+    "imageAlt": "Deck with wooden railing and chairs",
+    "sections": [
+      { "h": "Add-on decks on older homes", "p": "Many of the original houses got their decks later, built by different people over the years. We check the boards and rails before we stain and point out anything loose. A new finish shouldn't hide a problem." },
+      { "h": "Wooded lots", "p": "The ridges are heavily wooded, so plenty of decks sit in shade and collect leaves. Expect a longer cleaning day and a mildew-resistant stain." },
+      { "h": "Near Melton Hill Lake", "p": "Homes near the lake deal with more moisture. We'll suggest a maintenance plan so you're recoating on time instead of stripping later." }
+    ],
+    "woodNotes": ["Add-on decks on 1940s-era homes", "Shady ridge lots", "Lake moisture near Melton Hill"],
+    "neighborhoods": ["Original townsite areas", "West Outer Dr", "Woodland area", "Melton Hill Lake side"],
+    "faq": { "q": "Is it worth staining an old add-on deck?", "a": "If the frame is solid, yes. Cleaning, staining and a few new boards cost a fraction of a rebuild. If it isn't safe, we'll say so." },
+    "nearby": ["powell", "farragut", "knoxville"]
+  }
+]
